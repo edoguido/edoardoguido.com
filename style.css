@@ -1,0 +1,390 @@
+@font-face {
+    font-family: "Archivo";
+    font-weight: regular;
+    src: local('archivo-bold'), url(font/archivo-bold.ttf) format('TrueType');
+}
+
+@font-face {
+    font-family: "Suisse Int'l";
+    font-weight: regular;
+    src: local('suisseintl-regular'), url(font/suisseintl-regular.otf) format('OpenType');
+}
+
+@font-face {
+    font-family: "Suisse Int'l Mono";
+    font-weight: regular;
+    src: local('suisseintlmono-regular'), url(font/suisseintlmono-regular.otf) format('OpenType');
+}
+
+:root {
+    --main-c: #333;
+    --second-c: #ffffff;
+    --dist: 24px;
+    --pois: rgba(255, 255, 255, .05);
+    --pattern-righe: linear-gradient( -45deg, var(--main-c) 25%, transparent 25%, transparent 50%, var(--main-c) 50%, var(--main-c) 75%, transparent 75%, transparent);
+    --bgpattern-spacing: calc(var(--dist) / 1.5) calc(var(--dist) / 1.5);
+    --pois-size: 1px;
+    --bezier: cubic-bezier(0, 0, .2, 1);
+}
+
+::selection {
+    background-color: var(--main-c);
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+body {
+    padding: calc(var(--dist)/2) var(--dist);
+    background-color: var(--second-c);
+    font-family: "Suisse Int'l";
+
+    /* pois */
+    background-image: repeating-radial-gradient(center center, var(--main-c), var(--main-c) 0.5px, transparent 0.5px, transparent 100%);
+    background-image: -webkit-repeating-radial-gradient(center center, var(--main-c), var(--main-c) 0.5px, transparent 0.5px, transparent 100%);
+    background-image: -moz-repeating-radial-gradient(center center, rgba(0, 0, 0, 1), rgba(0, 0, 0, 1) 0.5px, transparent 0.5px, transparent 100%);
+    background-image: -ms-repeating-radial-gradient(center center, rgba(0, 0, 0, 1), rgba(0, 0, 0, 1) 0.5px, transparent 0.5px, transparent 100%);
+    -webkit-background-size: var(--bgpattern-spacing);
+    -ms-background-size: var(--bgpattern-spacing);
+    -moz-background-size: var(--bgpattern-spacing);
+    background-size: var(--bgpattern-spacing);
+    background-position: -13px 8px;
+
+    /* pois secondo metodo */
+    /*background-image: radial-gradient(black .2vw, white .2vw);
+  background-size: 5vw 5vw;*/
+}
+
+.pjs {
+    display: block;
+    position: relative;
+    top: calc(var(--dist) * 3);
+    padding-bottom: calc(var(--dist) * 1);
+}
+
+h0 {
+    z-index: 10;
+    position: fixed;
+    display: inline-block;
+    margin: -1px -1px 0px 0px;
+    padding: calc(var(--dist) / 3) calc(var(--dist) / 3);
+    right: calc(var(--dist)* 1.25);
+
+    font-family: "Suisse Int'l";
+    font-weight: regular;
+    font-size: 1.35em;
+    letter-spacing: 1.2;
+    color: var(--main-c);
+    background-color: var(--second-c);
+
+    border: 1px var(--main-c) solid;
+}
+
+h1 {
+    position: relative;
+    display: inline-block;
+    margin: -1px -1px 0px 0px;
+    padding: calc(var(--dist)/2) calc(var(--dist)/4);
+
+    font-family: "Archivo";
+    font-weight: regular;
+    font-size: 4.5em;
+    text-align: left;
+    color: var(--main-c);
+
+    background-color: var(--second-c);
+    border: 1px var(--main-c) solid;
+
+    transition: color .75s var(--bezier);
+}
+
+h1.hyt:hover {
+    color: var(--main-c);
+    border: 1px var(--main-c) solid;
+    transition: color .75s var(--bezier);
+
+    background-image: linear-gradient( -45deg, black 25%, transparent 25%, transparent 50%, black 50%, black 75%, transparent 75%, transparent);
+    background-size: 2px 2px;
+
+    animation-name: flash-anim;
+    animation-duration: 80ms;
+    animation-iteration-count: 2;
+    animation-timing-function: linear;
+    -webkit-animation-name: flash-anim;
+    -webkit-animation-duration: 80ms;
+    -webkit-animation-iteration-count: 2;
+    -webkit-animation-timing-function: linear;
+}
+
+@-webkit-keyframes flash-anim {
+    0% {
+        color: var(--main-c);
+        background-image: none;
+        background-size: 2px 2px;
+    }
+    50% {
+        color: transparent;
+        background-image: none;
+        background-size: 2px 2px;
+    }
+}
+
+h2 {
+    font-size: 24px;
+    font-weight: regular;
+}
+
+p {
+    display: inline-block;
+    font-family: "Suisse Int'l Mono";
+    font-weight: regular;
+    font-size: .9em;
+}
+
+p.h-desc {
+    margin: -1px 0px 0px 0px;
+    padding: calc(var(--dist)/2) calc(var(--dist)/4);
+    border: 1px var(--main-c) solid;
+    color: var(--main-c);
+    max-width: calc(100% - 30px);
+    background-color: var(--second-c);
+
+}
+
+p.p-desc {
+    display: inline-block;
+    position: relative;
+    padding: calc(var(--dist)/2) calc(var(--dist)/4);
+    color: var(--main-c);
+    max-width: 75vw;
+    left: calc(var(--dist) * 1);
+    margin-top: calc(var(--dist) / 1.2);
+    background-color: var(--second-c);
+}
+
+#revArrow {
+    display: inline-block;
+    padding: calc(var(--dist) / 6) calc(var(--dist)/3) calc(var(--dist) / 6);
+    margin: -1px -1px 0px 0px;
+    transition: transform .2s ease;
+}
+
+#revArrow:hover {
+    transform: translateX(calc(var(--dist) / -2));
+    transition: transform .2s ease;
+}
+
+.meta {
+    display: inline-block;
+    font-family: "Suisse Int'l Mono";
+    font-weight: regular;
+    font-size: .75em;
+    letter-spacing: 2;
+    text-transform: uppercase;
+    color: var(--main-c);
+
+    margin: -1px -1px 0px 0px;
+    padding: calc(var(--dist)/5) calc(var(--dist)/4);
+    border: 1px var(--main-c) solid;
+    background-color: var(--second-c);
+}
+
+a {
+    text-decoration: none;
+    color: var(--main-c);
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+a h1.hyt:hover {}
+
+.separator {
+    margin: calc(var(--dist)/1.25) 0px;
+    height: calc(var(--dist)/1.47);
+    background-color: var(--second-c);
+
+    /* linee più spesse e più fitte */
+    background-image: linear-gradient( -45deg, black 25%, transparent 25%, transparent 50%, black 50%, black 75%, transparent 75%, transparent);
+    background-size: 2px 2px;
+
+    /* linee più sottili e meno fitte */
+    /*background-image: linear-gradient(-45deg, transparent 46%, var(--main-c) 49%, var(--main-c) 51%, transparent 55%);
+  background-size: 4px 4px !important;*/
+    /* pois */
+    /*background-image: repeating-radial-gradient(center center, var(--pois), var(--pois) 1px, transparent 1px, transparent 100%);
+  background-image: -webkit-repeating-radial-gradient(center center, var(--pois), var(--pois) 1px, transparent 1px, transparent 100%);
+  background-image: -moz-repeating-radial-gradient(center center, rgba(0,0,0,1), rgba(0,0,0,1) 1px, transparent 1px, transparent 100%);
+  background-image: -ms-repeating-radial-gradient(center center, rgba(0,0,0,1), rgba(0,0,0,1) 1px, transparent 1px, transparent 100%);
+  -webkit-background-size: 3px 3px;
+  -ms-background-size: 3px 3px;
+  -moz-background-size: 3px 3px;
+  background-size: 3px 3px;*/
+    border: 1px var(--main-c) solid;
+    display: block;
+    width: 100%;
+
+    transition: all .35s var(--bezier);
+}
+
+.separator[width="s"] {
+    max-width: 301px;
+}
+
+.separator[width="m"] {
+    max-width: 501px;
+}
+
+.separator[width="l"] {
+    max-width: 701px;
+}
+
+.separator[width="full"] {
+    max-width: calc(100% - calc(var(--dist)));
+}
+
+.page-img {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    margin: calc(var(--dist) / 1.5) auto;
+}
+
+.video-frame {
+    display: block;
+    margin: calc(var(--dist) / .75) auto calc(var(--dist)) auto;
+    width: 100%;
+    height: 50vw;
+    max-width: 1080px;
+    max-height: 700px;
+    border-radius: 4px;
+    box-shadow: 0px 10px 25px var(--shadow);
+}
+
+
+/*                              */
+
+/*        MEDIA QUERIES         */
+
+/*                              */
+
+@media all and (min-width: 601px) and (max-width: 800px) {
+    body {
+        padding: calc(var(--dist)/2);
+    }
+    h0 {
+        z-index: 10;
+        position: fixed;
+        display: inline-block;
+        margin: -1px -1px 0px 0px;
+        padding: calc(var(--dist) / 3) calc(var(--dist) / 3);
+        right: calc(var(--dist) * .75);
+
+        font-family: "Suisse Int'l";
+        font-weight: regular;
+        font-size: 1.35em;
+        letter-spacing: 1.2;
+        color: var(--main-c);
+        background-color: var(--second-c);
+
+        border: 1px var(--main-c) solid;
+    }
+    h1.hyt {
+        max-width: calc(100% - 50px);
+    }
+    .separator {
+        max-width: 320px;
+    }
+    .separator[width="s"] {
+        max-width: calc(300px / 1.3);
+    }
+    .separator[width="m"] {
+        max-width: calc(500px / 1.3);
+    }
+    .separator[width="l"] {
+        max-width: calc(700px / 1.3);
+    }
+    .separator[width="full"] {
+        max-width: 100%;
+    }
+
+    .page-img {
+        position: relative;
+        display: inline-block;
+        width: 100%;
+        margin: calc(var(--dist) / 2) auto;
+    }
+}
+
+@media all and (max-width: 600px) {
+    body {
+        padding: 0px;
+    }
+    .pjs {
+        top: calc(var(--dist) * 2);
+    }
+    h0 {
+
+        /* INHERITED */
+        z-index: 10;
+        position: sticky;
+        display: inline-block;
+        margin: -1px -1px 0px 0px;
+        padding: calc(var(--dist) / 3) calc(var(--dist) / 3);
+        right: calc(var(--dist) / 3) ;
+        left: calc(var(--dist) / 3);
+        border: 1px var(--main-c) solid;
+
+        display: flex;
+        justify-content: space-between;
+        font-size: .8em;
+        text-align: center;
+    }
+    h1 {
+        font-size: 2.2em;
+        max-width: calc(100% - calc(var(--dist) - 16px));
+    }
+    p.h-desc {
+        font-size: .75em;
+        padding: calc(var(--dist)/4) calc(var(--dist)/4);
+        max-width: calc(100% - (var(--dist)/2) - 1px);
+        width: calc(100% - (var(--dist)/2) - 1px);
+    }
+    p.p-desc {
+        display: inline-block;
+        position: relative;
+        padding: calc(var(--dist) / 2) 0;
+        color: var(--main-c);
+        width: 100%;
+        left: calc(var(--dist) / 4);
+        margin-top: calc(var(--dist) / 2);
+    }
+    .meta {
+        font-size: .70em;
+        max-width: calc(100% - calc(var(--dist) - 10px));
+    }
+    .separator {
+        height: calc(var(--dist) / 2);
+        margin: calc(var(--dist) / 2) 0px;
+    }
+    .separator[width="s"] {
+        max-width: calc(100% - 1px);
+    }
+    .separator[width="m"] {
+        max-width: calc(100% - 1px);
+    }
+    .separator[width="l"] {
+        max-width: calc(100% - 1px);
+    }
+    .separator[width="full"] {
+        max-width: 100%;
+    }
+    .page-img {
+        position: relative;
+        display: inline-block;
+        width: 100%;
+        margin: calc(var(--dist) / 4) auto;
+    }
+}
