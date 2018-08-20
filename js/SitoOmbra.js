@@ -1,4 +1,4 @@
-var scrollFriction = 15;
+var scrollFriction = 25;
 
 $(document).ready(function () {
 
