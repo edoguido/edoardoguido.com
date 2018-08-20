@@ -1,0 +1,53 @@
+@font-face {
+    font-family: "Gotham Black";
+    font-weight: bolder;
+    src: local('Gotham-Black'), url(../fonts/Gotham/Gotham-Black.otf) format('OpenType');
+}
+
+@font-face {
+    font-family: "Gotham Bold";
+    font-weight: bold;
+    src: local('Gotham-Bold'), url(../fonts/Gotham/Gotham-Bold.otf) format('OpenType');
+}
+
+@font-face {
+    font-family: "Gotham Medium";
+    font-weight: normal;
+    src: local('Gotham-Medium'), url(../fonts/Gotham/Gotham-Medium.otf) format('OpenType');
+}
+
+@font-face {
+    font-family: "Gotham Book";
+    font-weight: normal;
+    src: local('Gotham-Book'), url(../fonts/Gotham/Gotham-Regular.otf) format('OpenType');
+}
+
+@font-face {
+    font-family: "FF_Mark Black";
+    font-weight: bolder;
+    src: local('FF_Mark-Black'), url(../fonts/FF_Mark/FF_Mark-Black.otf) format('OpenType');
+}
+
+@font-face {
+    font-family: "FF_Mark Bold";
+    font-weight: bold;
+    src: local('FF_Mark-Bold'), url(../fonts/FF_Mark/FF_Mark-Bold.otf) format('OpenType');
+}
+
+@font-face {
+    font-family: "FF_Mark Medium";
+    font-weight: normal;
+    src: local('FF_Mark-Medium'), url(../fonts/FF_Mark/FF_Mark-Medium.otf) format('OpenType');
+}
+
+@font-face {
+    font-family: "FF_Mark Book";
+    font-weight: normal;
+    src: local('FF_Mark-Book'), url(../fonts/FF_Mark/FF_Mark-Regular.otf) format('OpenType');
+}
+
+@font-face {
+    font-family: "FF_Mark Light";
+    font-weight: normal;
+    src: local('FF_Mark-Light'), url(../fonts/FF_Mark/FF_Mark-Light.otf) format('OpenType');
+}

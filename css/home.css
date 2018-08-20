@@ -1,0 +1,232 @@
+:root {
+    --1: #303646;
+    --1-shadow: #30364650;
+    --2: #fff;
+    --3: #ff6a00;
+    --3-shadow: #ff6a0045;
+    --4: #b6bcc9;
+    --4-shadow: #b6bcc990;
+    --shadow: #00000050;
+    
+    --brand: #ff0f5b;
+    --brand-shadow: #ff0f5b50;
+    --uiux: #1ce368;
+    --uiux-shadow: #1ce36850;
+    --motion: #6010f2;
+    --motion-shadow: #6010f250;
+    
+    --leftmargin-general: 10vw;
+    --bottommargin-general: 12vh;
+}
+
+
+.catch {
+    position: absolute;
+    left: var(--leftmargin-general);
+    bottom: var(--bottommargin-general);
+}
+
+#brand:after {
+    content: "";
+    position: absolute;
+    top:0%;
+    left: 0;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    background-color: var(--brand);
+    
+    transform: scaleX(0);
+
+    transition-timing-function: ease-in-out;
+    transition-duration: 0.2s;
+    transform-origin: bottom left;
+}
+
+#brand:hover:after, #brand:focus:after {    
+    transform: scaleY(1);
+}
+
+#uiux:after {
+    content: "";
+    position: absolute;
+    top:0%;
+    left: 0;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    background-color: var(--uiux);
+    
+    transform: scaleX(0);
+
+    transition-timing-function: ease-in-out;
+    transition-duration: 0.2s;
+    transform-origin: bottom left;
+}
+
+#uiux:hover:after, #uiux:focus:after {    
+    transform: scaleY(1);
+}
+
+#motion:after {
+    content: "";
+    position: absolute;
+    top:0%;
+    left: 0;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    background-color: var(--motion);
+    
+    transform: scaleX(0);
+
+    transition-timing-function: ease-in-out;
+    transition-duration: 0.2s;
+    transform-origin: bottom left;
+}
+
+#motion:hover:after, #motion:focus:after {    
+    transform: scaleY(1);
+}
+
+
+.skills {
+    margin-bottom: 40px;
+}
+
+.projects-roll-container {
+    position: absolute;
+    overflow: auto;
+    
+    width: 100%;
+    box-sizing: border-box;
+    
+    bottom: 20vh;
+    opacity: 0;
+    
+    transform: translateX(-200%);
+    -webkit-transform: translateX(-200%);
+    transition-duration: .75s;
+    transition-timing-function: swing;
+}
+
+.projects-roll-container.show {
+    position: absolute;
+    overflow: auto;
+    
+    width: 100%;
+    box-sizing: border-box;
+    
+    bottom: 20vh;
+    opacity: 1;
+    
+    transform: translateX(0%);
+    -webkit-transform: translateX(0%);
+    transition-delay: .2s;
+    transition-duration: .75s;
+    transition-timing-function: swing;
+}
+
+.projects-roll-container .projects-roll {
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+    
+    white-space: nowrap;
+}
+
+.projects-roll-container .projects-roll::-webkit-scrollbar {display:none;}
+
+.project {
+    position: relative;
+    display: inline-block;
+    flex-wrap: wrap;
+    width: 40vh;
+    height: 30vh;
+    background-color: var(--1);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    
+    margin: 20 0 40 20;
+    
+    box-shadow: 0 5px 20px var(--1-shadow);
+}
+
+
+/* usato al posto di --- .projectTitle ---, guarda la funzione brandProjects in menu.js, stringa 23-24: il codice css per il tag p viene dichiarato come div:nth-child altrimenti non funziona.
+div:nth-child(n) span, dove n seleziona tutti gli nth-child di div */
+
+div:nth-child(n) span {
+    position: absolute;
+    display: inline;
+    
+    bottom: 20px;
+    left: 30px;
+    word-wrap: break-word;
+                
+    font-family: 'FF_Mark Medium', Helvetica, Arial, sans-serif;
+    font-weight: normal;
+    font-size: 3vh;
+    color: white;
+}
+
+
+.label {
+    margin: 20px;
+    padding: 4 10;
+    
+    position: relative;
+    z-index: 1;
+    font-family: 'FF_Mark Light', Helvetica, Arial, sans-serif;
+    font-weight: normal;
+    font-size: 3.75vmin;
+    letter-spacing: 0;
+    
+    color: var(--2);
+    text-transform: none;
+}
+
+.label:after {
+    content: "";
+    position: absolute;
+    top:0%;
+    left: 0;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    background-color: var(--3);
+    
+    transform: scaleX(0);
+
+    transition-timing-function: ease-in-out;
+    transition-duration: 0.2s;
+    transform-origin: bottom left;
+}
+
+.label:hover:after, .label:focus:after {    
+    transform: scaleY(1);
+}
+
+
+@media only screen and (max-width: 480px) {
+    
+    .catch {
+        position: absolute;
+        left: 4vw;
+        bottom: 11vh;
+    }
+    
+    .projects-roll-container {
+        bottom: 18vh;    
+    }
+    
+    .projects-roll-container.show {
+        bottom: 18vh;    
+    }
+    
+    .project {
+        width: 30vh;
+        height: 20vh;
+    }
+    
+}
