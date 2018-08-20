@@ -1,0 +1,34 @@
+RewriteEngine On
+#example.com/page will display the contents of example.com/page.html
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.html -f
+#RewriteRule ^(.+)$ $1.html [L,QSA]
+RewriteRule ^([^\.]+)$ $1.html [NC,L]
+
+RewriteCond %{HTTP_REFERER} !^http://beta.edoardoguido.com/.*$      [NC]
+RewriteCond %{HTTP_REFERER} !^http://beta.edoardoguido.com$      [NC]
+RewriteCond %{HTTP_REFERER} !^http://edoardoguido.com/.*$      [NC]
+RewriteCond %{HTTP_REFERER} !^http://edoardoguido.com$      [NC]
+RewriteCond %{HTTP_REFERER} !^http://wh411454.ispot.cc/.*$      [NC]
+RewriteCond %{HTTP_REFERER} !^http://wh411454.ispot.cc$      [NC]
+RewriteCond %{HTTP_REFERER} !^http://www.beta.edoardoguido.com/.*$      [NC]
+RewriteCond %{HTTP_REFERER} !^http://www.beta.edoardoguido.com$      [NC]
+RewriteCond %{HTTP_REFERER} !^http://www.edoardoguido.com/.*$      [NC]
+RewriteCond %{HTTP_REFERER} !^http://www.edoardoguido.com$      [NC]
+RewriteCond %{HTTP_REFERER} !^http://www.wh411454.ispot.cc/.*$      [NC]
+RewriteCond %{HTTP_REFERER} !^http://www.wh411454.ispot.cc$      [NC]
+RewriteCond %{HTTP_REFERER} !^https://beta.edoardoguido.com/.*$      [NC]
+RewriteCond %{HTTP_REFERER} !^https://beta.edoardoguido.com$      [NC]
+RewriteCond %{HTTP_REFERER} !^https://edoardoguido.com/.*$      [NC]
+RewriteCond %{HTTP_REFERER} !^https://edoardoguido.com$      [NC]
+RewriteCond %{HTTP_REFERER} !^https://wh411454.ispot.cc/.*$      [NC]
+RewriteCond %{HTTP_REFERER} !^https://wh411454.ispot.cc$      [NC]
+RewriteCond %{HTTP_REFERER} !^https://www.beta.edoardoguido.com/.*$      [NC]
+RewriteCond %{HTTP_REFERER} !^https://www.beta.edoardoguido.com$      [NC]
+RewriteCond %{HTTP_REFERER} !^https://www.edoardoguido.com/.*$      [NC]
+RewriteCond %{HTTP_REFERER} !^https://www.edoardoguido.com$      [NC]
+RewriteCond %{HTTP_REFERER} !^https://www.wh411454.ispot.cc/.*$      [NC]
+RewriteCond %{HTTP_REFERER} !^https://www.wh411454.ispot.cc$      [NC]
+RewriteRule .*\.(jpg|jpeg|gif|png|bmp)$ - [F,NC]
+
