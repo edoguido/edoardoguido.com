@@ -1,0 +1,16 @@
+@font-face {
+    font-family: 'Gingham';
+    src: url('../fonts/Gingham.ttf') format('TrueType');
+    font-weight: 100 800;
+}
+
+@font-face {
+    font-family: 'LeagueMonoVariable';
+    src: url('../fonts/LeagueMonoVariable.ttf') format('TrueType');
+    font-weight: 100 800;
+}
+
+@font-face {
+    font-family: 'Akkurat-Light';
+    src: url('../fonts/Akkurat-Light.otf') format('OpenType');
+}

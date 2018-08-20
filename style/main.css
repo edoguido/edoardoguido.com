@@ -1,0 +1,269 @@
+:root {
+    --bg: #f8f8f8;
+    --main: black;
+    --pad: 32px;
+    --font-size: 1.35em;
+    --font-wght: 100;
+    --font-wdth: 110;   /* da 0 a 200 */
+    --factor: 1;
+    --wdthTransition: .25s;
+    --bezier: cubic-bezier(0.85, -1.00, 0.0, 1.00);
+}
+
+*  {
+    font-family: 'Akkurat-Light';
+    font-weight: lighter;
+    letter-spacing: 0;
+
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+
+    font-feature-settings: "kern" on;
+    -moz-font-feature-settings: "kern" on;
+    -webkit-font-feature-settings: "kern" on;
+    -ms-font-feature-settings: "kern" on;
+    -o-font-feature-settings: "kern" on;
+
+    -o-transition: 
+        letter-spacing 
+        calc(var(--wdthTransition) * 3) 
+        var(--bezier);
+    -ms-transition: 
+        letter-spacing 
+        calc(var(--wdthTransition) * 3) 
+        var(--bezier);
+    -moz-transition: 
+        letter-spacing 
+        calc(var(--wdthTransition) * 3) 
+        var(--bezier);
+    -webkit-transition: 
+        letter-spacing 
+        calc(var(--wdthTransition) * 3) 
+        var(--bezier);
+    transition: 
+        letter-spacing 
+        calc(var(--wdthTransition) * 3) 
+        var(--bezier);
+}
+html, body {
+    margin: 0; padding: 0;
+    background-color: var(--bg);
+    font-size: calc(var(--font-size) * 1);
+    color: var(--main);
+    
+/*    line-height: 1.5em;*/
+}
+#main {
+    transition: opacity .25s linear;
+    opacity: 1;
+}
+#main.t-fade {
+    opacity: 0;
+}
+
+/*         ---          */
+/*      TYPOGRAPHY      */
+/*                      */
+h1 {
+    font-size: calc(var(--font-size) * 1);
+    display: block;
+    line-height: 1.5em;
+    margin-bottom: 0px;
+}
+
+h2 {
+    font-size: calc(var(--font-size) / 2);
+    font-weight: 600;
+    display: inline;
+}
+
+a {
+    position: relative;
+    text-decoration: none;
+    color: var(--main);
+
+    font-size: calc(var(--font-size) * 1);
+    line-height: 1em;
+}
+a:visited {
+    color: var(--main);
+    text-decoration: none;
+}
+ul {
+    margin: 0;
+    padding: 0;
+    display: inline;
+}
+li {
+    list-style: none;
+    list-style-type: none;
+}
+
+/*         END          */
+/*      TYPOGRAPHY      */
+/*         ---          */
+
+
+#wrapper {
+    width: 100%;
+    height: 100%;
+}
+
+.hero {
+    width: 100%;
+    min-height: calc(100vh - 10vh);
+    max-width: 1280px;
+    margin: 0 auto;
+}
+.hero > .section {
+    display: grid;
+    grid-template-columns: 1fr 6fr;
+    padding: calc(var(--pad) * 2) 0;
+}
+.hero > #title {
+    padding-top: calc(var(--pad) * 3);
+}
+.left {
+    padding-right: var(--pad);
+    text-align: right;
+}
+.right {
+    padding-left: var(--pad);
+    padding-right: calc(var(--pad) * 0);
+    text-align: left;
+    overflow: hidden;
+}
+.links {
+    display: inline;
+}
+.social-link {
+    margin-right: .5em;
+    margin-bottom: .5em;
+    display: inline-block;
+
+    cursor: alias;
+}
+.social-link:after {
+    position: absolute;
+    content: '';
+    height: 1px;
+    /* adjust this to move up and down. you may have to adjust the line height of the paragraph if you move it down a lot. */
+    bottom: -8px; 
+
+
+    /****** 
+    optional values below 
+    ******/
+
+    /* center - (optional) use with adjusting width   */
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    width: 100%;
+    background: var(--main);
+
+    /* optional animation */
+    -o-transition: var(--wdthTransition) var(--bezier);
+    -ms-transition: var(--wdthTransition) var(--bezier);
+    -moz-transition: var(--wdthTransition) var(--bezier);
+    -webkit-transition: var(--wdthTransition) var(--bezier);
+    transition: var(--wdthTransition) var(--bezier);
+}
+.social-link:hover:after {
+    width: 120%;
+    left: -10%;
+
+    -o-transition: var(--wdthTransition) var(--bezier);
+    -ms-transition: var(--wdthTransition) var(--bezier);
+    -moz-transition: var(--wdthTransition) var(--bezier);
+    -webkit-transition: var(--wdthTransition) var(--bezier);
+    transition: var(--wdthTransition) var(--bezier);
+}
+
+
+
+/*                              */
+/*          PROJECTS            */
+/*                              */
+
+.content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    grid-gap: var(--pad);
+
+    color: var(--main);
+
+    padding: var(--pad);
+    margin-bottom: var(--pad);
+}
+.project {
+    overflow: hidden;
+
+    max-width: 1920px;
+    display: block;
+}
+.project > .project-link > .img {
+    width: 100%;
+}
+.project.big {
+    grid-column: 1 / 3;
+}
+.project.dark {
+    border: solid 1px rgba(255,255,255,0.15);
+}
+.project-link {
+    display: block;
+}
+
+
+/*             ---              */
+/*            MEDIA             */
+/*           QUERIES            */
+
+@media only screen and (max-width: 960px) {
+    :root {
+        --pad: 12px;
+        --font-size: 1.25em;
+    }
+    h2 {
+        font-size: calc(var(--font-size) / 2);
+    }
+    ul {
+        display: block;
+    }
+    .hero > #title > .right {
+        padding: 
+            calc(var(--pad) * 3)
+            calc(var(--pad) / 1)
+            calc(var(--pad) / 1)
+            calc(var(--pad) / 1);
+    }
+    .hero > .section {
+        padding: 4vh calc(var(--pad) / 1);
+        margin: 0;
+        grid-template-columns: 1fr 10fr;
+    }
+    .social-link {
+        margin-bottom: 1em;
+    }
+    .content {
+        grid-template-columns: 1fr;
+    }
+    .project {
+        grid-column: 1 / 3;
+    }
+}
+
+@media only screen and (max-width: 320px) {
+    :root {
+        --font-size: 1.15em;
+    }
+    .hero > #title > .right {
+        padding: 
+            calc(var(--pad) * 2)
+            calc(var(--pad) / 1)
+            calc(var(--pad) / 1)
+            calc(var(--pad) / 1);
+    }
+}
