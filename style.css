@@ -36,11 +36,15 @@
 }
 
 body {
-    padding: calc(var(--dist)/2) var(--dist);
+    margin: 0;
+    padding: calc(var(--dist) / 2);
     background-color: var(--second-c);
     font-family: "Suisse Int'l";
 
     /* pois */
+
+    /* METODO-1 */
+/*
     background-image: repeating-radial-gradient(center center, var(--main-c), var(--main-c) 0.5px, transparent 0.5px, transparent 100%);
     background-image: -webkit-repeating-radial-gradient(center center, var(--main-c), var(--main-c) 0.5px, transparent 0.5px, transparent 100%);
     background-image: -moz-repeating-radial-gradient(center center, rgba(0, 0, 0, 1), rgba(0, 0, 0, 1) 0.5px, transparent 0.5px, transparent 100%);
@@ -50,10 +54,18 @@ body {
     -moz-background-size: var(--bgpattern-spacing);
     background-size: var(--bgpattern-spacing);
     background-position: -13px 8px;
-
-    /* pois secondo metodo */
-    /*background-image: radial-gradient(black .2vw, white .2vw);
-  background-size: 5vw 5vw;*/
+ */
+    /* METODO-2 */
+    /* Controls size of dot */
+    background-image: radial-gradient(var(--main-c) 1px, var(--second-c) 1px);
+    /* Controls Spacing, First value will scale width, second, height between dots */
+    background-size: 3vw 3vw;
+    background-repeat: repeat;
+    background-origin: content-box;
+    background-clip: content-box;
+    -webkit-background-clip: content-box;
+    -webkit-background-origin: content-box;
+    background-position: left top;
 }
 
 .pjs {
