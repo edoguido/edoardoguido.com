@@ -1,5 +1,4 @@
 $(function() {
-
     /* inizializza smoothstate */
     'use strict';
     var options = { 
@@ -36,6 +35,7 @@ $(function() {
 
     },
   smoothState = $('#main').smoothState(options).data('smoothState');
+
 });
 
-$(function() { $('#main').smoothState({ }); });
+// $(function() { $('#main').smoothState({ }); });

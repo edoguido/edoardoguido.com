@@ -4,8 +4,8 @@ function nightVision() {
         timeTravel = false; // attiva comunque i colori notturni
 
     if (timeTravel == true) { time = 19; }
-    console.log("Local Hour: " + time);
-    console.log(timeTravel);
+    // console.log("Local Hour: " + time);
+    // console.log(timeTravel);
 
     if (time >= 19 && time <= 23 || time >= 0 && time <= 7) { 
         dusk();

@@ -10,27 +10,26 @@
 
                 <div class="hero">
                     <div id="title" class="section">
-                        <div class="left">
-                        </div>
                         <div class="right">
                             <h1>Edoardo Guido</h1>
                         </div>
                     </div>
                     <div class="section">
-                        <div class="left">
-                        </div>
                         <div class="right">
-                            <h1>Milan&#45;based communication designer<br>who loves to&nbsp;run, to&nbsp;cook and&nbsp;to&nbsp;geek</h1><br>
+                            <h1>Milan&#45;based communication designer<br>who loves to&nbsp;run, to&nbsp;cook and&nbsp;to&nbsp;geek.</h1>
                         </div>
                     </div>
                     <div class="section">
-                        <div class="left">
+                        <div class="right">
+                            <div class="spoti"></div>
                         </div>
+                    </div>
+                    <div class="section">
                         <div class="right">
                             <li class="links">
-                                <ul><a href="#" class="social-link">Instagram</a></ul>
-                                <ul><a href="#" class="social-link">LinkedIn</a></ul>
-                                <ul><a href="#" class="social-link">E-Mail</a></ul>
+                                <ul><a href="#" class="social link">Instagram</a></ul>
+                                <ul><a href="#" class="social link">LinkedIn</a></ul>
+                                <ul><a href="#" class="social link">E-Mail</a></ul>
                             </li>
                         </div>
                     </div>
@@ -41,6 +40,7 @@
                     <script type="text/javascript">
 
                         function prjTemplate(project) {
+                            // console.log(project));
                             return `
                                 <div class="project ${project.id == 0 ? 'big' : ''} json" data-title="${project.title}">
                                     <a href="${project.link}" class="project-link">
@@ -61,7 +61,7 @@
                                 // Elemento della pagina in cui posizionare i dati ricevuti
                                 var el = document.getElementsByClassName("content");
                                 
-                                // data.map() per inserire nell'array 'data' tutti i progetti del file .json
+                                // data.map() per inserire nell'elemento el[0] tutti i progetti del file .json
                                 el[0].innerHTML = `${data.map(prjTemplate).join('')}`;
                                 } else {
                                     // We reached our target server, but it returned an error
@@ -72,6 +72,7 @@
                         };
                         
                         request.send();
+
                     </script>
 
                     <!-- <div class="project big">
@@ -105,6 +106,56 @@
         </div>
 
     </body>
+    <script>
+        var key     = 'f16b0724839e781f43ce4ad721297f13';
+        var user    = 'drivinward';
+        var limit   = 1;
+        var what    = 'topartists'
+        var url     = 'http://ws.audioscrobbler.com/2.0/?method=user.get' + what + '&user=' + user + '&api_key=' + key + '&limit=' + limit + '&period=1month&format=json';
+        
+        // xmlhttp = new XMLHttpRequest();
+        // xmlhttp.open("GET", url, true);
+        
+        // xmlhttp.onload = function() {
+            //     var data = JSON.parse(xmlhttp.responseText);
+            //     console.log(data);
+            //     // Elemento della pagina in cui posizionare i dati ricevuti
+            //     var el = document.getElementsByClassName("spoti");
+            
+            //     // data.map() per inserire nell'elemento el[0] tutti i progetti del file .json
+            //     el[0].innerHTML = `${data.map(showItems)}`;
+            // };
+            // xmlhttp.send();
+
+        function showItems(item) {
+            console.log(item.name);
+            return `<h1>Currently listening to <a href=${item.url}>${item.name}</a></h1>`;
+        };
+
+        xmlhttp = new XMLHttpRequest();
+        xmlhttp.open('GET', url, true);
+
+        xmlhttp.onload = function() {
+            if (xmlhttp.status >= 200 && xmlhttp.status < 400){
+                // Success!
+                // Array contenente tutti i dati ricvuti
+                var data = JSON.parse(xmlhttp.responseText);
+                // Elemento della pagina in cui posizionare i dati ricevuti
+                var el = document.getElementsByClassName("spoti");
+
+                // data.map() per inserire nell'elemento el[0] i risultati della chiamata AJAX
+                el[0].innerHTML = `${data.topartists.artist.map(showItems).join('')}`;
+                // console.log(data.topartists);
+                } else {
+                    // We reached our target server, but it returned an error
+                }
+            };
+        xmlhttp.onerror = function() {
+            // There was a connection error of some sort
+        };
+                    
+        xmlhttp.send();
+    </script>
     
     <?php include 'feet.html'?>
 
