@@ -129,7 +129,7 @@
 
         function showItems(item) {
             console.log(item.name);
-            return `<h1>Currently listening to <a href=${item.url}>${item.name}</a></h1>`;
+            return `<h1>Currently listening to <a href=${item.url} target="_blank">${item.name}</a></h1>`;
         };
 
         xmlhttp = new XMLHttpRequest();
