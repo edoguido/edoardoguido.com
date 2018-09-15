@@ -1,7 +1,7 @@
 :root {
     --bg: #f8f8f8;
     --main: black;
-    --pad: 32px;
+    --pad: 24px;
     --font-size: 32px;
     --font-wght: 100;
     --font-wdth: 110;   /* da 0 a 200 */
@@ -170,7 +170,10 @@ li {
     bottom: 0px;
     height: 3px;
     position: absolute;
-    width: 2px;      
+    width: 2px;
+    animation: no-sound 0ms -800ms linear infinite alternate;
+}
+.bar.animate {
     animation: sound 0ms -800ms linear infinite alternate;
 }
 @keyframes sound {
@@ -181,6 +184,16 @@ li {
     100% {
         opacity: 1;       
         height: 18px;        
+    }
+}
+@keyframes no-sound {
+    0% {
+        opacity: .25;
+        height: 3px; 
+    }
+    100% {
+        opacity: 1;       
+        height: 3px;        
     }
 }
 .bar:nth-child(1)  { left: 0px; animation-duration: 474ms; }
@@ -217,7 +230,7 @@ li {
 }
 .project.big {
     grid-column: 1 / 3;
-    height: calc(100vh - (var(--pad) * 2));
+    height: auto;
 }
 .project.dark {
     border: solid 1px rgba(255,255,255,0.15);
@@ -231,21 +244,30 @@ li {
 /*            MEDIA             */
 /*           QUERIES            */
 
-@media only screen and (min-width: 801px && max-width: 960px) {
+@media (min-width: 800px) and (orientation: landscape) {
+    .project.big {
+        height: calc(100vh - (var(--pad) * 2));
+    }
+}
+
+@media (min-width: 801px && max-width: 960px) {
     .hero > #title {
         margin: 0;
         padding-top: 8vh;
         padding-bottom: calc(var(--pad) * 0);
     }
+    .project.big {
+        height: auto;
+    }
 }
 
-@media only screen and (max-width: 768px) {
+@media (max-width: 768px) {
     ul {
         display: inline;
     }
 }
 
-@media only screen and (max-width: 736px) {
+@media (max-width: 736px) {
     :root {
         --pad: 12px;
         --font-size: 24px;
@@ -262,12 +284,9 @@ li {
     .project {
         grid-column: 1 / 3;
     }
-    .project.big {
-        height: auto;
-    }
 }
 
-@media only screen and (max-width: 320px) {
+@media (max-width: 320px) {
     :root {
         --font-size: 22px;
     }

@@ -29,24 +29,31 @@
                                 var what    = 'topartists'
                                 var url     = 'http://ws.audioscrobbler.com/2.0/?method=user.get' + what + '&user=' + user + '&api_key=' + key + '&limit=' + limit + '&period=1month&format=json';
                                 
-                                // xmlhttp = new XMLHttpRequest();
-                                // xmlhttp.open("GET", url, true);
-                                
-                                // xmlhttp.onload = function() {
-                                    //     var data = JSON.parse(xmlhttp.responseText);
-                                    //     console.log(data);
-                                    //     // Elemento della pagina in cui posizionare i dati ricevuti
-                                    //     var el = document.getElementsByClassName("spoti");
-                                    
-                                    //     // data.map() per inserire nell'elemento el[0] tutti i progetti del file .json
-                                    //     el[0].innerHTML = `${data.map(showItems)}`;
-                                    // };
-                                    // xmlhttp.send();
+                                function startBars() {
+                                    var bars = document.getElementsByClassName('bar');
+                                    // console.log(bars.length);
+                                    for (i = 0; i < bars.length; i++) {
+                                        bars[i].classList.add('animate');
+                                    }
+                                }
+
+                                function stopBars() {
+                                    var bars = document.getElementsByClassName('bar');
+                                    // console.log(bars.length);
+                                    for (i = 0; i < bars.length; i++) {
+                                        var childElement = bars[i];
+                                        // console.log(bars[i]);
+                                        bars[i].addEventListener("animationiteration webkitAnimationIteration", doStop(), false);
+                                    }
+                                    function doStop() {
+                                        bars[i].classList.remove('animate');
+                                    }
+                                }
 
                                 function showItems(item) {
                                     console.log(item.name);
                                     return `<h1>Currently listening to 
-                                        <a href=${item.url} target="_blank">${item.name}</a> 
+                                        <a href="${item.url}" target="_blank" onmouseover="startBars()" onmouseout="stopBars()">${item.name}</a> 
                                         <div id="bars">
                                             <div class="bar"></div>
                                             <div class="bar"></div>
@@ -102,7 +109,7 @@
                             // console.log(project));
                             return `
                                 <div class="project ${project.id == 0 ? 'big' : ''} json" data-title="${project.title}">
-                                    <a href="${project.link}" class="project-link">
+                                    <a href="${project.link}" class="project-link"">
                                         <img class='img lazyload' src="${project.images['cover']}">
                                     </a>
                                 </div>
