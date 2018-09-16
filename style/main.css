@@ -105,13 +105,16 @@ li {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    padding: 0 10%;
+    padding: 0 8% 0 12%;
     margin: 0 auto;
     list-style: none;
     height: 90vh;
 }
 .hero > #title {
     padding-top: 8vh;
+}
+.links {
+    padding-bottom: 6vh;
 }
 .social {
     display: inline-block;
@@ -171,7 +174,6 @@ li {
     height: 3px;
     position: absolute;
     width: 2px;
-    animation: no-sound 0ms -800ms linear infinite alternate;
 }
 .bar.animate {
     animation: sound 0ms -800ms linear infinite alternate;
@@ -184,16 +186,6 @@ li {
     100% {
         opacity: 1;       
         height: 18px;        
-    }
-}
-@keyframes no-sound {
-    0% {
-        opacity: .25;
-        height: 3px; 
-    }
-    100% {
-        opacity: 1;       
-        height: 3px;        
     }
 }
 .bar:nth-child(1)  { left: 0px; animation-duration: 474ms; }
