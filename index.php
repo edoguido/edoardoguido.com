@@ -20,10 +20,10 @@
                     <div class="section">
                         <div class="spoti">
                         <script>
-                            var key     = 'f16b0724839e781f43ce4ad721297f13';
+                            var key     = '196f132fcffdbc0d1f4b75acaf1ca4bd';
                             var user    = 'drivinward';
                             var limit   = 1;
-                            var what    = 'topartists'
+                            var what    = 'topartists';
                             var url     = 'http://ws.audioscrobbler.com/2.0/?method=user.get' + what + '&user=' + user + '&api_key=' + key + '&limit=' + limit + '&period=1month&format=json';
                             
                             function startBars() {
@@ -51,7 +51,7 @@
                                 console.log(item.name);
                                 item.name = item.name.replace(/ /g,"&nbsp;");
                                 return `<h1>Currently listening to 
-                                    <a href="${item.url}" target="_blank" onmouseover="" onmouseout="">${item.name}</a>
+                                    <a href="${item.url}" target="_blank" onmouseover="" onmouseout="">${item.name} (${item.playcount} times)</a>
                                     <div id="bars">
                                         <div class="bar animate"></div>
                                         <div class="bar animate"></div>
