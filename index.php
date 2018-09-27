@@ -105,7 +105,7 @@
                             return `
                                 <div class="project ${project.id == 0 ? 'big' : ''} json" data-title="${project.title}">
                                     <a href="${project.link}" class="project-link"">
-                                        <img class='img lazyload' src="${project.images['cover']}">
+                                        <img class='lazy' src="${project.images['cover']}" data-src="${project.images['cover']}">
                                     </a>
                                 </div>
                             `;

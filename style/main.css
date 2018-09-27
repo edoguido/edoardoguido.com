@@ -1,7 +1,7 @@
 :root {
     --bg: #f8f8f8;
     --main: black;
-    --pad: 24px;
+    --pad: 32px;
     --font-size: 32px;
     --font-wght: 100;
     --font-wdth: 110;   /* da 0 a 200 */
@@ -202,11 +202,11 @@ li {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: auto;
-    grid-gap: var(--pad);
+    grid-gap: calc(var(--pad) * 1);
 
     color: var(--main);
 
-    padding: var(--pad);
+    padding: calc(var(--pad) / 1);
     margin-bottom: calc(var(--pad) * 0);
 }
 .project {
@@ -215,10 +215,11 @@ li {
     display: block;
 
     border-radius: 2px;
-    /* box-shadow: 0 .5rem .5rem rgba(127, 142, 170, .32); */
+    box-shadow: 0px .5rem 1rem rgba(127, 142, 170, .32);
 }
-.project > .project-link > .img {
+.project > .project-link > img {
     width: 100%;
+    height: auto;
 }
 .project.big {
     grid-column: 1 / 3;
@@ -238,7 +239,7 @@ li {
 
 @media (min-width: 800px) and (orientation: landscape) {
     .project.big {
-        height: calc(100vh - (var(--pad) * 2));
+        max-height: calc(100vh - (var(--pad) * 2));
     }
 }
 
@@ -262,7 +263,7 @@ li {
 @media (max-width: 736px) {
     :root {
         --pad: 12px;
-        --font-size: 24px;
+        --font-size: 24px;;
     }
     ul {
         display: block;
@@ -272,6 +273,8 @@ li {
     }
     .content {
         grid-template-columns: 1fr;
+        grid-gap: calc(var(--pad) * 2);
+        padding: calc(var(--pad) / 1);
     }
     .project {
         grid-column: 1 / 3;
