@@ -213,9 +213,8 @@ li {
     overflow: hidden;
     max-width: 1920px;
     display: block;
-
     border-radius: 2px;
-    box-shadow: 0px .5rem 1rem rgba(127, 142, 170, .32);
+    /* box-shadow: 0px .5rem 1rem rgba(127, 142, 170, .32); */
 }
 .project > .project-link > img {
     width: 100%;
@@ -223,13 +222,9 @@ li {
 }
 .project.big {
     grid-column: 1 / 3;
-    height: auto;
 }
 .project.dark {
-    border: solid 1px rgba(255,255,255,0.15);
-}
-.project-link {
-    display: block;
+    border: solid 1px rgba(255, 255, 255, 0.12);
 }
 
 

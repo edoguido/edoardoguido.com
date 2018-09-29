@@ -7,10 +7,11 @@
         "link": "maniac.php",
         "description": "",
         "images": {
-            "cover": "res/maniac.gif",
+            "cover": "maniac.gif",
             "1": "path-to-image"
         },
-        "featured": false
+        "featured": false,
+        "dark": false
     },
     {
         "id": 1,
@@ -20,10 +21,11 @@
         "link": "sivedenonsivede.php",
         "description": "The aim of this project was developing a simple game for iPad, Android Tablets or Smartphones based on the children's book &ldquo;Si vede non si vede&rdquo; by Silvia Borando who, in turn, is the founder of Minibombo, a book editor that designs books for children.<br>A team of five people has realized an animated trailer that illustrates the way the application works over a week of workshop at Politecnico di Milano (and lead by Elena Caratti).<br>The child user is asked to find the animals that are hidden in the different scenes, and the puzzles that have to be solved require the interaction with the objects inside the scene.<br>The workshop is the result of a collaboration between the editor Mimibombo in Politecnico di Milano.",
         "images": {
-            "cover": "res/sivedenonsivede.gif",
+            "cover": "sivedenonsivede.gif",
             "1": "https://vimeo.com/223111596"
         },
-        "featured": false
+        "featured": false,
+        "dark": false
     },
     {
         "id": 2,
@@ -33,12 +35,13 @@
         "link": "simphone.php",
         "description": "Simphone is the result of the Physical Computing course in Politecnico di Milano, where unused object were reprogrammed thanks to the embedding of an Arduino board, which could interact with the old circuits.<br>This approach let us transform an old landline into a Simon game.<br>Project by Alessandro Fagnani, Alice Di Giammartino, Edoardo Guido, Giusy Di Staso.",
         "images": {
-            "cover": "res/simphone.gif",
+            "cover": "simphone.gif",
             "1": "https://vimeo.com/230791591",
             "2": "https://vimeo.com/230796177",
             "3": "path-to-img"
         },
-        "featured": false
+        "featured": false,
+        "dark": true
     },
     {
         "id": 4,
@@ -48,10 +51,11 @@
         "link": "ditdot.php",
         "description": "ditdot is a fictitious brand that was created for Laboratorio di Sintesi (Synthesis Lab), that is the last phase of a three-year course in Communication Design at Politecnico di Milano. Teachers Francesco Guida, Andrea Braccaloni, Pietro Buffa Di Castelalto gave students the task of rebranding a common-use object (in this case a hammer) and designing a &ldquo;communicative machine&rdquo;, an interactive artifact that users can interact with, to discover its core values.<br> As a result, ditdot heavily relies on sensory branding by starting from the sound that the hammer makes when using it, and transposing it into colour.",
         "images": {
-            "cover": "res/ditdot.gif",
+            "cover": "ditdot.gif",
             "1": "path-to-image"
         },
-        "featured": true
+        "featured": true,
+        "dark": false
     },
     {
         "id": 5,
@@ -61,9 +65,10 @@
         "link": "vimu.php",
         "description": "A group of five people had to design the brand image for a university project (Laboratorio di Progetto della Comunicazione).<br>The client would be a newly founded museum of graphic design (the group was assigned the name 'Visual Museum').<br>The project is tailored for an interactive, dynamic museum.",
         "images": {
-            "cover": "res/vimu.jpg",
+            "cover": "vimu.jpg",
             "1": "path-to-image"
         },
-        "featured": false
+        "featured": false,
+        "dark": false
     }
 ]

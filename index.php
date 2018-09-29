@@ -66,7 +66,7 @@
                             xmlhttp.onload = function() {
                                 if (xmlhttp.status >= 200 && xmlhttp.status < 400){
                                     // Success!
-                                    // Array contenente tutti i dati ricvuti
+                                    // Array contenente tutti i dati ricevuti
                                     var data = JSON.parse(xmlhttp.responseText);
                                     // Elemento della pagina in cui posizionare i dati ricevuti
                                     var el = document.getElementsByClassName("spoti");
@@ -103,9 +103,9 @@
                         function prjTemplate(project) {
                             // console.log(project));
                             return `
-                                <div class="project ${project.id == 0 ? 'big' : ''} json" data-title="${project.title}">
-                                    <a href="${project.link}" class="project-link"">
-                                        <img class='lazy' src="${project.images['cover']}" data-src="${project.images['cover']}">
+                                <div class="project ${project.id == 0 ? 'big' : ''} ${project.dark == true ? 'dark' : ''} json" data-title="${project.title}">
+                                    <a href="${project.link}" class="project-link">
+                                        <img class='lazy' src="res/${project.images['cover']}" data-src="res/${project.images['cover']}">
                                     </a>
                                 </div>
                             `;
@@ -127,7 +127,7 @@
                                 } else {
                                     // We reached our target server, but it returned an error
                                 }
-                            };
+                        };
                         request.onerror = function() {
                             // There was a connection error of some sort
                         };
@@ -135,32 +135,6 @@
                         request.send();
 
                     </script>
-
-                    <!-- <div class="project big">
-                        <a href="ditdot.php" class="project-link">
-                            <img class="img lazyload" src="res/ditdot.gif" data-src="res/ditdot.gif">
-                        </a>
-                    </div>
-                    <div class="project">
-                        <a href="#" class="project-link">
-                            <img class="img lazyload" src="res/vimu.jpg" data-src="res/vimu.jpg">
-                        </a>
-                    </div>
-                    <div class="project">
-                        <a href="#" class="project-link">
-                            <img class="img lazyload" src="res/legostory.gif" data-src="res/legostory.gif">
-                        </a>
-                    </div>
-                    <div class="project dark">
-                        <a href="#" class="project-link">
-                            <img class="img lazyload" src="res/simphone.gif" data-src="res/simphone.gif">
-                        </a>
-                    </div>
-                    <div class="project">
-                        <a href="#" class="project-link">
-                            <img class="img lazyload" src="res/sivedenonsivede.gif" data-src="res/sivedenonsivede.gif">
-                        </a>
-                    </div> -->
 
                 </div>
 

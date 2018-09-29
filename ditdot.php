@@ -39,7 +39,7 @@
                     el[0].innerHTML = `
                         <div class="project big">
                             <a href="index.php" class="project-link">
-                                <img class="img" src="${data[3].images['cover']}">
+                                <img class="img" src="res/${data[3].images['cover']}">
                             </a>
                         </div>
                     `;
