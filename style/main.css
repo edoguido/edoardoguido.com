@@ -1,5 +1,5 @@
 :root {
-    --bg: #f8f8f8;
+    --bg: #f1f1f1;
     --main: black;
     --pad: 32px;
     --font-size: 32px;
@@ -11,7 +11,7 @@
 }
 
 *  {
-    font-family: 'Akkurat-Light';
+    font-family: 'IBM Plex Light';
     font-weight: lighter;
     letter-spacing: 0;
     font-size: var(--font-size);
