@@ -89,9 +89,9 @@
                     </div>
                     <div class="section">
                         <li class="links">
-                            <ul><a href="#" class="social link">Instagram</a></ul>
-                            <ul><a href="#" class="social link">LinkedIn</a></ul>
-                            <ul><a href="#" class="social link">E-Mail</a></ul>
+                            <ul><a href="https://www.instagram.com/edoguido_/" target="blank" class="social link">Instagram</a></ul>
+                            <ul><a href="https://www.linkedin.com/in/edoardoguido/" target="blank" class="social link">LinkedIn</a></ul>
+                            <ul><a href="mailto:contact@edoardoguido.com" class="social link">E-Mail</a></ul>
                         </li>
                     </div>
                 </div>
