@@ -2,7 +2,7 @@
     --bg: #f1f1f1;
     --main: black;
     --pad: 32px;
-    --factor: 1;
+    --factor: 3;
     --wdthTransition: .25s;
     --bezier: cubic-bezier(0.85, -1.00, 0.0, 1.00);
     --font-weight: 100;
@@ -16,29 +16,30 @@
     -webkit-font-feature-settings: "kern" on;
     -ms-font-feature-settings: "kern" on;
     -o-font-feature-settings: "kern" on;
-}
 
-*  {
     -o-transition: 
         letter-spacing 
-        calc(var(--wdthTransition) * 3) 
+        calc(var(--wdthTransition) * var(--factor)) 
         var(--bezier);
     -ms-transition: 
         letter-spacing 
-        calc(var(--wdthTransition) * 3) 
+        calc(var(--wdthTransition) * var(--factor)) 
         var(--bezier);
     -moz-transition: 
         letter-spacing 
-        calc(var(--wdthTransition) * 3) 
+        calc(var(--wdthTransition) * var(--factor)) 
         var(--bezier);
     -webkit-transition: 
         letter-spacing 
-        calc(var(--wdthTransition) * 3) 
+        calc(var(--wdthTransition) * var(--factor)) 
         var(--bezier);
     transition: 
         letter-spacing 
-        calc(var(--wdthTransition) * 3) 
+        calc(var(--wdthTransition) * var(--factor)) 
         var(--bezier);
+}
+
+*  {
 }
 html, body {
     margin: 0; padding: 0;

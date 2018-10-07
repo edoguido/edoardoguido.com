@@ -12,18 +12,17 @@ function nightVision() {
     } else return;
     /*console.log(time);*/
 };
+window.onload = nightVision;
 
 function dusk () {
-    var x = document.getElementsByTagName('*');
-
+    var x = document.querySelectorAll('h1, h2, h3, h4, h5, h6, p, a, span, li, .spoti');
     document.documentElement.style.setProperty('--bg', 'black');
     document.documentElement.style.setProperty('--main', '#f8f8f8');
     for (var i = 0; i < x.length; i++) {
-        x[i].style.letterSpacing = "0.15";
+        var ls = 2;
+        x[i].style.letterSpacing = ls;
     }
 }
-
-window.onload = nightVision;
 
 function dusk_toggle() {
     var day = true;
