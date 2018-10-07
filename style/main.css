@@ -9,6 +9,7 @@
 
     font-family: "IBM Plex Light", Helvetica, sans-serif;;
     font-size: 14px;
+
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     font-feature-settings: "kern" on;
@@ -246,16 +247,16 @@ li {
     }
 }
 
-@media (max-width: 768px) {
+/* @media (max-width: 768px) {
     ul {
         display: inline;
     }
-}
+} */
 
 @media (max-width: 736px) {
     :root {
         --pad: 12px;
-        font-size: 24px;;
+        font-size: 11px;;
     }
     ul {
         display: block;
@@ -270,11 +271,5 @@ li {
     }
     .project {
         grid-column: 1 / 3;
-    }
-}
-
-@media (max-width: 320px) {
-    :root {
-        font-size: 22px;
     }
 }

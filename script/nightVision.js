@@ -19,7 +19,7 @@ function dusk () {
     document.documentElement.style.setProperty('--bg', 'black');
     document.documentElement.style.setProperty('--main', '#f8f8f8');
     for (var i = 0; i < x.length; i++) {
-        var ls = 2;
+        var ls = 0.15;
         x[i].style.letterSpacing = ls;
     }
 }
