@@ -97,7 +97,7 @@ li {
     height: 100%;
 }
 
-.hero {
+#hero {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -106,7 +106,7 @@ li {
     list-style: none;
     height: 90vh;
 }
-.hero > #title {
+#hero > #title {
     padding-top: 8vh;
 }
 .links {
