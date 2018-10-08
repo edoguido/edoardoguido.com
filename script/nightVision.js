@@ -8,18 +8,17 @@ function nightVision() {
     // console.log(timeTravel);
 
     if (time >= 19 && time <= 23 || time >= 0 && time <= 7) { 
-        dusk();
+        dusk(0.15);
     } else return;
-    /*console.log(time);*/
+    console.log(time);
 };
 window.onload = nightVision;
 
-function dusk () {
+function dusk (ls) {
     var x = document.querySelectorAll('h1, h2, h3, h4, h5, h6, p, a, span, li, .spoti');
     document.documentElement.style.setProperty('--bg', 'black');
     document.documentElement.style.setProperty('--main', '#f8f8f8');
     for (var i = 0; i < x.length; i++) {
-        var ls = 0.15;
         x[i].style.letterSpacing = ls;
     }
 }
