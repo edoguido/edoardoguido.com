@@ -4,23 +4,22 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>OpenWeatherMap Test</title>
+  <title>Gyroscope Test</title>
   <style>
     body {
       padding: 0;
       margin: 0;
     }
   </style>
-  <script src="p5/p5.min.js"></script>
-  <script src="p5/addons/p5.dom.min.js"></script>
-  <script src="p5/addons/p5.sound.min.js"></script>
-  <script src="sketch.js"></script>
 </head>
 
 <body>
   <h2>GyroX: <span id="gx"></span></h2>
   <h2>GyroY: <span id="gy"></span></h2>
   <h2>GyroZ: <span id="gz"></span></h2>
+  <h2>GyroAccX: <span id="gax"></span></h2>
+  <h2>GyroAccY: <span id="gay"></span></h2>
+  <h2>GyroAccZ: <span id="gaz"></span></h2>
 </body>
 
 <script>
@@ -29,13 +28,13 @@
     // event.acceleration.x;
     // event.acceleration.y;
     // event.acceleration.z;
-    // event.accelerationIncludingGravity.x,
-    // event.accelerationIncludingGravity.y,
-    // event.accelerationIncludingGravity.z,
     // event.interval
     document.getElementById('gx').innerHTML = Math.floor(event.rotationRate.alpha);
     document.getElementById('gy').innerHTML = Math.floor(event.rotationRate.beta);
     document.getElementById('gz').innerHTML = Math.floor(event.rotationRate.gamma);
+    document.getElementById('gax').innerHTML = Math.floor(event.accelerationIncludingGravity.x);
+    document.getElementById('gay').innerHTML = Math.floor(event.accelerationIncludingGravity.y);
+    document.getElementById('gaz').innerHTML = Math.floor(event.accelerationIncludingGravity.z);
   }, true);
 
 </script>
