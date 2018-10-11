@@ -1,15 +1,43 @@
 <!DOCTYPE html>
-<html lang="">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OpenWeatherMap Test</title>
-    <style> body {padding: 0; margin: 0;} </style>
-    <script src="p5/p5.min.js"></script>
-    <script src="p5/addons/p5.dom.min.js"></script>
-    <script src="p5/addons/p5.sound.min.js"></script>
-    <script src="sketch.js"></script>
-  </head>
-  <body>
-  </body>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OpenWeatherMap Test</title>
+  <style>
+    body {
+      padding: 0;
+      margin: 0;
+    }
+  </style>
+  <script src="p5/p5.min.js"></script>
+  <script src="p5/addons/p5.dom.min.js"></script>
+  <script src="p5/addons/p5.sound.min.js"></script>
+  <script src="sketch.js"></script>
+</head>
+
+<body>
+  <h2>GyroX: <span id="gx"></span></h2>
+  <h2>GyroY: <span id="gy"></span></h2>
+  <h2>GyroZ: <span id="gz"></span></h2>
+</body>
+
+<script>
+  window.addEventListener("devicemotion", function (event) {
+    // Process
+    // event.acceleration.x;
+    // event.acceleration.y;
+    // event.acceleration.z;
+    // event.accelerationIncludingGravity.x,
+    // event.accelerationIncludingGravity.y,
+    // event.accelerationIncludingGravity.z,
+    // event.interval
+    document.getElementById('gx').innerHTML = Math.floor(event.rotationRate.alpha);
+    document.getElementById('gy').innerHTML = Math.floor(event.rotationRate.beta);
+    document.getElementById('gz').innerHTML = Math.floor(event.rotationRate.gamma);
+  }, true);
+
+</script>
+
 </html>
