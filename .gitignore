@@ -3,7 +3,7 @@
 ### macOS ###
 # General
 .DS_Store
-script/.DS_Store.AppleDouble
+.AppleDouble
 .LSOverride
 
 # Icon must end with two \r
