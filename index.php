@@ -34,8 +34,8 @@
                         var user    = 'drivinward';
                         var limit   = 1;
                         var what    = 'topartists';
-                        var url     = 'http://ws.audioscrobbler.com/2.0/?method=user.get' + what + '&user=' + user + '&api_key=' + key + '&limit=' + limit + '&period=1month&format=json';
-                        var complete= 'http://ws.audioscrobbler.com/2.0/?method=user.gettopartists&user=drivinward&api_key=f979f1543fc51c076912222b9c1644fe&limit=1&period=1month&format=json'
+                        var url     = 'https://ws.audioscrobbler.com/2.0/?method=user.get' + what + '&user=' + user + '&api_key=' + key + '&limit=' + limit + '&period=1month&format=json';
+                        var complete= 'https://ws.audioscrobbler.com/2.0/?method=user.gettopartists&user=drivinward&api_key=f979f1543fc51c076912222b9c1644fe&limit=1&period=1month&format=json'
 
                         function showMusicStats(item) {
                             console.log(item.name);
