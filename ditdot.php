@@ -9,11 +9,6 @@
     <div class="wrapper" id="main">
 
         <div class="content">
-            <!-- <div class="project big">
-                <a href="index.php" class="project-link">
-                            <img class="img" src="res/ditdot.gif">
-                </a>
-            </div> -->
         </div>
 
         <div class="hero">
@@ -24,36 +19,76 @@
                 </div>
             </div>
             <script type="text/javascript">
-            
-            request = new XMLHttpRequest();
-            request.open('GET', 'projects.json', true);
-            
-            request.onload = function() {
-                if (request.status >= 200 && request.status < 400){
-                    // Success!
-                    // Array contenente tutti i dati JSON
-                    var data = JSON.parse(request.responseText);
-                    // Elemento della pagina in cui posizionare i dati JSON
-                    var el = document.getElementsByClassName("content");
-                    // data.map() copia in un nuovo array tutti i dati JSON
-                    el[0].innerHTML = `
-                        <div class="project big">
-                            <a href="index.php" class="project-link">
-                                <img class="img" src="res/${data[3].images['cover']}">
-                            </a>
-                        </div>
-                    `;
 
-                    document.getElementsByClassName("right")[0].innerHTML = `<h1>${data[3].description}</h1>`;
-                } else {
-                    // We reached our target server, but it returned an error
+            function layProjectData(projectData) {
+                // console.log(projectData);
+                var title = projectData.title;
+                var images = projectData.images;
+                var outputs = [];
+                var output;
+
+                output = `
+                        <h1>${projectData.title}</h1>
+                        <h1>${projectData.description}</h1>
+                `;
+                outputs.push(output);
+
+                for (image in images) {
+                    if (image !== 'cover') {
+                        // TO-DO FUNZIONE CHE CONTROLLA SE PATH COMINCIA CON HTTPS://
+                        // SE SI ALLORA FA IFRAME VIMEO, ALTRIMENTI TAG IMG CON A ATTORNO
+                        output = `
+                            <div class="project big">
+                                <a href="index.php" class="project-link">
+                                    <img class="img" src="projects/${title}/${images[image]}">
+                                </a>
+                            </div>
+                            `
+                        outputs.push(output);
+                    }
                 }
-            };
-            request.onerror = function() {
-                // There was a connection error of some sort
-            };
+                return outputs.join('');
+            }
             
-            request.send();
+            function getThisProject(sourceFile, targetElement) {
+                request = new XMLHttpRequest();
+                request.open('GET', sourceFile, true);
+                
+                request.onload = function() {
+                    if (request.status >= 200 && request.status < 400){
+                        // Success!
+                        // Array contenente tutti i dati JSON
+                        var data = JSON.parse(request.responseText);
+
+                        var currentPage = window.location.pathname.split("/").pop();
+
+                        var thisProject = data.filter(function(project){
+                            // l'attributo link è la chiave del JSON
+                            return project.link === currentPage
+                        });
+                        thisProject = thisProject[0];
+
+                        // Elemento della pagina in cui posizionare i dati JSON
+                        var el = document.getElementsByClassName(targetElement)[0];
+                        
+                        var images = [];
+                        images.push(thisProject);
+
+                        el.innerHTML = `${images.map(layProjectData).join('')}`;
+                        
+                    } else {
+                        // We reached our target server, but it returned an error
+                    }
+                };
+                request.onerror = function() {
+                    // There was a connection error of some sort
+                };
+                
+                request.send();
+            }
+
+            getThisProject('projects.json', 'content');
+
             </script>
 
         </div>

@@ -10,40 +10,43 @@ function nightVision() {
     if (time >= 19 && time <= 23 || time >= 0 && time <= 7) { 
         dusk(0.15);
     } else return;
-    console.log(time);
+    // console.log(time);
 };
-window.onload = nightVision;
+window.addEventListener('load', function() {
+    nightVision();
+},false);
 
 function dusk (ls) {
-    var x = document.querySelectorAll('h1, h2, h3, h4, h5, h6, p, a, span, li, .spoti');
     document.documentElement.style.setProperty('--bg', 'black');
     document.documentElement.style.setProperty('--main', '#f8f8f8');
+
+    var x = document.querySelectorAll('h1, h2, h3, h4, h5, h6, p, a, span, li, .spoti');
     for (var i = 0; i < x.length; i++) {
         x[i].style.letterSpacing = ls;
     }
 }
 
-function dusk_toggle() {
-    var day = true;
-    var x = document.getElementsByTagName('*');
-    console.log(x);
+// function dusk_toggle() {
+//     var day = true;
+//     var x = document.getElementsByTagName('*');
+//     console.log(x);
 
-    if (day == true) {
-        document.documentElement.style.setProperty('--bg', 'black');
-        document.documentElement.style.setProperty('--main', '#f8f8f8');
+//     if (day == true) {
+//         document.documentElement.style.setProperty('--bg', 'black');
+//         document.documentElement.style.setProperty('--main', '#f8f8f8');
 
-        for (var i = 0; i < x.length; i++) {
-            x[i].style.letterSpacing = "0.15";
-        }
-        day = false;
-    }
-    else {                
-        document.documentElement.style.setProperty('--bg', '#f8f8f8');
-        document.documentElement.style.setProperty('--main', 'black');
+//         for (var i = 0; i < x.length; i++) {
+//             x[i].style.letterSpacing = "0.15";
+//         }
+//         day = false;
+//     }
+//     else {                
+//         document.documentElement.style.setProperty('--bg', '#f8f8f8');
+//         document.documentElement.style.setProperty('--main', 'black');
 
-        for (var i = 0; i < x.length; i++) {
-            x[i].style.letterSpacing = "0";
-        }
-        day = true;
-    }
-}
+//         for (var i = 0; i < x.length; i++) {
+//             x[i].style.letterSpacing = "0";
+//         }
+//         day = true;
+//     }
+// }

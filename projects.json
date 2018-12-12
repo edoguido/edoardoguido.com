@@ -41,7 +41,7 @@
             "3": "path-to-img"
         },
         "featured": false,
-        "dark": true
+        "dark": false
     },
     {
         "id": 4,
@@ -52,7 +52,12 @@
         "description": "ditdot is a fictitious brand that was created for Laboratorio di Sintesi (Synthesis Lab), that is the last phase of a three-year course in Communication Design at Politecnico di Milano. Teachers Francesco Guida, Andrea Braccaloni, Pietro Buffa Di Castelalto gave students the task of rebranding a common-use object (in this case a hammer) and designing a &ldquo;communicative machine&rdquo;, an interactive artifact that users can interact with, to discover its core values.<br> As a result, ditdot heavily relies on sensory branding by starting from the sound that the hammer makes when using it, and transposing it into colour.",
         "images": {
             "cover": "ditdot.gif",
-            "1": "path-to-image"
+            "1": "billboard1.jpg",
+            "2": "billboard2.jpg",
+            "3": "billboard3.jpg",
+            "9": "expo.jpg",
+            "10": "stationery.jpg",
+            "11": "installaz.jpg"
         },
         "featured": true,
         "dark": false
