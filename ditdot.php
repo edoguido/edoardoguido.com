@@ -39,7 +39,7 @@
                         // SE SI ALLORA FA IFRAME VIMEO, ALTRIMENTI TAG IMG CON A ATTORNO
                         output = `
                             <div class="project big">
-                                <a href="index.php" class="project-link">
+                                <a href="#" class="project-link" style="pointer-events: none">
                                     <img class="img" src="projects/${title}/${images[image]}">
                                 </a>
                             </div>
