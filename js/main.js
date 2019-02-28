@@ -4,32 +4,46 @@ document.addEventListener("DOMContentLoaded", function() {
         return response.json();
     }).then((entries) => {
 
-        entries.map((entry) => {
-            console.log(entry);
+        document.getElementById("showcase").innerHTML = entries.map(prjList).join("");
 
-            document.getElementById("showcase").innerHTML =
-            `<div>ciao</div>`;
-        })
+        initListeners();
 
     })
-    
 })
 
 
-var prjs = document.querySelectorAll(".prj-cover");
+function prjList(project) {
+    // console.log(project);
+    return `
+        <a href="" class="prj-href">
+            <div class="prj">
+                <div class="prj-cover" style="background-image: url('${project.cover}'); background-repeat: no-repeat; background-position: 50% 50%; background-size: cover; ${project.style ? project.style : ''}"></div>
+                <div class="prj-data">
+                    <h2>${project.title}</h2>
+                    <h2>${project.category}</h2>
+                    <h2>${project.date}</h2>
+                </div>
+            </div>
+        </a>
+`;
+}
 
-prjs.forEach((prj) => {
+function initListeners() {
+    var prjs = document.querySelectorAll(".prj-cover");    
 
-    prj.addEventListener("mouseover", function() {
+    prjs.forEach((prj) => {
 
-        this.parentElement.classList.add("focus");
+        prj.addEventListener("mouseover", function() {
+
+            this.parentElement.classList.add("focus");
+            
+        }, false)
         
-    }, false)
-    
-    prj.addEventListener("mouseout", function() {
+        prj.addEventListener("mouseout", function() {
 
-        this.parentElement.classList.remove("focus");
-        
-    }, false)
+            this.parentElement.classList.remove("focus");
+            
+        }, false)
 
-})
+    })
+}

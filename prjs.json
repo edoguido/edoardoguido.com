@@ -1,12 +1,15 @@
 [
     {
-        "title": "Fermento",
-        "category": "Editorial Design / Product Design",
-        "date": "Feb–May 2018"
+        "title": "fermento",
+        "category": "Editorial Design / User Experience Design",
+        "date": "Feb–May 2018",
+        "cover": "data/fermento/_cover.svg",
+        "style": "background-color: black;"
     },
     {
-        "title": "Fiddol",
+        "title": "fiddol",
         "category": "Interaction Design",
-        "date": "Feb–May 2018"
+        "date": "Feb–May 2018",
+        "cover": "data/fiddol/_cover.mp4"
     }
 ]
