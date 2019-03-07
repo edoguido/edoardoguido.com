@@ -1,0 +1,38 @@
+#hero {
+    height: 70vh;
+
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+}
+
+#showcase > .prj-p {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+
+    max-width: var(--mw);
+    padding: 0 var(--s);
+    margin: calc(var(--s) * 2) auto;
+}
+
+#showcase > .prj-p > .p-title {
+    text-transform: capitalize;
+}
+
+#showcase > .prj-p > * {
+    margin-top: 0;
+    line-height: 1.75;
+}
+
+#showcase > .prj-img {
+    height: 640px;
+    max-width: var(--mw);
+    border-radius: 3px;
+
+    background-position: 50%;
+    background-repeat: no-repeat;
+
+    margin: calc(var(--s) * 3) auto;
+
+    box-shadow: var(--sha);
+}

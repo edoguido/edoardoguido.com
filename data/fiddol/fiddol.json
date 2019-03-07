@@ -1,0 +1,13 @@
+[
+    {
+        "type": "mp4",
+        "bg": "#000"
+    },
+    [    
+        {
+            "tag": "p",
+            "title": "fiddol lipsum",
+            "content": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta totam perferendis, rerum cum, velit inventore nam vel maxime eius sunt doloremque maiores dolorem distinctio perspiciatis, nemo exercitationem aliquam&nbsp;ut&nbsp;voluptate."
+        }
+    ]
+]

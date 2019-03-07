@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", function() {
 function prjList(project) {
     // console.log(project);
     return `
-        <a href="" class="prj-href">
+        <a href="project.html?id=${project.id}" class="prj-href">
             <div class="prj">
                 <div class="prj-cover" style="background-image: url('${project.cover}'); background-repeat: no-repeat; background-position: 50% 50%; background-size: cover; ${project.style ? project.style : ''}"></div>
                 <div class="prj-data">

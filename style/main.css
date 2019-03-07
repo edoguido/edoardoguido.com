@@ -2,7 +2,11 @@
     --n-h: 48px;
     --s: 32px;
     --c-1: #333338;
+    --c-1a: #333338a0;
     --c-b: #ccccd0;
+
+    --mw: 1020px;
+    --sha: 0px 10px 20px rgba(0, 0, 0, 0.1), 0px 02px 06px rgba(0, 0, 0, 0.135);
 }
 
 html, body {
@@ -27,15 +31,7 @@ h1 {
 a {
     text-decoration: none;
     color: var(--c-1);
-
-    background: linear-gradient(to bottom, var(--c-1) 0%, var(--c-1) 100%), -webkit-linear-gradient(var(--c-1), var(--c-1));
-
-    background-position: 0% 100%;
-    background-repeat: no-repeat;
-    background-size: 100% 2px;
-    transition: background-size .2s;
 }
-
 a:visited {
     color: var(--c-1);
 }
@@ -46,8 +42,12 @@ a:visited {
 }
 
 #nav {
-    position: sticky;
-    position: -webkit-sticky;
+    position: fixed;
+    width: 100%;
+
+    mix-blend-mode: difference;
+
+    z-index: 1000;
 }
 #nav > #nav-els {
     height: var(--n-h);
@@ -56,7 +56,13 @@ a:visited {
     justify-content: space-between;
     align-items: center;
 
-    padding: calc(var(--s) / 2) var(--s);
+    padding: calc(var(--s) / 4) var(--s);
+}
+#nav > #nav-els > a {
+    text-decoration: none;
+}
+#nav > #nav-els > * {
+    color: white;
 }
 
 #hero {
@@ -75,14 +81,25 @@ a:visited {
     max-width: 720px;
     padding: var(--s);
 }
+
 h1 > a {
-    color: #333338a0;
+    color: var(--c-1);
     transition: background-size .2s, color .4s, padding .2s;
 
     padding: 0 calc(var(--s) / 4) calc(var(--s) / 6) calc(var(--s) / 4);
+
+    background: 
+        linear-gradient(to bottom, var(--c-1) 0%, var(--c-1) 100%), 
+        -webkit-linear-gradient(var(--c-1), var(--c-1a));
+
+    background-position: 0% 100%;
+    background-repeat: no-repeat;
+    background-size: 100% 2px;
+    transition: background-size .2s;
 }
 h1 > a:hover {
     color: var(--c-b);
+
     background-size: 100% 100%;
     padding: 0 calc(var(--s) / 2) calc(var(--s) / 6) calc(var(--s) / 2);
 
@@ -90,72 +107,8 @@ h1 > a:hover {
 }
 
 #showcase {
-    padding: var(--s);
-    max-width: 1020px;
     margin: 0 auto;
-}
-#showcase > a.prj-href {
-    pointer-events: none;
-}
-#showcase > a.prj-href > .prj {
-    margin-bottom: var(--s);
-}
+    padding: 0 var(--s) calc(var(--s) * 2) var(--s);
 
-.prj > .prj-cover {
-    cursor: pointer;
-
-    height: 420px;
-    width: 100%;
-
-    margin: 0 auto;
-    pointer-events: fill;
-
-    border-radius: 3px;
-    background-color: #444451;
-
-    box-shadow: 
-        0px 10px 20px rgba(0, 0, 0, 0.1),
-        0px 02px 06px rgba(0, 0, 0, 0.135)
-    ;
-
-    transition: transform .5s, box-shadow .5s;
-}
-.prj.focus > .prj-cover {
-    box-shadow: 
-        0px 10px 20px rgba(0, 0, 0, 0.15),
-        0px 02px 06px rgba(0, 0, 0, 0.175)
-    ;
-    transform: translateY(-10px) scale(1.02);
-
-    transition: transform .5s, box-shadow .5s;
-}
-
-.prj > .prj-data {
-    pointer-events: none;
-
-    padding: calc(var(--s) / 3) var(--s) 0 var(--s);
-
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-
-    justify-content: space-between;
-
-    opacity: 0;
-    transition: opacity .5s, margin-bottom .5s, transform .5s;
-}
-/* when project is hovered (has .focus class), then prj-data... */
-.prj.focus > .prj-data {
-    pointer-events: none;
-    
-    opacity: 1;
-    margin-bottom: var(--s);
-    transform: translateY(-10px);
-    transition: opacity .5s, margin-bottom .5s, transform .5s;
-}
-
-.prj > .prj-data > h2 {
-    font-size: 1rem;
-    font-weight: 400;
-    text-transform: capitalize;
+    max-width: var(--mw);
 }
