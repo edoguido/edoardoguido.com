@@ -1,0 +1,53 @@
+[
+    [
+        {
+                "tag": "h1",
+                "content": "Fiddol"
+            },
+            {
+                "tag": "p",
+                "title": "About",
+                "content": "Fiddol, a smart toothbrush appliance for kids in the age of kindergarten, aims at making the oral hygiene a daily routine, both at home and at school, through music and interactive storytelling."
+            },
+            {
+                "tag": "p",
+                "content": "Created after preliminary user research, Fiddol blends together music, narration and dental care education. A&nbsp;smart device attached on the handle of the toothbrush allows the child to play a melody based on his brushing movements: the better the skill, the more harmonious is the music. Group&nbsp;work is also rewarded, as the Fiddol app tracks the classroom effort and rewards the kids with new accessories, musical instruments and a progression in&nbsp;the&nbsp;story."
+            },
+            {
+                "tag": "p",
+                "content": "A proof of concept prototype was created using Raspberry Pi Zero, Python and Pure&nbsp;Data. The real scale demonstrative prototype was 3D printed."
+            }
+    ],[
+            {
+                "tag": "video",
+                "path": "_cover.mp4"
+            },
+            {
+                "tag": "img",
+                "path": "user_app.mp4"
+            },
+            {
+                "tag": "img",
+                "path": "user_casa.mp4"
+            },
+            {
+                "tag": "img-tight",
+                "path1": "valle.png",
+                "path2": "fatina_2.mp4",
+                "path3": "personaggi.png"
+
+            },
+            {
+                "tag": "embed",
+                "href": "<iframe src=\"https://player.vimeo.com/video/276426314\" width=\"640\" height=\"360\" frameborder=\"0\" allow=\"autoplay; fullscreen\" allowfullscreen></iframe>"
+            },
+            {
+                "tag": "img",
+                "path": "bimba.png"
+            },
+            {
+                "tag": "img",
+                "path": "fiddol_scuola.mp4"
+            }    
+    ]
+]

@@ -1,0 +1,32 @@
+[
+    [{
+            "tag": "h1",
+            "content": "Hate Shades"
+        },
+        {
+            "tag": "p",
+            "title": "About",
+            "content": "Hate speech is a controversial and debated phenomenon, as it lies in a complex nexus with free speech and the respect for equality, liberty and dignity of every human being."
+        },
+        {
+            "tag": "p",
+            "content": "We tried to follow a possible path that a user could take in order to get information and form an opinion about hate speech, trying to map the controversial debate that the Hate Speech term generates: is it filtering or censorship?"
+        },
+        {
+            "tag": "p",
+            "title": "Team",
+            "content": "Francesca&nbsp;Brotto, Nicola&nbsp;Brignoli, Lea&nbsp;Fabiano, Elena&nbsp;Filippi, Edoardo&nbsp;Guido, Jacopo&nbsp;Poletto."
+        }
+    ],
+    [{
+            "tag": "img-l",
+            "href": "https://densitydesign.github.io/teaching-dd14/es02/group09/",
+            "path": "hateshades_www_2.png"
+        },
+        {
+            "tag": "img-l",
+            "href": "https://densitydesign.github.io/teaching-dd14/es03/group09/",
+            "path": "hateshades_www.png"
+        }
+    ]
+]
