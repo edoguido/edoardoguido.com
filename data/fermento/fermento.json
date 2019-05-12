@@ -1,34 +1,39 @@
 [
-    {
-        "type": "mp4",
-        "bg": "#000"
-    },
-    [    {
-            "tag": "p",
-            "title": "fermento lipsum",
-            "content": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta totam perferendis, rerum cum, velit inventore nam vel maxime eius sunt doloremque maiores dolorem distinctio perspiciatis, nemo exercitationem aliquam&nbsp;ut&nbsp;voluptate."
+    [{
+            "tag": "h1",
+            "content": "Fermento"
         },
         {
+            "tag": "p",
+            "title": "About",
+            "content": "Fermento is a magazine manifesto which reflects on the Liquid Society we live in. It is a curated collection of case studies that embody our ideology in a low-budget printed magazine. Fermento has eight issues. The first one is Antifragile, i.e. the skill to gain substance from disorder and chaos. This concept sees its natural metaphor in succulent plants."
+        },
+        {
+            "tag": "p",
+            "content": "Each issue of the magazine has a unique sticker which carries unpublished material, viewable in the Augmented Reality app. The&nbsp;stickers are meant to be shared around the city: the contents can be accessed by everyone and visualized on an online&nbsp;map.<br>This is what we mean when we say “Fermento starts from you”."
+        },
+        {
+            "tag": "p",
+            "title": "Team",
+            "content": "Paula&nbsp;Ahn, Elena&nbsp;Filippi, Edoardo&nbsp;Guido, Sara&nbsp;Lavazza, Francesco&nbsp;Scagliarini, Ruggero&nbsp;Accardo."
+        }
+    ],
+    [{
             "tag": "img",
             "title": "fermento lipsum",
             "path": "mag.png"
         },
         {
-            "tag": "img",
-            "title": "fermento lipsum",
-            "path": "spread.png"
+            "tag": "video",
+            "path": "ar.mp4"
         },
         {
-            "tag": "img",
-            "title": "fermento lipsum",
-            "path": "sticker.png"
+            "tag": "video",
+            "path": "anim_cover.mp4"
         },
         {
-            "tag": "img",
-            "title": "fermento lipsum",
-            "path": "website.png",
-            "bgsize": "contain",
-            "style": "box-shadow: none;"
+            "tag": "embed",
+            "href": "<iframe src=\"https://player.vimeo.com/video/327262977\" frameborder=\"0\" allow=\"autoplay; fullscreen\" allowfullscreen></iframe>"
         }
     ]
 ]

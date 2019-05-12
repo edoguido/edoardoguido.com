@@ -1,10 +1,19 @@
 [
     {
+        "id": "hateshades",
+        "title": "Hate Shades",
+        "category": "DataViz / Web design / User Experience Design",
+        "date": "Oct–Feb 2018",
+        "cover": "data/hateshades/_cover.mp4",
+        "style": "background-color: black;"
+    },
+    {
         "id": "fermento",
         "title": "fermento",
         "category": "Editorial Design / User Experience Design",
         "date": "Feb–May 2018",
-        "cover": "data/fermento/_cover.svg",
+        "cover": "data/fermento/_cover.mp4",
+        "poster": "data/fermento/_cover.svg",
         "style": "background-color: black;"
     },
     {
@@ -12,20 +21,14 @@
         "title": "fiddol",
         "category": "Interaction Design",
         "date": "Feb–May 2018",
-        "cover": "data/fiddol/_cover.svg"
+        "cover": "data/fiddol/_cover.mp4",
+        "poster": "data/fiddol/_cover.svg"
     },
     {
-        "id": "cganimation",
-        "title": "computer animation",
+        "id": "maniac",
+        "title": "maniac",
         "category": "3D Animation",
         "date": "Feb–May 2017",
-        "cover": "data/cganimation/gas720.mov"
-    },
-    {
-        "id": "vimu",
-        "title": "VIMU",
-        "category": "Brand Identity / UX+UI Design",
-        "date": "Feb–May 2015",
-        "cover": "data/vimu/_cover.png"
+        "cover": "data/maniac/_hero.mp4"
     }
 ]
