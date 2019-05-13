@@ -39,6 +39,7 @@ function injectContent(content) {
                 </div>
             `;
         case 'h1':
+            document.title = `${content.content} by Edoardo Guido`;
             return `
                 <div class="prj-h1">
                     <h1>${content.content}</h1>
