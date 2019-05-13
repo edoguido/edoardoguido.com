@@ -19,7 +19,8 @@
             <div id="nav-els">
                 <a href=""><span class="nav-e">about</span></a>
                 <a href="index.html"><span class="nav-e">edoardo guido</span></a>
-                <a href="https://www.linkedin.com/in/edoardoguido/" target="_blank"><span class="nav-e">LinkedIn</span></a>
+                <a href="https://www.linkedin.com/in/edoardoguido/" target="_blank"><span
+                        class="nav-e">LinkedIn</span></a>
             </div>
         </div>
 
@@ -35,15 +36,28 @@
                     </div>
                 </a>
                 <script>
+                    const plus = document.getElementById("more-info");
+                    console.log(plus);
+
                     function fetchInfo() {
-                        fetch('info.json').then((response) => {
-                            return response.json();
-                        }).then((entries) => {
-                            entries.map((entry) => {
-                                console.log(entry.content);
-                                document.getElementById("hero").children[0].children[2].append(entry.content);
-                            }).join("");
-                        })
+                        plus.classList.add("hidden");
+
+                        setTimeout(() => {
+                            fetch('info.json').then((response) => {
+                                return response.json();
+
+                            }).then((entries) => {
+
+                                entries.map((entry) => {
+                                    document.getElementById("hero").children[0].children[2].append(entry.content);
+                                }).join("");
+
+                                setTimeout(() => {
+                                    plus.classList.remove("hidden");
+                                }, 500);
+
+                            })
+                        }, 500);
                     }
                 </script>
             </h1>

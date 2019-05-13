@@ -3,11 +3,19 @@
     cursor: pointer;
     background: none;
     padding: 0;
+    opacity: 1;
+
+    transition: opacity .5s;
 }
+#hero > h1 > a#more-info.hidden {
+    opacity: 0;
+    transition: opacity .25s;
+}
+
 #hero > h1 > a#more-info > .more-info-container {
     position: absolute;
     height: 100%;
-    width: 40px;
+    width: 60px;
 
     padding: 0;
 
@@ -17,12 +25,23 @@
     margin-top: 7px;
     align-items: center;
 
-    transition: transform .25s, padding .2s;
+    transition: transform .25s;
 }
 #hero > h1 > a#more-info:hover > .more-info-container {
-    transition: transform .25s, padding .2s;
-    transform: rotate(135deg);
+    transition: transform .25s;
+    transform: rotate(135deg) scale(1.35);
 }
+#hero > h1 > a#more-info:hover > .more-info-container > .btn-line {
+    height: 2px;
+    transition: transform .25s, height .2s;
+    transform: rotate(135deg) scale(1);
+}
+#hero > h1 > a#more-info:hover > .more-info-container > .btn-line:nth-child(2) {
+    height: 2px;
+    transition: transform .25s, height .2s;
+    transform: rotate(225deg) scale(1);
+}
+
 .btn-line {
     height: 3px;
     width: 20px;
