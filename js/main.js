@@ -19,7 +19,7 @@ function prjList(project) {
             <div class="prj">
                 <div class="prj-cover" background-repeat: no-repeat; background-position: 50% 50%; background-size: cover; ${project.style ? project.style : ''}">
                     <video loop muted autoplay playsinline>
-                        <source src="${project.cover}"/>
+                        <source src="${window.location.href+project.cover}"/>
                     </video>
                 </div>
                 <div class="prj-data">
