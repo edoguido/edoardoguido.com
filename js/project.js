@@ -3,6 +3,10 @@ const path = `data/${pid}`;
 
 document.addEventListener("DOMContentLoaded", () => {
 
+    // setTimeout(() => {
+    //     document.getElementById("wrapper").classList.add("show");
+    // }, 500);
+
     const file = `${path}/${pid}.json`;
 
     fetch(file).then((response) => {

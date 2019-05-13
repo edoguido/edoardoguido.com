@@ -1,5 +1,9 @@
 document.addEventListener("DOMContentLoaded", function() {
 
+    // setTimeout(() => {
+    //     document.getElementById("wrapper").classList.add("show");
+    // }, 500);
+
     fetch("prjs.json").then((response) => {
         return response.json();
     }).then((entries) => {
