@@ -14,12 +14,14 @@ document.addEventListener("DOMContentLoaded", function() {
 
 function prjList(project) {
     // console.log(project);
+    var loc = window.location.href;
+    var path = loc.substring(0, loc.lastIndexOf('/'));
     return `
         <a href="${project.href ? project.href : 'project.html?id=' + project.id }" target="${project.href ? '_blank' : ''}" class="prj-href">
             <div class="prj">
                 <div class="prj-cover" background-repeat: no-repeat; background-position: 50% 50%; background-size: cover; ${project.style ? project.style : ''}">
                     <video loop muted autoplay playsinline>
-                        <source src="${window.location.href+project.cover}"/>
+                        <source src="${path + project.cover}"/>
                     </video>
                 </div>
                 <div class="prj-data">
