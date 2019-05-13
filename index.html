@@ -17,9 +17,9 @@
 
         <div id="nav">
             <div id="nav-els">
-                <span class="nav-e">about</span>
-                <span class="nav-e">edoardo guido</span>
-                <span class="nav-e">contact</span>
+                <a href=""><span class="nav-e">about</span></a>
+                <a href="index.html"><span class="nav-e">edoardo guido</span></a>
+                <a href=""><span class="nav-e">contact</span></a>
             </div>
         </div>
 
@@ -28,6 +28,25 @@
                 <a href="https://github.com/drivinward" target="_blank">coding</a>,
                 <a href="https://github.com/drivinward/Kialo-Parser" target="_blank">python</a> and
                 <a href="https://densitydesign.github.io/teaching-dd14/es02/group09/" target="_blank">dataviz</a>
+                <a id="more-info" onclick="fetchInfo();">
+                    <div class="more-info-container">
+                        <div class="btn-line"></div>
+                        <div class="btn-line"></div>
+                    </div>
+                </a>
+                <script>
+                    function fetchInfo() {
+                        fetch('info.json').then((response) => {
+                            return response.json();
+                        }).then((entries) => {
+                            entries.map((entry) => {
+                                console.log(entry.content);
+                                document.getElementById("hero").children[0].children[2].append(entry
+                                    .content);
+                            }).join("");
+                        })
+                    }
+                </script>
             </h1>
         </div>
 
