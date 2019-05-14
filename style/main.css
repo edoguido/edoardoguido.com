@@ -61,19 +61,78 @@ a:visited {
 }
 #nav > #nav-els {
     height: var(--n-h);
-    
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
 
-    padding: calc(var(--s) / 4) var(--s);
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-items: center;
+    align-items: center;
+    z-index: 100;
+
+    padding: calc(var(--s) / 4) var(--s) 0 var(--s);
+}
+#nav > #nav-els > :nth-child(1) {
+    justify-self: self-start;
+}
+#nav > #nav-els > :nth-child(3) {
+    justify-self: self-end;
 }
 #nav > #nav-els > a {
     text-decoration: none;
 }
-#nav > #nav-els > * {
+#nav > #nav-els > #burger {
+    width: 24px;
+    height: 100%;
+
+    cursor: pointer;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+#nav > #nav-els > #burger > .patty {
+    width: 100%;
+    height: 2px;
+    display: block;
+    margin: 4px 0px;
+
+    background-color: white;
+
+    transition: transform .25s;
+}
+#nav > #nav-els > #burger.open > .patty {
+    transition: transform .25s;
+}
+#nav > #nav-els > #burger.open > .patty:nth-child(1) {
+    transform: rotate(-45deg) translate(-3.5px, 3.5px);
+}
+#nav > #nav-els > #burger.open > .patty:nth-child(2) {
+    transform: rotate(45deg) translate(-3.5px, -3.5px);
+}
+
+#nav > #nav-els > *,
+#nav > #sub-nav > * {
     color: white;
+}
+#nav > #sub-nav {
+    height: var(--n-h);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    pointer-events: none;
+    z-index: 90;
+    padding: 0 var(--s) calc(var(--s) / 4) var(--s);
+    
+    opacity: 0;
+    transform: translateY(-100%);
+    transition: transform .5s, opacity .25s;
+}
+#nav > #sub-nav.show {
+    pointer-events: all;
+
+    opacity: 1;
+    transform: translateY(0%);
+    transition: transform .5s, opacity .25s .15s;
 }
 
 #showcase {

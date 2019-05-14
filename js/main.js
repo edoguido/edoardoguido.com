@@ -15,6 +15,26 @@ document.addEventListener("DOMContentLoaded", function() {
     })
 })
 
+var nav = document.getElementById("nav");
+var contact = nav.children[0].children[2];
+
+// nav.addEventListener("mouseover", () => {
+//     nav.children[1].classList.add("show");
+// })
+// nav.addEventListener("mouseout", () => {
+//     nav.children[1].classList.remove("show");
+// })
+
+var burger = document.getElementById("burger");
+burger.addEventListener("click", () => {
+    if (!burger.classList.contains("open")) {
+        burger.classList.add("open")
+        nav.children[1].classList.add("show");
+    } else if (burger.classList.contains("open")) {
+        burger.classList.remove("open");
+        nav.children[1].classList.remove("show");
+    }
+})
 
 function prjList(project) {
     // const loc = window.location.href;
