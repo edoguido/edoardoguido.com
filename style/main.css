@@ -81,7 +81,8 @@ a:visited {
 }
 #nav > #nav-els > #burger {
     width: 24px;
-    height: 100%;
+    padding: calc(var(--s) / 4);
+    height: auto;
 
     cursor: pointer;
 
