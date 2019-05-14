@@ -4,8 +4,14 @@
         "title": "Hate Shades",
         "category": "DataViz / Web&nbsp;design / User&nbsp;Experience&nbsp;Design",
         "date": "Oct–Feb 2018",
-        "cover": "_cover_1.mp4",
-        "style": "background-color: black;"
+        "cover": "_cover_1.mp4"
+    },
+    {
+        "id": "trdi",
+        "title": "tracing_digits",
+        "category": "Infopoetry / DataViz",
+        "date": "Jan–Feb 2018",
+        "cover": "_cover_1.mp4"
     },
     {
         "id": "fermento",

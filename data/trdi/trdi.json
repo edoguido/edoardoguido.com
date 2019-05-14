@@ -1,0 +1,50 @@
+[
+    [
+        {
+            "tag": "h1",
+            "title": "",
+            "content": "tracing_digits"
+        },
+        {
+            "tag": "p",
+            "title": "About",
+            "content": "According to Facebook’s global creative director, Andrew Keller, the average person scrolls through 300 feet (90 meters) of mobile content every day."
+        },
+        {
+            "tag": "p",
+            "title": "",
+            "content": "But what exactly is ‘scrolling’? We could say it’s the way that people have to move from and to the many places of the World Wide Web. Machines instead see scrolling as an input to show us other content: for them it’s a sequence of zeroes and ones that’s being computed."
+        },
+        {
+            "tag": "p",
+            "title": "",
+            "content": "Lucio Fontana’s approach focused on the gesture rather than the output. Instead, this project focuses on making users aware of the trace left by the gesture on the display."
+        },
+        {
+            "tag": "p",
+            "title": "Team",
+            "content": "Edoardo&nbsp;Guido."
+        }
+    ],[
+        {
+            "tag": "img",
+            "title": "fermento lipsum",
+            "path": "trdi.mp4"
+        },
+        {
+            "tag": "img",
+            "title": "fermento lipsum",
+            "path": "trdi_1.jpg"
+        },
+        {
+            "tag": "img",
+            "title": "fermento lipsum",
+            "path": "trdi_2.jpg"
+        },
+        {
+            "tag": "img",
+            "title": "fermento lipsum",
+            "path": "trdi_3.jpg"
+        }
+    ]
+]
