@@ -171,13 +171,32 @@ a:visited {
     html, body {
         font-size: 1rem;
     }
+    .about-container {
+        max-width: 600px;
+    }
+    .about-container > .about-desc {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-gap: calc(var(--s) * 1.2);
+    }
+    .about-container > .about-desc > .about-resume {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
 }
 
-@media (max-width: 766px ) {
+@media (max-width: 766px) {
     :root {
         --s: 16px;
     }
     html, body {
         font-size: .95rem;
     }
+    .about-container > .about-title {
+        line-height: 1.25;
+    }
+    .about-container > .about-desc {
+        display: grid;
+        grid-template-columns: 1fr;
+    }    
 }
