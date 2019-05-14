@@ -45,7 +45,7 @@
                         </p>
                     </div>
                     <div class="profile-pic">
-                        <img src="me.jpg"/>
+                        <img src="small_edo.jpg"/>
                     </div>
                     <div class="about-resume">
                     </div>
@@ -61,51 +61,6 @@
                 <a href="https://densitydesign.github.io/teaching-dd14/es02/group09/" target="_blank">dataviz</a>.
             </span>
             </h1>
-
-            <!-- <a id="more-info" eg-fetched="false">
-                <div class="more-info-container">
-                    <div class="btn-line"></div>
-                    <div class="btn-line"></div>
-                </div>
-            </a>
-            <script>
-                const plus = document.getElementById("more-info");
-                
-                plus.addEventListener("click", () => {
-                    var attr = plus.getAttribute("eg-fetched");
-                    if (attr == "false") {
-                        fetchInfo();
-                        plus.setAttribute("eg-fetched", "true");
-                    } else if (attr == "true") {
-                        // function to write:
-                        // closeInfo();
-                        console.log("closing info...");
-                    }
-                })
-
-                function fetchInfo() {
-                    plus.classList.add("hidden");
-
-                    setTimeout(() => {
-                        fetch('info.json').then((response) => {
-                            return response.json();
-
-                        }).then((entries) => {
-                            
-                            entries.map((entry) => {
-                                const el = document.createElement("span");
-                                el.innerHTML = '<br>' + entry.body;
-                                document.getElementById("hero").children[0].appendChild(el);
-                            }).join("");
-
-                            setTimeout(() => {
-                                plus.classList.remove("hidden");
-                            }, 500);
-
-                        })
-                    }, 500);
-                }
-            </script> -->
         </div>
 
         <div id="showcase">
