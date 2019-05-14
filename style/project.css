@@ -30,10 +30,6 @@
     margin: 0;
 }
 
-#showcase {
-    margin: calc(var(--n-h) + var(--s)) auto calc(var(--s) * 2) auto;
-}
-
 #showcase .prj-img {
     height: 640px;
     max-width: var(--mw);

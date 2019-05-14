@@ -17,50 +17,95 @@
 
         <div id="nav">
             <div id="nav-els">
-                <a href=""><span class="nav-e">about</span></a>
+                <span class="nav-e" id="about-btn">about</span>
                 <a href="index.html"><span class="nav-e">edoardo guido</span></a>
-                <a href="https://www.linkedin.com/in/edoardoguido/" target="_blank"><span
-                        class="nav-e">LinkedIn</span></a>
+                <a href="https://www.linkedin.com/in/edoardoguido/" target="_blank"><span class="nav-e">LinkedIn</span></a>
+            </div>
+        </div>
+
+        <div id="about" class="">
+            <div class="about-container">
+                <div class="about-title">
+                    Who am I, anyways?
+                </div>
+                <div class="about-desc">
+                    <div class="about-text">
+                        <p>
+                            Some people call me Edo, some others Edoguido. Fact is, I was Born in Monza, Lombardy, in 1993.
+                            During my high school studies I discovered UI and UX Design, therefore I decided to attend the Communication Design course in Politecnico di Milano, where I already got a Bachelor Degree and am currently finishing my Master&nbsp;of&nbsp;Arts.
+                        </p>
+                        <p>
+                           I find particular pleasure in designing and coding experiences for users, specially by thinking with motion, which I consider an important and meaningful tool.
+                        </p>
+                        <p>
+                           I also am a deep geek: messing around is my specialty, also with Python (I wrote a simple and hopefully useful tool, too) and Raspberry Pi.
+                        </p>
+                        <p>
+                            Last but not least: I am a productivity and shortcut maniac.
+                        </p>
+                    </div>
+                    <div class="profile-pic">
+                        <img src="me.jpg"/>
+                    </div>
+                    <div class="about-resume">
+                    </div>
+                </div>
             </div>
         </div>
 
         <div id="hero">
-            <h1>I'm a communication designer focused on UX who also loves
+            <h1>I'm a communication&nbsp;designer focused&nbsp;on&nbsp;UX <br>
+                <span>who also loves
                 <a href="https://github.com/drivinward" target="_blank">coding</a>,
                 <a href="https://github.com/drivinward/Kialo-Parser" target="_blank">python</a> and
-                <a href="https://densitydesign.github.io/teaching-dd14/es02/group09/" target="_blank">dataviz</a>
-                <a id="more-info" onclick="fetchInfo();">
-                    <div class="more-info-container">
-                        <div class="btn-line"></div>
-                        <div class="btn-line"></div>
-                    </div>
-                </a>
-                <script>
-                    const plus = document.getElementById("more-info");
-                    console.log(plus);
-
-                    function fetchInfo() {
-                        plus.classList.add("hidden");
-
-                        setTimeout(() => {
-                            fetch('info.json').then((response) => {
-                                return response.json();
-
-                            }).then((entries) => {
-
-                                entries.map((entry) => {
-                                    document.getElementById("hero").children[0].children[2].append(entry.content);
-                                }).join("");
-
-                                setTimeout(() => {
-                                    plus.classList.remove("hidden");
-                                }, 500);
-
-                            })
-                        }, 500);
-                    }
-                </script>
+                <a href="https://densitydesign.github.io/teaching-dd14/es02/group09/" target="_blank">dataviz</a>.
+            </span>
             </h1>
+
+            <!-- <a id="more-info" eg-fetched="false">
+                <div class="more-info-container">
+                    <div class="btn-line"></div>
+                    <div class="btn-line"></div>
+                </div>
+            </a>
+            <script>
+                const plus = document.getElementById("more-info");
+                
+                plus.addEventListener("click", () => {
+                    var attr = plus.getAttribute("eg-fetched");
+                    if (attr == "false") {
+                        fetchInfo();
+                        plus.setAttribute("eg-fetched", "true");
+                    } else if (attr == "true") {
+                        // function to write:
+                        // closeInfo();
+                        console.log("closing info...");
+                    }
+                })
+
+                function fetchInfo() {
+                    plus.classList.add("hidden");
+
+                    setTimeout(() => {
+                        fetch('info.json').then((response) => {
+                            return response.json();
+
+                        }).then((entries) => {
+                            
+                            entries.map((entry) => {
+                                const el = document.createElement("span");
+                                el.innerHTML = '<br>' + entry.body;
+                                document.getElementById("hero").children[0].appendChild(el);
+                            }).join("");
+
+                            setTimeout(() => {
+                                plus.classList.remove("hidden");
+                            }, 500);
+
+                        })
+                    }, 500);
+                }
+            </script> -->
         </div>
 
         <div id="showcase">
@@ -70,7 +115,8 @@
     </div>
 
     <script src="js/main.js"></script>
-    <script src="js/scroll.js"></script>
+    <script src="js/about.js"></script>
+    <!-- <script src="js/scroll.js"></script> -->
 
 </body>
 

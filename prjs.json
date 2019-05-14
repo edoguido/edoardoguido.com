@@ -2,7 +2,7 @@
     {
         "id": "hateshades",
         "title": "Hate Shades",
-        "category": "DataViz / Web design / User Experience Design",
+        "category": "DataViz / Web&nbsp;design / User&nbsp;Experience&nbsp;Design",
         "date": "Oct–Feb 2018",
         "cover": "_cover_1.mp4",
         "style": "background-color: black;"
@@ -10,7 +10,7 @@
     {
         "id": "fermento",
         "title": "fermento",
-        "category": "Editorial Design / User Experience Design",
+        "category": "Editorial&nbsp;Design / User&nbsp;Experience&nbsp;Design",
         "date": "Feb–May 2018",
         "cover": "_cover_1.mp4",
         "style": "background-color: black;"
@@ -18,14 +18,14 @@
     {
         "id": "fiddol",
         "title": "fiddol",
-        "category": "Interaction Design",
+        "category": "Interaction&nbsp;Design",
         "date": "Feb–May 2018",
         "cover": "_cover_1.mp4"
     },
     {
         "id": "maniac",
         "title": "maniac",
-        "category": "3D Animation",
+        "category": "3D&nbsp;Animation",
         "cover": "_cover_1.mp4",
         "date": "Feb–May 2017"
     }

@@ -1,42 +1,92 @@
-#hero > h1 > a#more-info {
+#hero {
+    max-width: 100%;
+    height: 65vh;
+    margin-top: calc(var(--n-h) + var(--s));
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    transition: height .5s;
+}
+
+#hero > h1 {
+    text-align: center;
+    margin: 0 auto;
+    max-width: 840px;
+    padding: 0 var(--s);
+    line-height: 1.5;
+
+    white-space: nowrap;
+}
+
+h1 > span > a {
+    color: var(--c-1);
+    transition: background-size .2s, color .4s, padding .2s;
+
+    padding: 0 calc(var(--s) / 4) calc(var(--s) / 6) calc(var(--s) / 4);
+
+    background: 
+        linear-gradient(to bottom, var(--c-1) 0%, var(--c-1) 100%), 
+        -webkit-linear-gradient(var(--c-1), var(--c-1a));
+
+    background-position: 0% 100%;
+    background-repeat: no-repeat;
+    background-size: 100% 2px;
+    transition: background-size .2s, color .2s, padding .2s;
+}
+h1 > span > a:hover {
+    color: var(--c-b);
+
+    background-size: 100% 100%;
+    padding: 0 calc(var(--s) / 2) calc(var(--s) / 6) calc(var(--s) / 2);
+
+    transition: background-size .2s, color .4s, padding .2s;
+}
+
+#hero > a#more-info {
     position: relative;
+    padding: 0;
+    height: 50px;
+    
+    display: flex;
+    
     cursor: pointer;
     background: none;
-    padding: 0;
-    opacity: 1;
 
+    opacity: 1;
     transition: opacity .5s;
 }
-#hero > h1 > a#more-info.hidden {
+#hero > a#more-info.hidden {
     opacity: 0;
     transition: opacity .25s;
 }
-
-#hero > h1 > a#more-info > .more-info-container {
-    position: absolute;
+#hero > a#more-info > .more-info-container {
+    position: relative;
+    display: block;
     height: 100%;
     width: 60px;
 
     padding: 0;
 
-    display: inline-flex;
+    display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    margin-top: 7px;
     align-items: center;
 
     transition: transform .25s;
 }
-#hero > h1 > a#more-info:hover > .more-info-container {
+#hero > a#more-info:hover > .more-info-container {
     transition: transform .25s;
     transform: rotate(135deg) scale(1.35);
 }
-#hero > h1 > a#more-info:hover > .more-info-container > .btn-line {
+#hero > a#more-info:hover > .more-info-container > .btn-line {
     height: 2px;
     transition: transform .25s, height .2s;
     transform: rotate(135deg) scale(1);
 }
-#hero > h1 > a#more-info:hover > .more-info-container > .btn-line:nth-child(2) {
+#hero > a#more-info:hover > .more-info-container > .btn-line:nth-child(2) {
     height: 2px;
     transition: transform .25s, height .2s;
     transform: rotate(225deg) scale(1);
@@ -75,7 +125,7 @@
     
     box-shadow: var(--sha);
     
-    transition: transform .5s, box-shadow .5s, height .5s;
+    transition: transform .5s, box-shadow .5s;
 }
 .prj.focus > .prj-cover {
     box-shadow: 
@@ -85,7 +135,7 @@
     transform: scale3D(1.02, 1.02, 1) translate3D(0, -10px, 0);
     /* height: 520px; */
 
-    transition: transform .5s, box-shadow .5s, height .5s;
+    transition: transform .5s, box-shadow .5s;
 }
 
 .prj > .prj-cover > video {
@@ -124,4 +174,57 @@
     font-size: 1rem;
     font-weight: 400;
     text-transform: capitalize;
+}
+
+
+@media (min-width: 767px) and (max-width: 1090px) {
+    #hero > h1 {
+        padding: 0 calc(var(--s) * 2);
+    }
+    .prj-href > .prj > .prj-cover {
+        display: flex;
+        justify-content: center;
+        align-content: center;
+        
+        height: 45vw;
+        width: 100%;
+    }
+    .prj-href > .prj > .prj-cover > video {
+        object-fit: cover;
+    }
+}
+
+@media (max-width: 766px) {
+    #hero {
+        height: 60vh;
+    }
+    #hero > h1 {
+        white-space: initial;
+    }
+
+    .prj-href > .prj > .prj-cover {
+        display: flex;
+        justify-content: center;
+        align-content: center;
+        
+        height: 70vw;
+        width: 100%;
+    }
+
+    .prj-href > .prj > .prj-cover > video {
+        object-fit: cover;
+    }
+
+    .prj > .prj-data {
+        padding: calc(var(--s) / 3) 0 0 0;
+    }
+    .prj > .prj-data > :nth-child(1) {
+        display: none;
+    }
+}
+
+@media (max-width: 380px) {
+    #hero > h1 {
+        font-size: 1.7rem;
+    }
 }

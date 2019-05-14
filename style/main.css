@@ -20,6 +20,7 @@ body {
     color: var(--c-1);
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-size: 1.15rem;
+    line-height: 1.5;
 }
 
 h1 {
@@ -75,51 +76,108 @@ a:visited {
     color: white;
 }
 
-#hero {
-    max-width: 100%;
-    height: 520px;
-
-    margin: 0;
-
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
-    transition: height .5s;
-}
-#hero > h1 {
-    text-align: center;
-    max-width: 840px;
-    padding: var(--s);
-}
-
-h1 > a {
-    color: var(--c-1);
-    transition: background-size .2s, color .4s, padding .2s;
-
-    padding: 0 calc(var(--s) / 4) calc(var(--s) / 6) calc(var(--s) / 4);
-
-    background: 
-        linear-gradient(to bottom, var(--c-1) 0%, var(--c-1) 100%), 
-        -webkit-linear-gradient(var(--c-1), var(--c-1a));
-
-    background-position: 0% 100%;
-    background-repeat: no-repeat;
-    background-size: 100% 2px;
-    transition: background-size .2s, color .2s, padding .2s;
-}
-h1 > a:hover {
-    color: var(--c-b);
-
-    background-size: 100% 100%;
-    padding: 0 calc(var(--s) / 2) calc(var(--s) / 6) calc(var(--s) / 2);
-
-    transition: background-size .2s, color .4s, padding .2s;
-}
-
 #showcase {
-    margin: 0 auto;
+    margin: calc(var(--n-h) + var(--s)) auto calc(var(--s) * 2) auto;
     padding: 0 var(--s) calc(var(--s) * 2) var(--s);
 
     max-width: var(--mw);
+}
+
+#about-btn {
+    cursor: pointer;
+}
+
+#about {
+    height: 100%;
+    opacity: 0;
+    background-color: var(--c-b);
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 500;
+    overflow: hidden;
+
+    pointer-events: none;
+    
+    transition: height .5s, transform .5s, opacity .25s;
+    transform: translateY(-50%);
+}
+#about.open {
+    height: 100%;
+    opacity: 1;
+    
+    overflow-y: auto;
+
+    pointer-events: all;
+    
+    transition: height .5s, transform .5s, opacity .35s;
+    transform: translateY(0%);
+}
+
+.about-container {
+    color: var(--c-1);
+    transition: opacity .25s;
+
+    margin: 0 auto;
+    padding: calc(var(--s) * 2);
+    max-width: var(--mw);
+
+    font-size: 1.035rem;
+    line-height: 1.75;
+}
+
+.about-container > .about-title {
+    width: 100%;
+    display: block;
+    font-size: 3em;
+    padding: calc(var(--s) * 2) 0;
+}
+
+.about-container > .about-desc {
+    display: grid;
+    grid-template-columns: 1fr 1fr .85fr;
+    grid-gap: calc(var(--s) * 1.2);
+}
+
+.about-container > .about-desc > .profile-pic {
+    height: auto;
+
+    justify-self: center;
+}
+.about-container > .about-desc > .profile-pic > img {
+    max-width: 100%;
+
+    margin: 0 auto;
+}
+
+.about-container > .about-desc > .about-text,
+.about-container > .about-desc > .about-resume {
+    position: relative;
+    padding: 0;
+}
+
+.about-container > .about-desc > .about-text > p {
+    margin: 0 0 calc(var(--s) / 2) 0;
+}
+
+.about-container > .about-desc > .about-resume > .about-resume-entry {
+    margin-bottom: var(--s);
+}
+
+@media (min-width: 767px) and (max-width: 1090px) {
+    :root {
+        --mw: 100%;
+    }
+    html, body {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 766px ) {
+    :root {
+        --s: 16px;
+    }
+    html, body {
+        font-size: .95rem;
+    }
 }
