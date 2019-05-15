@@ -33,7 +33,7 @@ h1 > span > a {
 
     background-position: 0% 100%;
     background-repeat: no-repeat;
-    background-size: 100% 2px;
+    background-size: 100% 1.5px;
     transition: background-size .2s, color .2s, padding .2s;
 }
 h1 > span > a:hover {
