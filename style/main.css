@@ -18,7 +18,7 @@
     --c-b: #C9C9C9;
 
     --mw: 1020px;
-    --sha: 0px 10px 20px rgba(0, 0, 0, 0.1), 0px 02px 06px rgba(0, 0, 0, 0.135);
+    --sha: 1px 1px 24px #0000001a, 0px 02px 06px #00000022;
 }
 
 html, body {
