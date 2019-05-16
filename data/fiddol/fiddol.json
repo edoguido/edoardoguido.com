@@ -23,19 +23,20 @@
                 "path": "_cover.mp4"
             },
             {
-                "tag": "img",
+                "tag": "video",
                 "path": "user_app.mp4"
             },
             {
-                "tag": "img",
+                "tag": "video",
                 "path": "user_casa.mp4"
             },
             {
                 "tag": "img-tight",
-                "path1": "valle.png",
-                "path2": "fatina_2.mp4",
-                "path3": "personaggi.png"
-
+                "paths": [
+                    "valle.png",
+                    "fatina_2.mp4",
+                    "personaggi.png"
+                ]
             },
             {
                 "tag": "embed",
@@ -46,7 +47,7 @@
                 "path": "bimba.png"
             },
             {
-                "tag": "img",
+                "tag": "video",
                 "path": "fiddol_scuola.mp4"
             }    
     ]

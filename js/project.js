@@ -63,12 +63,20 @@ function injectContent(content) {
         case 'img-tight':
             return `
                 <div class="prj-img-tight-container">
-                    <img class="prj-img-tight" src="${path}/${content.path1}" ${content.style ? content.style : ""}">
-                    </img>
-                    <img class="prj-img-tight" src="${path}/${content.path2}" ${content.style ? content.style : ""}">
-                    </img>
-                    <img class="prj-img-tight" src="${path}/${content.path3}" ${content.style ? content.style : ""}">
-                    </img>
+                    ${content.paths.map(content => {
+                        const type = content.split('.').pop();
+                        console.log(type);
+
+                        switch (type) {
+                            case 'png':
+                                return `<img class="prj-img-tight" src="${path}/${content}"></img>`;
+                            case 'mp4':
+                                return `<video loop muted playsinline autoplay class="prj-img-tight">
+                                            <source src="${path}/${content}"/>
+                                        </video>
+                            `;
+                        }
+                    }).join("")}
                 </div>
             `;
         case 'video':

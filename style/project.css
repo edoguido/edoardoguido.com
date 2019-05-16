@@ -70,6 +70,12 @@
     box-shadow: var(--sha);
 }
 
+#showcase > .prj-img-tight-container > video.prj-img-tight {
+    background-color: transparent;
+    width: 100%;
+    box-shadow: var(--sha);
+}
+
 #showcase > .prj-vid {
     overflow: hidden;
     margin: var(--s) auto;
