@@ -18,13 +18,6 @@ document.addEventListener("DOMContentLoaded", function() {
 var nav = document.getElementById("nav");
 var contact = nav.children[0].children[2];
 
-// nav.addEventListener("mouseover", () => {
-//     nav.children[1].classList.add("show");
-// })
-// nav.addEventListener("mouseout", () => {
-//     nav.children[1].classList.remove("show");
-// })
-
 var burger = document.getElementById("burger");
 burger.addEventListener("click", () => {
     if (!burger.classList.contains("open")) {
@@ -39,7 +32,7 @@ burger.addEventListener("click", () => {
 function prjList(project) {
     // const loc = window.location.href;
     // const path = loc.substring(0, loc.lastIndexOf('/'));
-    const path = `data/${project.id}`;
+    // const path = `data/${project.id}`;
 
     return `
         <a href="${project.href ? project.href : 'project.html?id=' + project.id }" target="${project.href ? '_blank' : ''}" class="prj-href">
