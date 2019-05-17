@@ -1,4 +1,4 @@
-
-script/.DS_Store
-data/computeranimation/.DS_Store
-.DS_Store
+# ignore .DS_Store file
+*.DS_Store
+*/.DS_Store
+*/*/.DS_Store
