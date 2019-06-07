@@ -21,6 +21,19 @@
     white-space: nowrap;
 }
 
+#hero > p {
+    text-align: center;
+    padding: var(--s) calc(var(--s) * 2);
+
+    opacity: 0;
+    transition: opacity .35s;
+}
+
+#hero > p.loaded {
+    opacity: 1;
+    transition: opacity .35s;
+}
+
 h1 > span > a {
     color: var(--c-1);
     transition: background-size .2s, color .4s, padding .2s;
@@ -41,6 +54,30 @@ h1 > span > a:hover {
 
     background-size: 100% 100%;
     padding: 0 calc(var(--s) / 2) calc(var(--s) / 6) calc(var(--s) / 2);
+
+    transition: background-size .2s, color .4s, padding .2s;
+}
+
+#hero > p a {
+    color: var(--c-1);
+    transition: background-size .2s, color .4s, padding .2s;
+
+    padding: calc(var(--s) / 10) calc(var(--s) / 6) calc(var(--s) / 8) calc(var(--s) / 6);
+
+    background: 
+        linear-gradient(to bottom, var(--c-1) 0%, var(--c-1) 100%), 
+        -webkit-linear-gradient(var(--c-1), var(--c-1a));
+
+    background-position: 0% 100%;
+    background-repeat: no-repeat;
+    background-size: 100% 1px;
+    transition: background-size .2s, color .2s, padding .2s;
+}
+#hero > p a:hover {
+    color: var(--c-b);
+
+    background-size: 100% 100%;
+    padding: calc(var(--s) / 10) calc(var(--s) / 4) calc(var(--s) / 6) calc(var(--s) / 4);
 
     transition: background-size .2s, color .4s, padding .2s;
 }
@@ -179,7 +216,7 @@ h1 > span > a:hover {
 
 @media (min-width: 767px) and (max-width: 1090px) {
     #hero > h1 {
-        padding: 0 calc(var(--s) * 2);
+        padding: auto;
     }
     .prj-href > .prj > .prj-cover {
         display: flex;
