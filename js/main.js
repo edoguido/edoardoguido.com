@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     })
 
-    const lfmUrl = "http://ws.audioscrobbler.com/2.0/?method=user.gettoptracks&user=drivinward&period=7day&limit=10&api_key=db7d0310d7432eceb3ecd5589f20df0f&format=json";
+    const lfmUrl = "https://ws.audioscrobbler.com/2.0/?method=user.gettoptracks&user=drivinward&period=7day&limit=10&api_key=db7d0310d7432eceb3ecd5589f20df0f&format=json";
     fetch(lfmUrl).then((response) => {
         return response.json();
     }).then((entries) => {
