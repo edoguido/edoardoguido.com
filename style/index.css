@@ -26,12 +26,14 @@
     padding: var(--s) calc(var(--s) * 2);
 
     opacity: 0;
-    transition: opacity .35s;
+    transform: translateY(20px);
+    transition: opacity .4s cubic-bezier(0.455, 0.03, 0.515, 0.955), transform .4s cubic-bezier(0.455, 0.03, 0.515, 0.955);
 }
 
 #hero > p.loaded {
     opacity: 1;
-    transition: opacity .35s;
+    transform: translateY(0px);
+    transition: opacity .4s cubic-bezier(0.455, 0.03, 0.515, 0.955), transform .4s cubic-bezier(0.455, 0.03, 0.515, 0.955);
 }
 
 h1 > span > a {
