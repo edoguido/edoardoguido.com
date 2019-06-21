@@ -16,7 +16,17 @@
             {
                 "tag": "p",
                 "content": "A proof of concept prototype was created using Raspberry Pi Zero, Python and Pure&nbsp;Data. The real scale demonstrative prototype was 3D printed."
-            }
+            },
+            {
+                "tag": "p",
+                "title": "My contribution",
+                "content": "Field User Research — brand and object concept — UX/UI Design of mobile app — mobile app interactive prototype — development of proof of concept."
+            },
+            {
+                "tag": "p",
+                "title": "Team",
+                "content": "Giulia&nbsp;Cortinovis, Alessandro&nbsp;Ferrari, Elena&nbsp;Filippi, Edoardo&nbsp;Guido, Arianna&nbsp;Meroni."
+            }    
     ],[
             {
                 "tag": "video",

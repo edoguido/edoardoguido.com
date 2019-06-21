@@ -167,7 +167,7 @@ p {
 }
 
 #showcase {
-    margin: calc(var(--n-h) + var(--s)) auto calc(var(--s) * 2) auto;
+    margin: 0 auto calc(var(--s) * 2) auto;
     padding: 0 var(--s) calc(var(--s) * 2) var(--s);
 
     max-width: var(--mw);

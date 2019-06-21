@@ -18,12 +18,17 @@
         {
             "tag": "p",
             "title": "",
-            "content": "While Lucio Fontana’s approach focused on the gesture rather than the output, this project focuses on making users aware of the trace left by the&nbsp;gesture on&NBSP;the&NBSP;display."
+            "content": "While Lucio Fontana’s approach focused on the gesture rather than the output, this project focuses on making users aware of the trace left by the&nbsp;gesture on&nbsp;the&nbsp;display."
+        },
+        {
+            "tag": "p",
+            "title": "What I did",
+            "content": "Interfacing ESC/POS thermal printer with Python and Raspberry Pi — P5 sketch development — HTTP server development (python+flask) — wooden box crafting :-P"
         },
         {
             "tag": "p",
             "title": "Team",
-            "content": "Edoardo&nbsp;Guido."
+            "content": "Personal project."
         }
     ],[
         {

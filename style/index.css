@@ -1,6 +1,6 @@
 #hero {
     max-width: 100%;
-    height: 65vh;
+    height: 75vh;
     margin-top: calc(var(--n-h) + var(--s));
 
     display: flex;

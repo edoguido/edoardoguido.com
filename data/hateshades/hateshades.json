@@ -14,6 +14,11 @@
         },
         {
             "tag": "p",
+            "title": "My role",
+            "content": "Researching and cleaning the data — making (some) data visualizations — developing the custom script used in some visualizations — designing the interface, coding and developing the websites."
+        },
+        {
+            "tag": "p",
             "title": "Team",
             "content": "Francesca&nbsp;Brotto, Nicola&nbsp;Brignoli, Lea&nbsp;Fabiano, Elena&nbsp;Filippi, Edoardo&nbsp;Guido, Jacopo&nbsp;Poletto."
         }

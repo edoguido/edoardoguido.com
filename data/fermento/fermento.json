@@ -14,6 +14,11 @@
         },
         {
             "tag": "p",
+            "title": "My role",
+            "content": "Content research — magazine cover — augmented reality app development (Unity+Vuforia) — website development — mobile app prototype."
+        },
+        {
+            "tag": "p",
             "title": "Team",
             "content": "Paula&nbsp;Ahn, Elena&nbsp;Filippi, Edoardo&nbsp;Guido, Sara&nbsp;Lavazza, Francesco&nbsp;Scagliarini, Ruggero&nbsp;Accardo."
         }
