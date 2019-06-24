@@ -20,6 +20,35 @@ document.addEventListener("DOMContentLoaded", () => {
 
     }).catch((err) => console.error(err))
 
+    fetch('prjs.json').then((response) => {
+        return response.json();
+
+    }).then((entries) => entries.map((entry, index, entries) => {
+        if (entry.id == pid) {
+
+            const adjacent = [
+                entries[index - 1 >= 0 ? index - 1 : undefined],
+                entries[index + 1 < entries.length ? index + 1 : undefined]
+            ]
+
+            document.getElementById("others").innerHTML = adjacent.map((proj, index) => {
+                
+                if (proj == undefined) {
+                    return `<div class="project-link"></div>`;
+                } else {
+                    
+                    if (index == 0) {
+                        return `<a href="project.html?id=${proj.id}"><div class="project-link">Previous project<br>${proj.title}</div></a>`;
+                    } else if (index == 1) {
+                        return `<a href="project.html?id=${proj.id}"><div class="project-link">Next project<br>${proj.title}</div></a>`;
+                    }
+                }
+            }).join("");
+
+        }
+
+    }))
+
 })
 
 function injectContent(content) {
@@ -64,19 +93,18 @@ function injectContent(content) {
             return `
                 <div class="prj-img-tight-container">
                     ${content.paths.map(content => {
-                        const type = content.split('.').pop();
-                        console.log(type);
+                const type = content.split('.').pop();
 
-                        switch (type) {
-                            case 'png':
-                                return `<img class="prj-img-tight" src="${path}/${content}"></img>`;
-                            case 'mp4':
-                                return `<video loop muted playsinline autoplay class="prj-img-tight">
+                switch (type) {
+                    case 'png':
+                        return `<img class="prj-img-tight" src="${path}/${content}"></img>`;
+                    case 'mp4':
+                        return `<video loop muted playsinline autoplay class="prj-img-tight">
                                             <source src="${path}/${content}"/>
                                         </video>
                             `;
-                        }
-                    }).join("")}
+                }
+            }).join("")}
                 </div>
             `;
         case 'video':

@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
 
     // setTimeout(() => {
     //     document.getElementById("wrapper").classList.add("show");
@@ -36,10 +36,10 @@ function prjList(project) {
     // const path = `data/${project.id}`;
 
     return `
-        <a href="${project.href ? project.href : 'project.html?id=' + project.id }" target="${project.href ? '_blank' : ''}" class="prj-href">
+        <a href="${project.href ? project.href : 'project.html?id=' + project.id}" target="${project.href ? '_blank' : ''}" class="prj-href">
             <div class="prj">
                 <div class="prj-cover" background-repeat: no-repeat; background-position: 50% 50%; background-size: cover; ${project.style ? project.style : ''}">
-                    <video loop muted autoplay playsinline>
+                    <video loop muted playsinline>
                         <source src="cover_${project.id}.mp4"/>
                     </video>
                 </div>
@@ -54,21 +54,35 @@ function prjList(project) {
 }
 
 function initListeners() {
-    var prjs = document.querySelectorAll(".prj-cover");    
+    const prjs = document.querySelectorAll(".prj-cover");
 
     prjs.forEach((prj) => {
 
-        prj.addEventListener("mouseover", function() {
+        prj.addEventListener("mouseover", function () {
 
             this.parentElement.classList.add("focus");
-            
+
         }, false)
-        
-        prj.addEventListener("mouseout", function() {
-            
+
+        prj.addEventListener("mouseout", function () {
+
             this.parentElement.classList.remove("focus");
-            
+
         }, false)
+
+    })
+
+    window.addEventListener("scroll", () => {
+        const videos = document.querySelectorAll("video");
+
+        videos.forEach((video) => {
+            
+            const el = window.location.pathname == 'index.html' ? video.parentElement.parentElement : video;
+
+            if (el.offsetTop < window.pageYOffset + window.innerHeight && el.offsetTop + video.offsetHeight > window.pageYOffset) {
+                video.play();
+            } else video.pause();
+        });
 
     })
 }
