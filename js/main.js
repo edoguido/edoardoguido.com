@@ -76,7 +76,7 @@ function initListeners() {
         const videos = document.querySelectorAll("video");
 
         videos.forEach((video) => {
-            
+
             const el = window.location.pathname == 'index.html' ? video.parentElement.parentElement : video;
 
             if (el.offsetTop < window.pageYOffset + window.innerHeight && el.offsetTop + video.offsetHeight > window.pageYOffset) {

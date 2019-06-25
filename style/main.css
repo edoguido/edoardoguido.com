@@ -69,13 +69,6 @@ p {
 #wrapper {
     width: 100%;
     height: auto;
-    
-    opacity: 0;
-    transition: opacity .5s;
-}
-#wrapper.show {
-    opacity: 1;
-    transition: opacity .5s;
 }
 
 #nav {
