@@ -68,16 +68,12 @@ function initListeners() {
     })
 
     const videos = document.querySelectorAll("video");
-    console.log(videos);
     
     document.addEventListener("scroll", () => {
 
         videos.forEach((video, i) => {
 
             const el = video.parentElement.parentElement;
-
-            console.log(video);
-            
 
             if (el.offsetTop < window.pageYOffset + window.innerHeight
                 && el.offsetTop + el.offsetHeight > window.pageYOffset) {
@@ -86,7 +82,6 @@ function initListeners() {
             } else {
                 if (!video.paused) {
                     video.pause()
-                    console.log(`video ${i} paused`);
                 } else return;
             };
 
