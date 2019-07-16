@@ -3,10 +3,6 @@ const path = `data/${pid}`;
 
 document.addEventListener("DOMContentLoaded", () => {
 
-    // setTimeout(() => {
-    //     document.getElementById("wrapper").classList.add("show");
-    // }, 500);
-
     const file = `${path}/${pid}.json`;
 
     fetch(file).then((response) => {
@@ -24,6 +20,7 @@ document.addEventListener("DOMContentLoaded", () => {
         return response.json();
 
     }).then((entries) => entries.map((entry, index, entries) => {
+
         if (entry.id == pid) {
 
             const adjacent = [
@@ -47,7 +44,34 @@ document.addEventListener("DOMContentLoaded", () => {
 
         }
 
-    }))
+    })).then(() => {
+
+        // const videos = document.querySelectorAll("video");
+        // console.log(videos);
+        
+        // document.addEventListener("scroll", () => {
+    
+        //     videos.forEach((video, i) => {
+    
+        //         const el = video;
+        //         console.log(video);
+    
+        //         if (el.offsetTop < window.pageYOffset + window.innerHeight
+        //             && el.offsetTop + el.offsetHeight > window.pageYOffset) {
+        //             video.play();
+    
+        //         } else {
+        //             if (!video.paused) {
+        //                 video.pause()
+        //                 console.log(`video ${i} paused`);
+        //             } else return;
+        //         };
+    
+        //     });
+    
+        // })
+        
+    })
 
 })
 

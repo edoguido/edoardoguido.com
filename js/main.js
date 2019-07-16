@@ -1,9 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
 
-    // setTimeout(() => {
-    //     document.getElementById("wrapper").classList.add("show");
-    // }, 500);
-
     fetch("prjs.json").then((response) => {
         return response.json();
     }).then((entries) => {
@@ -16,18 +12,21 @@ document.addEventListener("DOMContentLoaded", function () {
 
 })
 
-var nav = document.getElementById("nav");
-var contact = nav.children[0].children[2];
+const nav = document.getElementById("nav");
+const contact = nav.children[0].children[2];
+const burger = document.getElementById("burger");
 
-var burger = document.getElementById("burger");
 burger.addEventListener("click", () => {
+
     if (!burger.classList.contains("open")) {
         burger.classList.add("open")
         nav.children[1].classList.add("show");
+
     } else if (burger.classList.contains("open")) {
         burger.classList.remove("open");
         nav.children[1].classList.remove("show");
     }
+
 })
 
 function prjList(project) {
@@ -50,39 +49,49 @@ function prjList(project) {
                 </div>
             </div>
         </a>
-`;
+    `;
 }
 
 function initListeners() {
-    const prjs = document.querySelectorAll(".prj-cover");
 
+    const prjs = document.querySelectorAll(".prj-cover");
     prjs.forEach((prj) => {
 
         prj.addEventListener("mouseover", function () {
-
             this.parentElement.classList.add("focus");
-
         }, false)
 
         prj.addEventListener("mouseout", function () {
-
             this.parentElement.classList.remove("focus");
-
         }, false)
 
     })
 
-    window.addEventListener("scroll", () => {
-        const videos = document.querySelectorAll("video");
+    const videos = document.querySelectorAll("video");
+    console.log(videos);
+    
+    document.addEventListener("scroll", () => {
 
-        videos.forEach((video) => {
+        videos.forEach((video, i) => {
 
-            const el = window.location.pathname == 'index.html' ? video.parentElement.parentElement : video;
+            const el = video.parentElement.parentElement;
 
-            if (el.offsetTop < window.pageYOffset + window.innerHeight && el.offsetTop + video.offsetHeight > window.pageYOffset) {
+            console.log(video);
+            
+
+            if (el.offsetTop < window.pageYOffset + window.innerHeight
+                && el.offsetTop + el.offsetHeight > window.pageYOffset) {
                 video.play();
-            } else video.pause();
+
+            } else {
+                if (!video.paused) {
+                    video.pause()
+                    console.log(`video ${i} paused`);
+                } else return;
+            };
+
         });
 
     })
+
 }
