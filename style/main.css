@@ -183,8 +183,7 @@ p {
 
     pointer-events: none;
     
-    transition: height .5s, transform .5s, opacity .25s;
-    transform: translateY(-50%);
+    transition: height .5s, opacity .25s;
 }
 #about.open {
     height: 100%;
@@ -194,7 +193,14 @@ p {
 
     pointer-events: all;
     
-    transition: height .5s, transform .5s, opacity .35s;
+    transition: height .5s, opacity .35s;
+}
+#about > .about-container {
+    transition: transform .5s;
+    transform: translateY(-10%);
+}
+#about.open > .about-container {
+    transition: transform .5s;
     transform: translateY(0%);
 }
 
