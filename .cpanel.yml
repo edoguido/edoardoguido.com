@@ -1,5 +1,0 @@
----
-deployment:
-  tasks:
-    - export DEPLOYPATH=/home/edoardog/public_html/
-    - /bin/cp -R * $DEPLOYPATH
