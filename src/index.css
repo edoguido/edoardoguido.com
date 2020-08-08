@@ -40,9 +40,9 @@ body {
 }
 
 .wrapper {
-  position: fixed;
-  top: 0;
-  overflow: visible;
+  /* position: fixed; */
+  /* top: 0; */
+  /* overflow: visible; */
   min-width: 100vw;
   min-height: 100vh;
   background-color: var(--c-bg);

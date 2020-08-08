@@ -1,18 +1,13 @@
 import React from 'react'
 import { RichText } from 'prismic-reactjs'
 import { motion } from 'framer-motion'
-import { Link } from 'react-router-dom'
 
 const transition = { type: 'spring', stiffness: 200, damping: 90 }
 
 const titleSpanItem = {
   initial: { opacity: 0, y: 100, transition },
   enter: { opacity: 1, y: 0, transition },
-  exit: {
-    opacity: 0,
-    y: -100,
-    transition: { duration: 1.5, ...transition },
-  },
+  exit: { opacity: 0, y: -100, transition },
 }
 
 export const HomeHero = ({ content }) => {
@@ -24,8 +19,8 @@ export const HomeHero = ({ content }) => {
         animate="enter"
         exit="exit"
         variants={{
-          enter: { transition: { staggerChildren: 0.1 } },
-          exit: { transition: { staggerChildren: 0.1 } },
+          enter: { transition: { staggerChildren: 0.15 } },
+          exit: { transition: { staggerChildren: 0.15 } },
         }}
       >
         {content.map((slice, i) => {
