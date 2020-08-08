@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { CLIENT } from '../../../const/const.js'
-import { RichText } from 'prismic-reactjs'
-import { AnimatePresence, motion } from 'framer-motion'
+import { motion } from 'framer-motion'
+
+// Components
+import { HomeHero } from './HomeHero.js'
 
 // Style
 import './Home.css'
@@ -79,47 +81,33 @@ export const Home = () => {
   //   }
   // }, [projList])
 
-  const titleSpanItem = {
-    visible: (i) => ({
-      opacity: 1,
-      y: 0,
-      transition: {
-        delay: i * 0.1 + 0.5,
-        type: 'spring',
-        damping: 40,
-        stiffness: 200,
-      },
-    }),
-    hidden: { opacity: 0, y: 100 },
+  const transition = { type: 'spring', stiffness: 200, damping: 90 }
+
+  const projectsListVariants = {
+    initial: { opacity: 0, y: 100, transition },
+    enter: { opacity: 1, y: 0, transition },
+    exit: { opacity: 0, y: -100, transition },
   }
 
   return (
     <>
-      <div className="hero">
-        {content &&
-          content.data.hero_text.map((slice, i) => {
-            return (
-              <div key={i} style={{ overflow: 'hidden' }}>
-                <AnimatePresence>
-                  <motion.div
-                    custom={i}
-                    initial="hidden"
-                    animate="visible"
-                    variants={titleSpanItem}
-                  >
-                    <RichText render={[slice]} />
-                  </motion.div>
-                </AnimatePresence>
-              </div>
-            )
-          })}
-      </div>
-      <div className="all-projects">
+      {content && <HomeHero content={content.data.hero_text} />}
+      <motion.div
+        className="all-projects"
+        initial="initial"
+        animate="enter"
+        exit="exit"
+        variants={{
+          enter: { transition: { staggerChildren: 0.1 } },
+          exit: { transition: { staggerChildren: 0.1 } },
+        }}
+      >
         {projList && (
-          <div
+          <motion.div
             key={projList[0].id}
             ref={(el) => (projList[0].ref.current = el)}
             className="featured project"
+            variants={projectsListVariants}
           >
             <Link to={`/project/${projList[0].id}`}>
               <div className="cover">
@@ -137,16 +125,17 @@ export const Home = () => {
                 </h2>
               </div>
             </Link>
-          </div>
+          </motion.div>
         )}
         <div className="projects-list">
           {projList &&
             projList.slice(1, projList.length).map(({ id, ref }) => {
               return (
-                <div
+                <motion.div
                   key={id}
                   ref={(el) => (ref.current = el)}
                   className="project"
+                  variants={projectsListVariants}
                 >
                   <Link to={`/project/${id}`}>
                     <div className="cover">
@@ -162,11 +151,11 @@ export const Home = () => {
                       </h2>
                     </div>
                   </Link>
-                </div>
+                </motion.div>
               )
             })}
         </div>
-      </div>
+      </motion.div>
     </>
   )
 }
