@@ -10,9 +10,10 @@ import { observer } from 'mobx-react-lite'
 
 export const Routes = inject('state')(
   observer(({ state }) => {
-    const { fetchProjects } = state
+    const { projects, fetchHero, fetchProjects } = state
 
     useEffect(() => {
+      fetchHero()
       fetchProjects()
     }, []) // eslint-disable-line
 
@@ -23,7 +24,7 @@ export const Routes = inject('state')(
             <AnimatePresence exitBeforeEnter>
               <Switch location={location} key={location.pathname}>
                 <Route exact path="/project">
-                  <Redirect to="/project/0" />
+                  <Redirect to={`/project/hate-shades`} />
                 </Route>
                 <Route path="/project/:id" component={Project} />
                 <Route exact path="/" component={Home} />

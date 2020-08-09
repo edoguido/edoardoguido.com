@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import { inject, observer } from 'mobx-react'
 import { CLIENT } from '../../../const/const.js'
 import { motion } from 'framer-motion'
@@ -10,27 +10,12 @@ import { HomeHero } from './HomeHero.js'
 import './Home.css'
 import { SingleProject } from './SingleProject.js'
 
-const lang = 'en-gb'
-
 export const Home = inject('state')(
-  observer(({ state }) => {
-    const { projects } = state
-    const [content, setContent] = useState(null)
-
+  observer(({ state: { projects, hero } }) => {
     // const [activeProj, setActiveProj] = useState({
     //   index: null,
     //   last: null,
     // })
-
-    useEffect(() => {
-      const fetchHeroData = async () => {
-        const response = await CLIENT.getByUID('homepage', 'home', {
-          lang,
-        })
-        if (response) setContent(response)
-      }
-      fetchHeroData()
-    }, [])
 
     // function handleScroll() {
     //   if (projList) {
@@ -79,7 +64,7 @@ export const Home = inject('state')(
 
     return (
       <>
-        {content && <HomeHero content={content.data.hero_text} />}
+        {hero && <HomeHero content={hero.data.hero_text} />}
         {projects && (
           <motion.div
             className="all-projects"

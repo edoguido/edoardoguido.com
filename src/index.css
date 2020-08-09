@@ -44,8 +44,8 @@ body {
   /* position: fixed; */
   /* top: 0; */
   /* overflow: visible; */
-  min-width: 100vw;
-  min-height: 100vh;
+  /* min-width: 100vw; */
+  /* min-height: 100vh; */
   background-color: var(--c-bg);
   margin-top: calc(var(--h-nav) + var(--m-nav) * 2);
   will-change: transform;

@@ -63,7 +63,7 @@ export const SingleProject = inject('state')(
         className={`${isFeatured ? 'featured' : ''} project`}
         variants={variant}
       >
-        <Link to={`/project/${slice.uid}`}>
+        <Link to={`/project/${content.uid}`}>
           <div className="cover">
             {slice.is_cover_animated ? (
               <video muted loop autoPlay>

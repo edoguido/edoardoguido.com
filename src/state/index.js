@@ -9,9 +9,28 @@ export const State = t
   .model('State', {
     state: t.optional(t.string, 'idle'),
     lang: t.optional(t.string, getBrowserLanguage()),
+    hero: t.optional(t.frozen()),
     projects: t.optional(t.array(t.frozen()), []),
   })
   .actions((self) => {
+    const fetchHero = flow(function* () {
+      self.state = 'pending'
+      let response
+
+      try {
+        response = yield CLIENT.getByUID('homepage', 'home', {
+          lang: self.lang,
+        })
+        self.hero = response
+      } catch (error) {
+        console.error('Failed to fetch data', error)
+        response = {}
+        self.state = 'error'
+      }
+
+      self.hero = response
+      return response
+    })
     const fetchProjects = flow(function* () {
       self.state = 'pending'
       const results = []
@@ -46,5 +65,13 @@ export const State = t
       return results.length
     })
 
-    return { fetchProjects }
+    return { fetchHero, fetchProjects }
   })
+  .views((self) => ({
+    currentProject(id) {
+      return self.projects.find((proj) => proj.uid === id)
+    },
+    currentProjectIndex(id) {
+      return self.projects.findIndex((proj) => proj.uid === id)
+    },
+  }))

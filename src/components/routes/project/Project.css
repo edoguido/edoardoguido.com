@@ -1,0 +1,31 @@
+.project-hero {
+  margin: 0 auto;
+  max-width: var(--w-xl-max);
+  height: calc(60vh - (var(--h-nav) + var(--m-nav) * 2 + var(--p-side)));
+  padding: calc(var(--p-side) * 4) var(--p-side);
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.project-hero > .project-meta {
+  margin-right: 4rem;
+  align-self: baseline;
+}
+
+.project-hero > .project-meta h1 {
+  white-space: nowrap;
+}
+
+.project-hero > .project-info {
+  max-width: calc(var(--w-max) / 1.5);
+  align-self: baseline;
+}
+
+.project-hero > .project-info > div {
+  display: grid;
+  grid-template: 1fr / minmax(140px, auto) 1fr;
+}
+
+.project-hero > .project-info > div > * {
+  align-self: baseline;
+}
