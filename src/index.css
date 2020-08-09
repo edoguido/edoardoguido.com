@@ -17,6 +17,7 @@
   --m-nav: 1rem;
   --c-bg: rgb(255, 255, 255);
   --c-txt: hsl(213, 100%, 15%);
+  --c-txt-alpha: hsl(213, 25%, 65%);
   --c-acc: hsl(175, 87%, 40%);
   --c-sel: rgba(13, 191, 176, 0.5);
   --p-side: 2rem;

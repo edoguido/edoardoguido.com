@@ -90,13 +90,28 @@
   object-fit: cover;
 }
 
+.project .info {
+  display: flex;
+  justify-content: space-between;
+}
+
+.project .info .main-info {
+  margin-right: 0.5rem;
+}
+
+.project .info .duration {
+  white-space: nowrap;
+  align-self: baseline;
+}
+
 .project .info .caption,
 .project .info .title {
   display: table;
 }
 
 .project .info .caption {
-  opacity: 0.5;
+  color: var(--c-txt-alpha);
+  transition: color var(--transition-props);
 }
 
 .project .info .title {
@@ -107,7 +122,8 @@
   color: var(--c-txt);
   transition: color var(--transition-props);
 }
-.project a:hover .info {
+.project a:hover .info,
+.project a:hover .info .caption {
   color: var(--c-acc);
   transition: color var(--transition-props);
 }
