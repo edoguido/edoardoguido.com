@@ -2,6 +2,8 @@ import React from 'react'
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 
+const enterDelay = 0.5
+const exitDelay = 0.35
 const transition = { type: 'spring', stiffness: 200, damping: 90 }
 
 export const SingleProject = ({ content, isFeatured }) => {
@@ -14,14 +16,30 @@ export const SingleProject = ({ content, isFeatured }) => {
   if (isFeatured) {
     variant = {
       initial: { opacity: 0, y: 100, transition },
-      enter: { opacity: 1, y: 0, transition: { ...transition, delay: 0.75 } },
-      exit: { opacity: 0, y: -100, transition },
+      enter: {
+        opacity: 1,
+        y: 0,
+        transition: { ...transition, delay: enterDelay },
+      },
+      exit: {
+        opacity: 0,
+        y: -100,
+        transition: { ...transition, delay: exitDelay },
+      },
     }
   } else {
     variant = {
       initial: (i) => ({ opacity: 0, x: i % 2 === 0 ? 100 : -100, transition }),
-      enter: { opacity: 1, x: 0, transition: { ...transition, delay: 0.75 } },
-      exit: (i) => ({ opacity: 0, x: i % 2 === 0 ? 100 : -100, transition }),
+      enter: {
+        opacity: 1,
+        x: 0,
+        transition: { ...transition, delay: enterDelay },
+      },
+      exit: (i) => ({
+        opacity: 0,
+        x: i % 2 === 0 ? 100 : -100,
+        transition: { ...transition, delay: exitDelay },
+      }),
     }
   }
 
@@ -34,7 +52,16 @@ export const SingleProject = ({ content, isFeatured }) => {
     >
       <Link to={`/project/${slice.uid}`}>
         <div className="cover">
-          <img src={slice.cover.url} alt={slice.cover.alt} />
+          {slice.is_cover_animated ? (
+            <video muted loop autoPlay>
+              <source
+                src={slice.cover.url}
+                type={`video/${slice.cover.name.split('.')[1]}`}
+              />
+            </video>
+          ) : (
+            <img src={slice.cover.url} alt={slice.alt} />
+          )}
         </div>
         <div className="info">
           <div className="caption">{slice.headline[0].text}</div>

@@ -19,8 +19,8 @@ export const HomeHero = ({ content }) => {
         animate="enter"
         exit="exit"
         variants={{
-          enter: { transition: { staggerChildren: 0.15 } },
-          exit: { transition: { staggerChildren: 0.15 } },
+          enter: { transition: { staggerChildren: 0.1 } },
+          exit: { transition: { staggerChildren: 0.05 } },
         }}
       >
         {content.map((slice, i) => {
