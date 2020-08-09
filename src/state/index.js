@@ -7,7 +7,7 @@ function getBrowserLanguage() {
 
 export const State = t
   .model('State', {
-    state: t.optional(t.string, 'idle'),
+    state: t.optional(t.string, 'done'),
     lang: t.optional(t.string, getBrowserLanguage()),
     hero: t.optional(t.frozen()),
     projects: t.optional(t.array(t.frozen()), []),

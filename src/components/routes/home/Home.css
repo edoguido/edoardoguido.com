@@ -90,13 +90,11 @@
   object-fit: cover;
 }
 
-.project .info {
+.project .info .meta {
   display: flex;
   justify-content: space-between;
-}
-
-.project .info .main-info {
-  margin-right: 0.5rem;
+  color: var(--c-txt-alpha);
+  transition: color var(--transition-props);
 }
 
 .project .info .duration {
@@ -109,11 +107,6 @@
   display: table;
 }
 
-.project .info .caption {
-  color: var(--c-txt-alpha);
-  transition: color var(--transition-props);
-}
-
 .project .info .title {
   position: relative;
   margin: 0.5rem 0 1rem;
@@ -123,7 +116,7 @@
   transition: color var(--transition-props);
 }
 .project a:hover .info,
-.project a:hover .info .caption {
+.project a:hover .info .meta {
   color: var(--c-acc);
   transition: color var(--transition-props);
 }

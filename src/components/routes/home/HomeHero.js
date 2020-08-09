@@ -2,12 +2,13 @@ import React from 'react'
 import { RichText } from 'prismic-reactjs'
 import { motion } from 'framer-motion'
 
-const transition = { type: 'spring', stiffness: 200, damping: 90 }
+// Constants
+import { TRANSITION_PROPS } from '../../../const/const'
 
 const titleSpanItem = {
-  initial: { opacity: 0, y: 100, transition },
-  enter: { opacity: 1, y: 0, transition },
-  exit: { opacity: 0, y: -100, transition },
+  initial: { opacity: 0, y: -10, transition: TRANSITION_PROPS.enter },
+  enter: { opacity: 1, y: 0, transition: TRANSITION_PROPS.enter },
+  exit: { opacity: 0, y: -50, transition: TRANSITION_PROPS.exit },
 }
 
 export const HomeHero = ({ content }) => {
@@ -25,11 +26,9 @@ export const HomeHero = ({ content }) => {
       >
         {content.map((slice, i) => {
           return (
-            <div key={i} style={{ overflow: 'hidden' }}>
-              <motion.div key={i} variants={titleSpanItem}>
-                <RichText render={[slice]} />
-              </motion.div>
-            </div>
+            <motion.div key={i} variants={titleSpanItem}>
+              <RichText render={[slice]} />
+            </motion.div>
           )
         })}
       </motion.div>

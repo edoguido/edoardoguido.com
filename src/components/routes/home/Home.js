@@ -5,10 +5,10 @@ import { motion } from 'framer-motion'
 
 // Components
 import { HomeHero } from './HomeHero.js'
+import { SingleProject } from './SingleProject.js'
 
 // Style
 import './Home.css'
-import { SingleProject } from './SingleProject.js'
 
 export const Home = inject('state')(
   observer(({ state: { projects, hero } }) => {

@@ -2,7 +2,7 @@
   margin: 0 auto;
   max-width: var(--w-xl-max);
   height: calc(60vh - (var(--h-nav) + var(--m-nav) * 2 + var(--p-side)));
-  padding: calc(var(--p-side) * 4) var(--p-side);
+  padding: calc(var(--p-side) * 4) var(--p-side) var(--p-side);
   display: flex;
   justify-content: space-evenly;
 }
@@ -28,4 +28,24 @@
 
 .project-hero > .project-info > div > * {
   align-self: baseline;
+}
+
+.project-content {
+  max-width: var(--w-xl-max);
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.project-content .external-link-image {
+  margin: 4rem 0;
+}
+.project-content .external-link-image a {
+  display: inline-block;
+}
+.project-content .external-link-image figcaption {
+  text-decoration: underline;
+  margin: 1rem;
+}
+.project-content .external-link-image figcaption::after {
+  content: '↗';
 }

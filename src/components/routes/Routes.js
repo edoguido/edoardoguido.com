@@ -1,6 +1,9 @@
 import React, { useEffect } from 'react'
-import { Switch, Route, Redirect } from 'react-router-dom'
+import { Switch, Route, Redirect, useLocation } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
+
+// Constants
+import { ROUTE_SCROLLTOP_TIMEOUT } from '../../const/const'
 
 // Routes
 import { Home } from './home/Home'
@@ -10,12 +13,19 @@ import { observer } from 'mobx-react-lite'
 
 export const Routes = inject('state')(
   observer(({ state }) => {
-    const { projects, fetchHero, fetchProjects } = state
+    const { state: appState, projects, fetchHero, fetchProjects } = state
+    const location = useLocation()
 
     useEffect(() => {
       fetchHero()
       fetchProjects()
     }, []) // eslint-disable-line
+
+    useEffect(() => {
+      setTimeout(() => {
+        window.scrollTo(0, 0)
+      }, ROUTE_SCROLLTOP_TIMEOUT)
+    }, [location.pathname])
 
     return (
       <motion.div className="wrapper">
