@@ -1,7 +1,7 @@
 .hero {
   max-width: var(--w-xl-max);
   margin: 0 auto;
-  height: calc(40vh - (var(--h-nav) + var(--m-nav) * 2 + var(--p-side)));
+  min-height: calc(40vh - var(--h-nav));
   padding: calc(var(--p-side) * 6) var(--p-side) calc(var(--p-side) * 3);
   display: flex;
   flex-direction: column;
@@ -61,6 +61,7 @@
 }
 .featured.project .cover {
   height: 70vh;
+  max-height: 640px;
 }
 
 .project:not(:first-child):nth-child(4n + 2),
@@ -101,11 +102,6 @@
   align-self: baseline;
 }
 
-.project .info .caption,
-.project .info .title {
-  display: table;
-}
-
 .project .info .title {
   position: relative;
   margin: 0.5rem 0 1rem;
@@ -118,4 +114,45 @@
 .project a:hover .info .meta {
   color: var(--c-acc);
   transition: color var(--transition-props);
+}
+
+@media (max-width: 920px) {
+  .hero {
+    min-height: initial;
+    padding: calc(var(--p-side) * 2) var(--p-side) var(--p-side);
+  }
+  .hero div {
+    width: 100%;
+  }
+  .hero h1 {
+    margin: 0;
+    line-height: 1.5;
+    font-size: 2rem;
+    white-space: normal;
+  }
+  .hero a {
+    padding: 0;
+  }
+
+  .projects-list {
+    display: block;
+    margin: calc(var(--p-side) * 2) 0 0;
+  }
+
+  .featured.project .cover {
+    height: 40vh;
+  }
+
+  .project .info .caption {
+    font-size: 0.8rem;
+  }
+  .project .info .duration {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero h1 {
+    font-size: 100%;
+  }
 }

@@ -1,7 +1,7 @@
 .project-hero {
   margin: 0 auto;
   max-width: var(--w-xl-max);
-  height: calc(60vh - (var(--h-nav) + var(--m-nav) * 2 + var(--p-side)));
+  min-height: calc(60vh - (var(--h-nav) + var(--m-nav) * 2 + var(--p-side)));
   padding: calc(var(--p-side) * 4) var(--p-side) var(--p-side);
   display: flex;
   justify-content: space-evenly;
@@ -14,6 +14,7 @@
 
 .project-hero > .project-meta h1 {
   white-space: nowrap;
+  margin: 1rem 0;
 }
 
 .project-hero > .project-info {
@@ -36,11 +37,16 @@
   padding: 0 1rem;
 }
 
-.project-content .external-link-image {
-  margin: 4rem 0;
+.project-content .section {
+  margin: 2rem 0;
 }
+.project-content .section:last-child {
+  margin-bottom: 0;
+}
+
 .project-content .external-link-image a {
   display: inline-block;
+  cursor: alias;
 }
 .project-content .external-link-image figcaption {
   text-decoration: underline;
@@ -48,4 +54,21 @@
 }
 .project-content .external-link-image figcaption::after {
   content: '↗';
+}
+
+@media (max-width: 920px) {
+  .project-hero {
+    display: block;
+    padding: var(--p-side);
+  }
+  .project-hero .project-meta {
+    margin: 0 0 4rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .project-hero > .project-info > div {
+    display: block;
+    margin-bottom: 3rem;
+  }
 }

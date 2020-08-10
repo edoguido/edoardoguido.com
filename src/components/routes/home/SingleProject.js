@@ -59,10 +59,10 @@ export const SingleProject = inject('state')(
           </div>
           <div className="info">
             <div className="meta">
-              <div className="caption">{slice.headline[0].text}</div>
-              <div className="duration">
+              <span className="caption">{slice.headline[0].text}</span>
+              <span className="duration">
                 {startDate} → {endDate}
-              </div>
+              </span>
             </div>
             <h2 className="title">{slice.title[0].text}</h2>
           </div>

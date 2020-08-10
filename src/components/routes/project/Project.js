@@ -121,7 +121,11 @@ export const Project = inject('state')(
           <motion.div className="project-content" {...sharedProps}>
             {projectData.content.map((slice, i) => {
               return (
-                <motion.div key={i} variants={contentVariants}>
+                <motion.div
+                  key={i}
+                  className="section"
+                  variants={contentVariants}
+                >
                   {sliceSwitcher(slice, slice.slice_type, i)}
                 </motion.div>
               )
