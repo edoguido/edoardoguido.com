@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { inject, observer } from 'mobx-react'
 import { RichText } from 'prismic-reactjs'
 import { motion } from 'framer-motion'
@@ -6,9 +6,10 @@ import './Project.css'
 
 // Constants
 import { TRANSITION_PROPS } from '../../../const/const'
+import { useLocation } from 'react-router'
+import { Link } from 'react-router-dom'
 
-const ENTER_DELAY = 0
-const EXIT_DELAY = 0.5
+const EXIT_DELAY = 0.25
 
 const variants = {
   initial: {
@@ -61,7 +62,7 @@ const sharedProps = {
   exit: 'exit',
   variants: {
     enter: { transition: { staggerChildren: 0.1 } },
-    exit: { transition: { staggerChildren: 0.1 } },
+    exit: { transition: { staggerChildren: 0.05 } },
   },
 }
 
@@ -92,10 +93,24 @@ function sliceSwitcher(slice, sliceType, key) {
 export const Project = inject('state')(
   observer(({ state, match }) => {
     const { id } = match.params
-    const { projects, currentProjectIndex } = state
+    const {
+      projects,
+      setCurrentProjectUid,
+      currentProjectIndex,
+      projectIndices,
+    } = state
 
-    const projectIndex = currentProjectIndex(id)
-    const projectData = projects[projectIndex]?.data
+    const location = useLocation()
+
+    useEffect(() => {
+      setCurrentProjectUid(id)
+    }, [location.pathname])
+
+    // const nextIndex = nextProjectIndex(id)
+    // const previousIndex = previousProjectIndex(id)
+    // console.log(previousIndex)
+
+    const projectData = projects[currentProjectIndex]?.data
 
     return (
       projectData && (
@@ -130,6 +145,27 @@ export const Project = inject('state')(
                 </motion.div>
               )
             })}
+          </motion.div>
+          <motion.div className="project-selector" {...sharedProps}>
+            <motion.div
+              className="selector previous"
+              variants={contentVariants}
+            >
+              {projectIndices[0] !== null && (
+                <Link to={`/project/${projects[projectIndices[0]].uid}`}>
+                  <span>Previous Project</span>
+                  <h2>{projects[projectIndices[0]].uid}</h2>
+                </Link>
+              )}
+            </motion.div>
+            <motion.div className="selector next" variants={contentVariants}>
+              {projectIndices[2] && (
+                <Link to={`/project/${projects[projectIndices[2]].uid}`}>
+                  <span>Next Project</span>
+                  <h2>{projects[projectIndices[2]].uid}</h2>
+                </Link>
+              )}
+            </motion.div>
           </motion.div>
         </>
       )

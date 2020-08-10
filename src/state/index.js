@@ -11,6 +11,7 @@ export const State = t
     lang: t.optional(t.string, getBrowserLanguage()),
     hero: t.optional(t.frozen()),
     projects: t.optional(t.array(t.frozen()), []),
+    currentProjectUid: t.maybeNull(t.string),
   })
   .actions((self) => {
     const fetchHero = flow(function* () {
@@ -65,13 +66,28 @@ export const State = t
       return results.length
     })
 
-    return { fetchHero, fetchProjects }
+    function setCurrentProjectUid(path) {
+      self.currentProjectUid = path
+      return path
+    }
+
+    return { setCurrentProjectUid, fetchHero, fetchProjects }
   })
-  .views((self) => ({
-    currentProject(id) {
-      return self.projects.find((proj) => proj.uid === id)
-    },
-    currentProjectIndex(id) {
-      return self.projects.findIndex((proj) => proj.uid === id)
-    },
-  }))
+  .views((self) => {
+    return {
+      get currentProjectIndex() {
+        const index = self.projects.findIndex(
+          (project) => project.uid === self.currentProjectUid
+        )
+        if (index === -1) return null
+        else return index
+      },
+      get projectIndices() {
+        const currIndex = self.currentProjectIndex
+        const prevIndex = currIndex === 0 ? null : currIndex - 1
+        const nextIndex =
+          currIndex === self.projects.length - 1 ? null : currIndex + 1
+        return [prevIndex, currIndex, nextIndex]
+      },
+    }
+  })

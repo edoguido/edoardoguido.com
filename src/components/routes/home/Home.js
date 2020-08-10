@@ -73,7 +73,7 @@ export const Home = inject('state')(
             exit="exit"
             variants={{
               enter: { transition: { staggerChildren: 0.1 } },
-              exit: { transition: { staggerChildren: 0.1 } },
+              exit: { transition: { staggerChildren: 0.05 } },
             }}
           >
             {projects && projects[0] && (

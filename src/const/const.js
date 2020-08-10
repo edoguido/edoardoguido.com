@@ -11,4 +11,4 @@ export const TRANSITION_PROPS = {
   enter: { duration: TRANSITION_DURATION, ease: [0.25, 0, 0, 1] },
   exit: { duration: TRANSITION_DURATION, ease: [0.75, 0, 0, 0.25] },
 }
-export const ROUTE_SCROLLTOP_TIMEOUT = 750
+export const ROUTE_SCROLLTOP_TIMEOUT = 900

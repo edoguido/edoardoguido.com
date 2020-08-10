@@ -11,7 +11,7 @@
 }
 
 :root {
-  --w-max: 960px;
+  --w-max: 1080px;
   --w-xl-max: 1440px;
   --h-nav: 1.5rem;
   --c-bg: rgb(255, 255, 255);
@@ -40,13 +40,9 @@ body {
 }
 
 .wrapper {
-  /* position: fixed; */
-  /* top: 0; */
-  /* overflow: visible; */
-  /* min-width: 100vw; */
-  /* min-height: 100vh; */
   background-color: var(--c-bg);
   margin-top: calc(var(--h-nav) + var(--p-side) * 2);
+  margin-bottom: 6rem;
   will-change: transform;
 }
 

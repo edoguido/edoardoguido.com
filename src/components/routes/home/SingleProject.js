@@ -9,23 +9,27 @@ import { TRANSITION_PROPS } from '../../../const/const'
 const ENTER_DELAY = 0.35
 const EXIT_DELAY = 0.25
 
+const variant = {
+  initial: {
+    opacity: 0,
+    y: 30,
+    transition: { ...TRANSITION_PROPS.enter, delay: ENTER_DELAY },
+  },
+  enter: {
+    opacity: 1,
+    y: 0,
+    transition: { ...TRANSITION_PROPS.enter, delay: ENTER_DELAY },
+  },
+  exit: {
+    opacity: 0,
+    y: 80,
+    transition: { ...TRANSITION_PROPS.exit, delay: EXIT_DELAY },
+  },
+}
+
 export const SingleProject = inject('state')(
   observer(({ state: { lang }, content, isFeatured }) => {
     const { data: slice } = content
-
-    const variant = {
-      initial: { opacity: 0, y: 30, transition: TRANSITION_PROPS.enter },
-      enter: {
-        opacity: 1,
-        y: 0,
-        transition: { ...TRANSITION_PROPS.enter, delay: ENTER_DELAY },
-      },
-      exit: {
-        opacity: 0,
-        y: 80,
-        transition: { ...TRANSITION_PROPS.exit, delay: EXIT_DELAY },
-      },
-    }
 
     const localeOptions = {
       month: 'short',
