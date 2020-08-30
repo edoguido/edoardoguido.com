@@ -1,6 +1,5 @@
 import React from 'react'
 import { inject, observer } from 'mobx-react'
-import { CLIENT } from '../../../const/const.js'
 import { motion } from 'framer-motion'
 
 // Components

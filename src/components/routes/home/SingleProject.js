@@ -1,7 +1,7 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { inject, observer } from 'mobx-react'
-import { motion } from 'framer-motion'
+import { motion, useMotionValue } from 'framer-motion'
 
 // Constants
 import { TRANSITION_PROPS } from '../../../const/const'
@@ -44,19 +44,26 @@ export const SingleProject = inject('state')(
     return (
       <motion.div
         key={slice.uid}
-        // ref={(el) => (ref.current = el)}
         className={`${isFeatured ? 'featured' : ''} project`}
         variants={variant}
       >
-        <Link to={`/project/${content.uid}`}>
+        <Link to={`/p/${content.uid}`}>
           <div className="cover">
             {slice.is_cover_animated ? (
-              <video muted loop autoPlay>
-                <source
-                  src={slice.cover.url}
-                  type={`video/${slice.cover.name.split('.')[1]}`}
-                />
-              </video>
+              <>
+                <video
+                  muted
+                  loop
+                  autoPlay
+                  // onLoadedData={(e) => console.log('loaded', e.target)}
+                >
+                  <source
+                    src={slice.cover.url}
+                    type={`video/${slice.cover.name.split('.')[1]}`}
+                  />
+                </video>
+                <img src={slice.cover_fallback.url} alt={slice.alt} />
+              </>
             ) : (
               <img src={slice.cover.url} alt={slice.alt} />
             )}

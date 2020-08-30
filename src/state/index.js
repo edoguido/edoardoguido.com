@@ -10,7 +10,7 @@ export const State = t
     state: t.optional(t.string, 'done'),
     lang: t.optional(t.string, getBrowserLanguage()),
     hero: t.optional(t.frozen()),
-    projects: t.optional(t.array(t.frozen()), []),
+    projects: t.optional(t.maybeNull(t.array(t.frozen()))),
     currentProjectUid: t.maybeNull(t.string),
   })
   .actions((self) => {
@@ -19,17 +19,28 @@ export const State = t
       let response
 
       try {
-        response = yield CLIENT.getByUID('homepage', 'home', {
-          lang: self.lang,
-        })
-        self.hero = response
+        response = yield CLIENT.query(
+          PRISMIC.Predicates.at('document.type', 'homepage'),
+          {
+            lang: self.lang,
+          }
+        )
+        if (response.results.length === 0) {
+          response = yield CLIENT.query(
+            PRISMIC.Predicates.at('document.type', 'homepage'),
+            {
+              lang: DEFAULT_LANGUAGE,
+            }
+          )
+        }
       } catch (error) {
         console.error('Failed to fetch data', error)
-        response = {}
+        response = undefined
         self.state = 'error'
       }
 
-      self.hero = response
+      self.hero = response.results[0]
+      self.state = 'done'
       return response
     })
     const fetchProjects = flow(function* () {
@@ -76,18 +87,26 @@ export const State = t
   .views((self) => {
     return {
       get currentProjectIndex() {
-        const index = self.projects.findIndex(
-          (project) => project.uid === self.currentProjectUid
-        )
-        if (index === -1) return null
-        else return index
+        if (self.projects !== null) {
+          const index = self.projects.findIndex(
+            (project) => project.uid === self.currentProjectUid
+          )
+          return index
+        } else {
+          const index = -1
+          return index
+        }
       },
       get projectIndices() {
-        const currIndex = self.currentProjectIndex
-        const prevIndex = currIndex === 0 ? null : currIndex - 1
-        const nextIndex =
-          currIndex === self.projects.length - 1 ? null : currIndex + 1
-        return [prevIndex, currIndex, nextIndex]
+        if (self.projects) {
+          const currIndex = self.currentProjectIndex
+          const prevIndex = currIndex === 0 ? null : currIndex - 1
+          const nextIndex =
+            currIndex === self.projects.length - 1 ? null : currIndex + 1
+          return [prevIndex, currIndex, nextIndex]
+        } else {
+          return [undefined, undefined, undefined]
+        }
       },
     }
   })

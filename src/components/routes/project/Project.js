@@ -70,12 +70,85 @@ const ExternalLinkImage = (props) => {
   const {
     data: { primary },
   } = props
+
+  const hasCaption = primary.caption.length > 0
+
   return (
     <div className="external-link-image">
       <a href={primary.link.url} target={primary.link.target}>
         <img src={primary.image.url} alt="" width="100%" />
-        <figcaption>{primary.caption[0].text}</figcaption>
+        {hasCaption && <figcaption>{primary.caption[0].text}</figcaption>}
       </a>
+    </div>
+  )
+}
+
+const Image = (props) => {
+  const {
+    data: { primary },
+  } = props
+
+  const hasCaption = primary.caption.length > 0
+
+  return (
+    <div className="featured-image">
+      <div className="image-container">
+        <img src={primary.image.url} alt="" />
+      </div>
+      {hasCaption && <figcaption>{primary.caption[0].text}</figcaption>}
+    </div>
+  )
+}
+
+const ImageGallery = (props) => {
+  const {
+    data: { items, primary },
+  } = props
+
+  return (
+    <div
+      className="image-gallery"
+      style={{ gridTemplateColumns: `repeat(${items.length}, 1fr)` }}
+    >
+      {items.map((item, i) => {
+        const hasCaption = item.caption.length > 0
+        return (
+          <div key={i} className="single-gallery-image">
+            <div className="image-container">
+              <img
+                src={item.image.url}
+                alt={item.image.alt}
+                style={{ objectFit: primary.image_fill_type }}
+              />
+            </div>
+            {hasCaption && <figcaption>{item.caption[0].text}</figcaption>}
+          </div>
+        )
+      })}
+    </div>
+  )
+}
+
+const Video = (props) => {
+  const {
+    data: { primary },
+  } = props
+
+  const { video, caption, fill_type } = primary
+  const hasCaption = caption.length > 0
+
+  return (
+    <div className="video">
+      <video
+        muted
+        loop
+        autoPlay
+        // onLoadedData={(e) => console.log('loaded', e.target)}
+        src={video.url}
+        type={`video/${video.name.split('.')[1]}`}
+        style={{ objectFit: fill_type }}
+      />
+      {hasCaption && <figcaption>{caption[0].text}</figcaption>}
     </div>
   )
 }
@@ -85,6 +158,9 @@ function sliceSwitcher(slice, sliceType, key) {
 
   const types = {
     image_with_link: <ExternalLinkImage key={key} data={slice} />,
+    featured_image: <Image key={key} data={slice} />,
+    image_gallery: <ImageGallery key={key} data={slice} />,
+    video: <Video key={key} data={slice} />,
   }
 
   return types[sliceType]
@@ -110,7 +186,7 @@ export const Project = inject('state')(
     // const previousIndex = previousProjectIndex(id)
     // console.log(previousIndex)
 
-    const projectData = projects[currentProjectIndex]?.data
+    const projectData = projects ? projects[currentProjectIndex]?.data : null
 
     return (
       projectData && (
@@ -138,7 +214,7 @@ export const Project = inject('state')(
               return (
                 <motion.div
                   key={i}
-                  className="section"
+                  className={'section'}
                   variants={contentVariants}
                 >
                   {sliceSwitcher(slice, slice.slice_type, i)}
@@ -152,7 +228,7 @@ export const Project = inject('state')(
               variants={contentVariants}
             >
               {projectIndices[0] !== null && (
-                <Link to={`/project/${projects[projectIndices[0]].uid}`}>
+                <Link to={`/p/${projects[projectIndices[0]].uid}`}>
                   <span>Previous Project</span>
                   <h2>{projects[projectIndices[0]].uid}</h2>
                 </Link>
@@ -160,7 +236,7 @@ export const Project = inject('state')(
             </motion.div>
             <motion.div className="selector next" variants={contentVariants}>
               {projectIndices[2] && (
-                <Link to={`/project/${projects[projectIndices[2]].uid}`}>
+                <Link to={`/p/${projects[projectIndices[2]].uid}`}>
                   <span>Next Project</span>
                   <h2>{projects[projectIndices[2]].uid}</h2>
                 </Link>

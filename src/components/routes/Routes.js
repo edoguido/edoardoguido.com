@@ -34,10 +34,10 @@ export const Routes = inject('state')(
             return (
               <AnimatePresence exitBeforeEnter>
                 <Switch location={location} key={location.pathname}>
-                  <Route exact path="/project">
-                    <Redirect to={`/project/hate-shades`} />
+                  <Route exact path="/p">
+                    <Redirect to={`/p/hate-shades`} />
                   </Route>
-                  <Route path="/project/:id" component={Project} />
+                  <Route path="/p/:id" component={Project} />
                   <Route exact path="/" component={Home} />
                   <Route>Page not found!</Route>
                 </Switch>

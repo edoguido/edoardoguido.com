@@ -17,9 +17,14 @@
   margin: 1rem 0;
 }
 
+.project-hero > .project-meta span {
+  color: var(--c-txt-alpha);
+}
+
 .project-hero > .project-info {
   max-width: calc(var(--w-max) / 1.5);
   align-self: baseline;
+  line-height: 1.5;
 }
 
 .project-hero > .project-info > div {
@@ -31,17 +36,42 @@
   align-self: baseline;
 }
 
+.project-hero > .project-info p > a {
+  cursor: alias;
+  color: var(--c-acc);
+  transition: color var(--transition-props);
+  text-decoration: underline;
+}
+
+.project-hero > .project-info ul {
+  position: relative;
+  padding-inline-start: 1.5rem;
+  list-style-type: none;
+}
+
+.project-hero > .project-info ul li::before {
+  content: '—';
+  position: absolute;
+  left: 0;
+}
+
 .project-content {
-  max-width: var(--w-xl-max);
-  margin: 0 auto 8rem;
+  max-width: var(--w-max);
+  margin: 4rem auto 8rem;
   padding: 0 1rem;
 }
 
 .project-content .section {
-  margin: 2rem 0;
+  padding: 2rem 0;
+  margin: 0 0 2rem;
 }
 .project-content .section:last-child {
   margin-bottom: 0;
+}
+
+.project-content figcaption {
+  margin: 1rem;
+  display: inline-block;
 }
 
 .project-content .external-link-image a {
@@ -50,10 +80,54 @@
 }
 .project-content .external-link-image figcaption {
   text-decoration: underline;
-  margin: 1rem;
 }
 .project-content .external-link-image figcaption::after {
   content: '↗';
+}
+
+.project-content .featured-image {
+  margin: 0 auto;
+}
+
+.project-content .image-container,
+.project-content .single-gallery-image {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.project-content .video video {
+  max-height: calc(80vh - var(--h-nav));
+}
+
+.project-content .image-container img,
+.project-content .single-gallery-image img,
+.project-content .video video {
+  width: 100%;
+}
+
+.project-content .image-container img,
+.project-content .single-gallery-image img {
+  object-fit: cover;
+  object-position: 50% 50%;
+  max-height: calc(80vh - var(--h-nav));
+}
+
+.project-content .image-gallery {
+  display: grid;
+  grid-gap: 1rem;
+}
+
+.project-content .image-gallery .single-gallery-image:not(:last-child) {
+  margin-right: 1rem;
+}
+
+.project-content .image-gallery .single-gallery-image {
+  height: 100%;
+}
+.project-content .image-gallery .single-gallery-image .image-container {
+  width: 100%;
+  height: 100%;
 }
 
 .project-selector {

@@ -6,9 +6,24 @@ import { motion } from 'framer-motion'
 import { TRANSITION_PROPS } from '../../../const/const'
 
 const titleSpanItem = {
-  initial: { opacity: 0, y: -10, transition: TRANSITION_PROPS.enter },
-  enter: { opacity: 1, y: 0, transition: TRANSITION_PROPS.enter },
-  exit: { opacity: 0, y: -50, transition: TRANSITION_PROPS.exit },
+  initial: {
+    opacity: 0,
+    y: -10,
+    // skewY: -4,
+    transition: TRANSITION_PROPS.enter,
+  },
+  enter: {
+    opacity: 1,
+    y: 0,
+    // skewY: 0,
+    transition: TRANSITION_PROPS.enter,
+  },
+  exit: {
+    opacity: 0,
+    y: -50,
+    // skewY: 4,
+    transition: TRANSITION_PROPS.exit,
+  },
 }
 
 export const HomeHero = ({ content }) => {
