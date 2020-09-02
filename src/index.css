@@ -1,6 +1,6 @@
 @font-face {
   font-family: 'Plex';
-  src: url('./static/IBMPlexSans-Text.woff');
+  src: url('./static/IBMPlexSans-Regular.woff');
   font-display: swap;
 }
 
@@ -29,8 +29,9 @@ body {
   font-family: 'Plex', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto',
     'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
-  -webkit-font-smoothing: antialiased;
+  -webkit-font-smoothing: subpixel-antialiased;
   -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
   color: var(--c-txt);
 }
 
@@ -62,6 +63,10 @@ body {
 video {
   will-change: opacity, transform;
   transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+figcaption {
+  margin: 1rem;
 }
 
 .hero-content h1 {

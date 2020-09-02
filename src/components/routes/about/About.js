@@ -14,7 +14,7 @@ import { formatDate } from '../../../lib/utils'
 const variants = {
   initial: {
     opacity: 0,
-    y: 10,
+    y: 20,
     // skewY: -4,
     transition: TRANSITION_PROPS.enter,
   },
@@ -63,7 +63,7 @@ export const About = inject('state')(
             exit="exit"
             variants={{
               enter: {
-                transition: { staggerChildren: 0.2 },
+                transition: { staggerChildren: 0.25 },
               },
               exit: {
                 transition: { staggerChildren: 0.05 },
