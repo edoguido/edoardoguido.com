@@ -5,7 +5,7 @@ import { MenuButton } from './MenuButton'
 export const Nav = () => {
   return (
     <div className="nav">
-      <div>About</div>
+      <Link to="/about">About</Link>
       <Link to="/">Edoardo Guido</Link>
       <MenuButton />
     </div>

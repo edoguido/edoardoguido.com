@@ -5,6 +5,12 @@ import { motion, useMotionValue } from 'framer-motion'
 
 // Constants
 import { TRANSITION_PROPS } from '../../../const/const'
+import { VideoElement } from '../../VideoElement'
+
+const localeOptions = {
+  month: 'short',
+  year: 'numeric',
+}
 
 const ENTER_DELAY = 0.35
 const EXIT_DELAY = 0.25
@@ -31,10 +37,6 @@ export const SingleProject = inject('state')(
   observer(({ state: { lang }, content, isFeatured }) => {
     const { data: slice } = content
 
-    const localeOptions = {
-      month: 'short',
-      year: 'numeric',
-    }
     const startDate = new Date(slice.start_date).toLocaleString(
       lang,
       localeOptions
@@ -51,17 +53,11 @@ export const SingleProject = inject('state')(
           <div className="cover">
             {slice.is_cover_animated ? (
               <>
-                <video
-                  muted
-                  loop
-                  autoPlay
-                  // onLoadedData={(e) => console.log('loaded', e.target)}
-                >
-                  <source
-                    src={slice.cover.url}
-                    type={`video/${slice.cover.name.split('.')[1]}`}
-                  />
-                </video>
+                <VideoElement
+                  url={slice.cover.url}
+                  filename={slice.cover.name}
+                  fit={'cover'}
+                />
                 <img src={slice.cover_fallback.url} alt={slice.alt} />
               </>
             ) : (
@@ -69,13 +65,24 @@ export const SingleProject = inject('state')(
             )}
           </div>
           <div className="info">
-            <div className="meta">
-              <span className="caption">{slice.headline[0].text}</span>
-              <span className="duration">
+            <div className="upper">
+              <span className="faded caption">{slice.headline[0].text}</span>
+              <div className="faded tags">
+                {content.tags.map((tag, i) => {
+                  return (
+                    <span key={i} className="tag">
+                      {tag}
+                    </span>
+                  )
+                })}
+              </div>
+            </div>
+            <div className="lower">
+              <h2 className="title">{slice.title[0].text}</h2>
+              <span className="faded duration">
                 {startDate} → {endDate}
               </span>
             </div>
-            <h2 className="title">{slice.title[0].text}</h2>
           </div>
         </Link>
       </motion.div>

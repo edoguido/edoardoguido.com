@@ -1,45 +1,3 @@
-.hero {
-  max-width: var(--w-xl-max);
-  margin: 0 auto;
-  min-height: calc(40vh - var(--h-nav));
-  padding: calc(var(--p-side) * 6) var(--p-side) calc(var(--p-side) * 3);
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  align-items: flex-start;
-}
-
-.hero h1 {
-  margin: 0.25rem 0;
-  white-space: nowrap;
-  will-change: transform;
-}
-
-.hero a {
-  padding: 0 0.5rem;
-  color: var(--c-acc);
-  transition: color var(--transition-props);
-}
-.hero a:hover {
-  color: var(--c-bg);
-  transition: color var(--transition-props);
-}
-.hero a::before {
-  z-index: -1;
-  content: '';
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  height: 1.5px;
-  background-color: var(--c-acc);
-  transition: height var(--transition-props);
-}
-.hero a:hover::before {
-  height: 100%;
-  transition: height var(--transition-props);
-}
-
 .all-projects {
   padding: calc(var(--p-side) * 4) 1rem;
 }
@@ -64,7 +22,6 @@
   margin: 0 auto calc(var(--p-side) * 6);
 }
 .featured.project .cover {
-  height: 70vh;
   max-height: 640px;
 }
 /* 
@@ -83,7 +40,7 @@
 
 .project .cover {
   position: relative;
-  height: auto;
+  height: 70vh;
   background-color: #fff;
   margin-bottom: 1.25rem;
   overflow: hidden;
@@ -106,9 +63,15 @@
   left: 0;
 }
 
-.project .info .meta {
+.project .info .upper,
+.project .info .lower {
   display: flex;
   justify-content: space-between;
+  align-items: baseline;
+  margin-top: 0.5rem;
+}
+
+.project .info .faded {
   color: var(--c-txt-alpha);
   transition: color var(--transition-props);
 }
@@ -116,6 +79,7 @@
 .project .info .duration {
   white-space: nowrap;
   align-self: baseline;
+  text-align: end;
 }
 
 .project .info .title {
@@ -127,9 +91,18 @@
   transition: color var(--transition-props);
 }
 .project a:hover .info,
-.project a:hover .info .meta {
+.project a:hover .info .faded {
   color: var(--c-acc);
   transition: color var(--transition-props);
+}
+
+.project .tags .tag {
+  display: inline;
+  font-size: 0.9rem;
+}
+
+.project .tags .tag:not(:last-child)::after {
+  content: ' — ';
 }
 
 @media (max-width: 920px) {
@@ -152,8 +125,14 @@
     margin: calc(var(--p-side) * 2) 0 0;
   }
 
-  .featured.project .cover {
+  .featured.project .cover,
+  .project .cover {
     height: 40vh;
+  }
+
+  .featured.project,
+  .project {
+    margin: 2rem 0;
   }
 
   .project .info .caption {

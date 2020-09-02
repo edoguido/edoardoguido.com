@@ -59,6 +59,52 @@ body {
   align-items: center;
 }
 
+video {
+  will-change: opacity, transform;
+  transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.hero {
+  max-width: var(--w-xl-max);
+  margin: 0 auto;
+  padding: calc(var(--p-side) * 6) var(--p-side) calc(var(--p-side) * 3);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
+}
+
+.hero h1 {
+  margin: 0.25rem 0;
+  white-space: nowrap;
+  will-change: transform;
+}
+
+.hero a {
+  padding: 0 0.5rem;
+  color: var(--c-acc);
+  transition: color var(--transition-props);
+}
+.hero a:hover {
+  color: var(--c-bg);
+  transition: color var(--transition-props);
+}
+.hero a::before {
+  z-index: -1;
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  height: 1.5px;
+  background-color: var(--c-acc);
+  transition: height var(--transition-props);
+}
+.hero a:hover::before {
+  height: 100%;
+  transition: height var(--transition-props);
+}
+
 @media (max-width: 480px) {
   .nav {
     font-size: 0.8rem;

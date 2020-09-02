@@ -3,7 +3,7 @@ import { RichText } from 'prismic-reactjs'
 import { motion } from 'framer-motion'
 
 // Constants
-import { TRANSITION_PROPS } from '../../../const/const'
+import { TRANSITION_PROPS } from '../const/const'
 
 const titleSpanItem = {
   initial: {
@@ -26,7 +26,7 @@ const titleSpanItem = {
   },
 }
 
-export const HomeHero = ({ content }) => {
+export const Hero = ({ content }) => {
   return (
     <>
       <motion.div

@@ -3,7 +3,7 @@ import { inject, observer } from 'mobx-react'
 import { motion } from 'framer-motion'
 
 // Components
-import { HomeHero } from './HomeHero.js'
+import { Hero } from '../../Hero.js'
 import { SingleProject } from './SingleProject.js'
 
 // Style
@@ -63,7 +63,7 @@ export const Home = inject('state')(
 
     return (
       <>
-        {hero && <HomeHero content={hero.data.hero_text} />}
+        {hero && <Hero content={hero.data.hero_text} />}
         {projects && (
           <motion.div
             className="all-projects"

@@ -1,13 +1,14 @@
 import React, { useEffect } from 'react'
+import { useLocation } from 'react-router'
+import { Link } from 'react-router-dom'
 import { inject, observer } from 'mobx-react'
 import { RichText } from 'prismic-reactjs'
 import { motion } from 'framer-motion'
 import './Project.css'
 
-// Constants
+// Lib & Constants
 import { TRANSITION_PROPS } from '../../../const/const'
-import { useLocation } from 'react-router'
-import { Link } from 'react-router-dom'
+import { VideoElement } from '../../VideoElement'
 
 const EXIT_DELAY = 0.25
 
@@ -107,7 +108,7 @@ const ImageGallery = (props) => {
 
   return (
     <div
-      className="image-gallery"
+      className="gallery"
       style={{ gridTemplateColumns: `repeat(${items.length}, 1fr)` }}
     >
       {items.map((item, i) => {
@@ -129,6 +130,45 @@ const ImageGallery = (props) => {
   )
 }
 
+const MixedGallery = (props) => {
+  const {
+    data: {
+      items,
+      primary: { fill_type },
+    },
+  } = props
+
+  return (
+    <div
+      className="gallery"
+      style={{ gridTemplateColumns: `repeat(${items.length}, 1fr)` }}
+    >
+      {items.map(({ media }, i) => {
+        const itemType = media.kind
+        return itemType === 'image' ? (
+          <div key={i} className="single-gallery-image">
+            <div className="image-container">
+              <img
+                src={media.url}
+                alt={media.alt}
+                style={{ objectFit: fill_type }}
+              />
+            </div>
+          </div>
+        ) : (
+          <div key={i} className="video">
+            <VideoElement
+              url={media.url}
+              filename={media.name}
+              fit={fill_type}
+            />
+          </div>
+        )
+      })}
+    </div>
+  )
+}
+
 const Video = (props) => {
   const {
     data: { primary },
@@ -139,15 +179,7 @@ const Video = (props) => {
 
   return (
     <div className="video">
-      <video
-        muted
-        loop
-        autoPlay
-        // onLoadedData={(e) => console.log('loaded', e.target)}
-        src={video.url}
-        type={`video/${video.name.split('.')[1]}`}
-        style={{ objectFit: fill_type }}
-      />
+      <VideoElement url={video.url} filename={video.name} fit={fill_type} />
       {hasCaption && <figcaption>{caption[0].text}</figcaption>}
     </div>
   )
@@ -160,6 +192,7 @@ function sliceSwitcher(slice, sliceType, key) {
     image_with_link: <ExternalLinkImage key={key} data={slice} />,
     featured_image: <Image key={key} data={slice} />,
     image_gallery: <ImageGallery key={key} data={slice} />,
+    mixed_gallery: <MixedGallery key={key} data={slice} />,
     video: <Video key={key} data={slice} />,
   }
 
