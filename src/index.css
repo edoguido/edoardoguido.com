@@ -64,32 +64,22 @@ video {
   transition: opacity 1s ease-out, transform 1s ease-out;
 }
 
-.hero {
-  max-width: var(--w-xl-max);
-  margin: 0 auto;
-  padding: calc(var(--p-side) * 6) var(--p-side) calc(var(--p-side) * 3);
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  align-items: flex-start;
-}
-
-.hero h1 {
+.hero-content h1 {
   margin: 0.25rem 0;
   white-space: nowrap;
   will-change: transform;
 }
 
-.hero a {
+.hero-content a {
   padding: 0 0.5rem;
   color: var(--c-acc);
   transition: color var(--transition-props);
 }
-.hero a:hover {
+.hero-content a:hover {
   color: var(--c-bg);
   transition: color var(--transition-props);
 }
-.hero a::before {
+.hero-content a::before {
   z-index: -1;
   content: '';
   position: absolute;
@@ -100,9 +90,33 @@ video {
   background-color: var(--c-acc);
   transition: height var(--transition-props);
 }
-.hero a:hover::before {
+.hero-content a:hover::before {
   height: 100%;
   transition: height var(--transition-props);
+}
+
+a.external-link {
+  display: inline-block;
+  cursor: alias;
+}
+a.external-link {
+  text-decoration: underline;
+}
+a.external-link::after {
+  display: inline;
+  content: '↗';
+}
+
+.faded {
+  color: var(--c-txt-alpha);
+}
+
+@media (max-width: 920px) {
+  .home.hero,
+  .about.hero {
+    min-height: initial;
+    padding: calc(var(--p-side) * 2) var(--p-side) var(--p-side);
+  }
 }
 
 @media (max-width: 480px) {

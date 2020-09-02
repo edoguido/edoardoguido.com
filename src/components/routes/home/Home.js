@@ -63,7 +63,11 @@ export const Home = inject('state')(
 
     return (
       <>
-        {hero && <Hero content={hero.data.hero_text} />}
+        {hero && (
+          <motion.div className="home hero">
+            <Hero content={hero.data.hero_text} />
+          </motion.div>
+        )}
         {projects && (
           <motion.div
             className="all-projects"
@@ -76,12 +80,12 @@ export const Home = inject('state')(
             }}
           >
             {projects && projects[0] && (
-              <SingleProject content={projects[0]} isFeatured />
+              <SingleProject key={0} content={projects[0]} isFeatured />
             )}
             <div className="projects-list">
               {projects.length > 1 &&
                 projects.slice(1, projects.length).map((data, i) => {
-                  return <SingleProject key={i} content={data} />
+                  return <SingleProject key={i + 1} content={data} />
                 })}
             </div>
           </motion.div>

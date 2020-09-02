@@ -5,6 +5,15 @@ function getBrowserLanguage() {
   return navigator.language
 }
 
+function fetchContentsByType(type, langCode = DEFAULT_LANGUAGE, options = {}) {
+  const response = CLIENT.query(PRISMIC.Predicates.at('document.type', type), {
+    lang: langCode,
+    ...options,
+  })
+
+  return response
+}
+
 export const State = t
   .model('State', {
     state: t.optional(t.string, 'done'),
@@ -19,19 +28,9 @@ export const State = t
       let response
 
       try {
-        response = yield CLIENT.query(
-          PRISMIC.Predicates.at('document.type', 'homepage'),
-          {
-            lang: self.lang,
-          }
-        )
+        response = yield fetchContentsByType('homepage', self.lang)
         if (response.results.length === 0) {
-          response = yield CLIENT.query(
-            PRISMIC.Predicates.at('document.type', 'homepage'),
-            {
-              lang: DEFAULT_LANGUAGE,
-            }
-          )
+          response = yield fetchContentsByType('homepage')
         }
       } catch (error) {
         console.error('Failed to fetch data', error)
@@ -47,21 +46,13 @@ export const State = t
       self.state = 'pending'
       const results = []
       try {
-        let response = yield CLIENT.query(
-          PRISMIC.Predicates.at('document.type', 'project'),
-          {
-            orderings: '[my.project.order]',
-            lang: self.lang,
-          }
-        )
+        let response = yield fetchContentsByType('project', self.lang, {
+          orderings: '[my.project.order]',
+        })
         if (response.results.length === 0) {
-          response = yield CLIENT.query(
-            PRISMIC.Predicates.at('document.type', 'project'),
-            {
-              orderings: '[my.project.order]',
-              lang: DEFAULT_LANGUAGE,
-            }
-          )
+          response = yield fetchContentsByType('project', null, {
+            orderings: '[my.project.order]',
+          })
         }
         for (let result of response.results) {
           results.push(result)

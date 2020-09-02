@@ -8,11 +8,13 @@ import './About.css'
 // Const
 import { CLIENT, PRISMIC, TRANSITION_PROPS } from '../../../const/const'
 import { Hero } from '../../Hero'
+import { RichText } from 'prismic-reactjs'
+import { formatDate } from '../../../lib/utils'
 
 const variants = {
   initial: {
     opacity: 0,
-    y: -10,
+    y: 10,
     // skewY: -4,
     transition: TRANSITION_PROPS.enter,
   },
@@ -24,7 +26,7 @@ const variants = {
   },
   exit: {
     opacity: 0,
-    y: -50,
+    y: 50,
     // skewY: 4,
     transition: TRANSITION_PROPS.exit,
   },
@@ -51,33 +53,76 @@ export const About = inject('state')(
     return (
       pageData && (
         <>
-          <Hero content={pageData.data.title} />
-          <motion.div className="about-main">
-            <motion.div
-              className="about-main-text"
-              initial="initial"
-              animate="enter"
-              exit="exit"
-            >
-              {pageData.data.text.map((slice, i) => {
-                return (
-                  <motion.p key={i} variants={variants}>
-                    {slice.text}
-                  </motion.p>
-                )
-              })}
+          <motion.div className="about hero">
+            <Hero content={pageData.data.title} />
+          </motion.div>
+          <motion.div
+            className="about-main"
+            initial="initial"
+            animate="enter"
+            exit="exit"
+            variants={{
+              enter: {
+                transition: { staggerChildren: 0.2 },
+              },
+              exit: {
+                transition: { staggerChildren: 0.05 },
+              },
+            }}
+          >
+            <motion.div className="experiences-section" variants={variants}>
+              <h3>Experiences</h3>
+              <div className="experiences">
+                {pageData.data.body.map((slice, i) => {
+                  return (
+                    <ul key={i} className={slice.slice_type}>
+                      {slice.primary.link.url ? (
+                        <a
+                          className="studio-name external-link"
+                          href={slice.primary.link.url}
+                          target="_blank"
+                        >
+                          <span>{slice.primary.studio[0].text}</span>
+                        </a>
+                      ) : (
+                        <p className="studio-name">
+                          {slice.primary.studio[0].text}
+                        </p>
+                      )}
+                      {slice.items.map((experience, i) => {
+                        return (
+                          <ul key={i} className="position">
+                            <RichText render={experience.position} />
+                            <div className="period faded">
+                              <span>{formatDate(experience.from, lang)}</span>
+                              <span> → </span>
+                              <span>{formatDate(experience.to, lang)}</span>
+                            </div>
+                          </ul>
+                        )
+                      })}
+                    </ul>
+                  )
+                })}
+              </div>
             </motion.div>
 
+            <motion.div className="about-main-section" variants={variants}>
+              <h3>Bio</h3>
+              <motion.div className="about-main-text">
+                {pageData.data.text.map((slice, i) => {
+                  return <p key={i}>{slice.text}</p>
+                })}
+              </motion.div>
+            </motion.div>
             <motion.div
               className="image-container"
               style={{ maxWidth: pageData.data.image.dimensions.width }}
-              initial={variants.initial}
-              animate={variants.enter}
-              exit={variants.exit}
+              variants={variants}
             >
               <img
                 src={pageData.data.image.url}
-                width={pageData.data.image.dimensions.width}
+                height={pageData.data.image.dimensions.height}
               />
               {hasCaption && <figcaption>{pageData.data.image.alt}</figcaption>}
             </motion.div>

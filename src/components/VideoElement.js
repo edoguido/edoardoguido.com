@@ -1,5 +1,5 @@
 import React, { useState /* , useRef, useEffect */ } from 'react'
-import { filenameExtention } from '../lib/utils'
+import { getFilenameExtention } from '../lib/utils'
 
 export const VideoElement = ({
   url,
@@ -38,7 +38,7 @@ export const VideoElement = ({
       loop
       autoPlay
       src={url}
-      type={`video/${filenameExtention(filename)}`}
+      type={`video/${getFilenameExtention(filename)}`}
       onLoadedData={() => setLoaded(true)}
       style={{
         objectFit,

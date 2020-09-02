@@ -30,7 +30,7 @@ export const Hero = ({ content }) => {
   return (
     <>
       <motion.div
-        className="hero"
+        className="hero-content"
         initial="initial"
         animate="enter"
         exit="exit"

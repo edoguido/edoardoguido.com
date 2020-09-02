@@ -1,16 +1,12 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { Link } from 'react-router-dom'
 import { inject, observer } from 'mobx-react'
-import { motion, useMotionValue } from 'framer-motion'
+import { motion } from 'framer-motion'
 
 // Constants
 import { TRANSITION_PROPS } from '../../../const/const'
 import { VideoElement } from '../../VideoElement'
-
-const localeOptions = {
-  month: 'short',
-  year: 'numeric',
-}
+import { formatDate } from '../../../lib/utils'
 
 const ENTER_DELAY = 0.35
 const EXIT_DELAY = 0.25
@@ -37,11 +33,8 @@ export const SingleProject = inject('state')(
   observer(({ state: { lang }, content, isFeatured }) => {
     const { data: slice } = content
 
-    const startDate = new Date(slice.start_date).toLocaleString(
-      lang,
-      localeOptions
-    )
-    const endDate = new Date(slice.end_date).toLocaleString(lang, localeOptions)
+    const startDate = formatDate(slice.start_date, lang)
+    const endDate = formatDate(slice.end_date, lang)
 
     return (
       <motion.div
@@ -65,19 +58,21 @@ export const SingleProject = inject('state')(
             )}
           </div>
           <div className="info">
-            <div className="upper">
+            <div className="left">
               <span className="faded caption">{slice.headline[0].text}</span>
               <div className="faded tags">
-                {content.tags.map((tag, i) => {
+                {content.tags.map((tag, i, arr) => {
+                  const isLast = i === arr.length - 1
                   return (
-                    <span key={i} className="tag">
-                      {tag}
-                    </span>
+                    <React.Fragment key={i}>
+                      <span className="tag">{tag}</span>
+                      {!isLast && ' — '}
+                    </React.Fragment>
                   )
                 })}
               </div>
             </div>
-            <div className="lower">
+            <div className="right">
               <h2 className="title">{slice.title[0].text}</h2>
               <span className="faded duration">
                 {startDate} → {endDate}

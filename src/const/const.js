@@ -12,3 +12,8 @@ export const TRANSITION_PROPS = {
   exit: { duration: TRANSITION_DURATION, ease: [0.75, 0, 0, 0.25] },
 }
 export const ROUTE_SCROLLTOP_TIMEOUT = 900
+
+export const LOCALE_OPTIONS = {
+  month: 'short',
+  year: 'numeric',
+}
