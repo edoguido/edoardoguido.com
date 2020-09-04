@@ -47,11 +47,11 @@ export const State = t
       const results = []
       try {
         let response = yield fetchContentsByType('project', self.lang, {
-          orderings: '[my.project.order]',
+          orderings: '[my.project.order desc]',
         })
         if (response.results.length === 0) {
           response = yield fetchContentsByType('project', null, {
-            orderings: '[my.project.order]',
+            orderings: '[my.project.order desc]',
           })
         }
         for (let result of response.results) {

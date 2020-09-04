@@ -3,10 +3,9 @@ import { Link } from 'react-router-dom'
 import { inject, observer } from 'mobx-react'
 import { motion } from 'framer-motion'
 
-// Constants
-import { TRANSITION_PROPS } from '../../../const/const'
 import { VideoElement } from '../../VideoElement'
 import { formatDate } from '../../../lib/utils'
+import { TRANSITION_PROPS } from '../../../const/const'
 
 const ENTER_DELAY = 0.35
 const EXIT_DELAY = 0.25
@@ -36,6 +35,8 @@ export const SingleProject = inject('state')(
     const startDate = formatDate(slice.start_date, lang)
     const endDate = formatDate(slice.end_date, lang)
 
+    console.log(slice)
+
     return (
       <motion.div
         key={slice.uid}
@@ -44,18 +45,14 @@ export const SingleProject = inject('state')(
       >
         <Link to={`/p/${content.uid}`}>
           <div className="cover">
-            {slice.is_cover_animated ? (
-              <>
-                <VideoElement
-                  url={slice.cover.url}
-                  filename={slice.cover.name}
-                  fit={'cover'}
-                />
-                <img src={slice.cover_fallback.url} alt={slice.alt} />
-              </>
-            ) : (
-              <img src={slice.cover.url} alt={slice.alt} />
+            {slice.is_cover_animated && (
+              <VideoElement
+                url={slice.cover.url}
+                filename={slice.cover.name}
+                fit={'cover'}
+              />
             )}
+            {/* <img src={slice.cover_fallback.url} alt={slice.alt} /> */}
           </div>
           <div className="info">
             <div className="left">
@@ -75,7 +72,13 @@ export const SingleProject = inject('state')(
             <div className="right">
               <h2 className="title">{slice.title[0].text}</h2>
               <span className="faded duration">
-                {startDate} → {endDate}
+                {slice.wip ? (
+                  <>
+                    Work In Progress <div className="wip" />
+                  </>
+                ) : (
+                  `${startDate} → ${endDate}`
+                )}
               </span>
             </div>
           </div>

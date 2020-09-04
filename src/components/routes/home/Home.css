@@ -65,12 +65,17 @@
 }
 
 .project .cover img {
-  z-index: -1;
+  z-index: 1;
   position: absolute;
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
+}
+
+.project .cover video {
+  position: relative;
+  z-index: 2;
 }
 
 .project .info .left,
@@ -109,6 +114,28 @@
   display: inline;
   white-space: nowrap;
   /* font-size: 0.9rem; */
+}
+
+.wip {
+  display: inline-block;
+  width: 0.65rem;
+  height: 0.65rem;
+  margin-left: 0.35rem;
+  border-radius: 100%;
+  background-color: red;
+  animation: blink 2.5s linear infinite;
+}
+
+@keyframes blink {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 /* .project .tags .tag:not(:last-child)::after {
