@@ -23,8 +23,8 @@
 
 .project-hero > .project-info {
   max-width: calc(var(--w-max) / 1.5);
-  align-self: baseline;
   line-height: 1.5;
+  align-self: baseline;
 }
 
 .project-hero > .project-info > div {
@@ -36,7 +36,7 @@
   align-self: baseline;
 }
 
-.project-hero > .project-info p > a {
+.project-hero > .project-info a {
   cursor: alias;
   color: var(--c-acc);
   transition: color var(--transition-props);

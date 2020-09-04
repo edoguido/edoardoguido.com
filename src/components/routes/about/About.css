@@ -40,6 +40,7 @@
 .about-main .experiences .experience > *,
 .about-main .experiences .experience .position > *:not(:last-child) {
   margin: 0;
+  margin-bottom: 0.25rem;
 }
 
 .about-main .experiences .experience .studio-name,

@@ -263,7 +263,7 @@ export const Project = inject('state')(
               {projectIndices[0] !== null && (
                 <Link to={`/p/${projects[projectIndices[0]].uid}`}>
                   <span>Previous Project</span>
-                  <h2>{projects[projectIndices[0]].uid}</h2>
+                  <h2>{projects[projectIndices[0]].data.name}</h2>
                 </Link>
               )}
             </motion.div>
@@ -271,7 +271,7 @@ export const Project = inject('state')(
               {projectIndices[2] && (
                 <Link to={`/p/${projects[projectIndices[2]].uid}`}>
                   <span>Next Project</span>
-                  <h2>{projects[projectIndices[2]].uid}</h2>
+                  <h2>{projects[projectIndices[2]].data.name}</h2>
                 </Link>
               )}
             </motion.div>
