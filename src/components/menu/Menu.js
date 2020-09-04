@@ -95,7 +95,7 @@ export const Menu = inject('state')(
     useEffect(() => {
       window.addEventListener('click', (e) => {
         const target = e.target
-        if (open && target.contains(overlayRef.current)) handleClick()
+        if (target.contains(overlayRef.current)) handleClick()
       })
     }, [])
 
