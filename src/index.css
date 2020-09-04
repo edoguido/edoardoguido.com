@@ -15,7 +15,7 @@
   --w-xl-max: 1440px;
   --h-nav: 1.5rem;
   --c-bg: rgb(255, 255, 255);
-  --c-txt: hsl(213, 100%, 15%);
+  --c-txt: hsl(0, 0%, 0%);
   --c-txt-alpha: hsl(213, 25%, 65%);
   --c-acc: hsl(175, 87%, 40%);
   --c-sel: rgba(13, 191, 176, 0.5);
@@ -58,6 +58,12 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+.nav > :nth-child(2) {
+  z-index: 999;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 video {
@@ -121,11 +127,5 @@ a.external-link::after {
   .about.hero {
     min-height: initial;
     padding: calc(var(--p-side) * 2) var(--p-side) var(--p-side);
-  }
-}
-
-@media (max-width: 480px) {
-  .nav {
-    font-size: 0.8rem;
   }
 }
