@@ -1,8 +1,9 @@
-import React, { useState /* , useRef, useEffect */ } from 'react'
+import React, { useState } from 'react'
 import { getFilenameExtention } from '../lib/utils'
 
 export const VideoElement = ({
   url,
+  poster,
   filename = '.mp4',
   fit: objectFit = 'cover',
 }) => {
@@ -34,10 +35,12 @@ export const VideoElement = ({
   return (
     <video
       // ref={ref}
-      muted
       loop
+      muted
       autoPlay
+      playsInline
       src={url}
+      poster={poster}
       type={`video/${getFilenameExtention(filename)}`}
       onLoadedData={() => setLoaded(true)}
       style={{

@@ -35,8 +35,6 @@ export const SingleProject = inject('state')(
     const startDate = formatDate(slice.start_date, lang)
     const endDate = formatDate(slice.end_date, lang)
 
-    console.log(slice)
-
     return (
       <motion.div
         key={slice.uid}
@@ -48,6 +46,7 @@ export const SingleProject = inject('state')(
             {slice.is_cover_animated && (
               <VideoElement
                 url={slice.cover.url}
+                poster={slice.cover_fallback.url}
                 filename={slice.cover.name}
                 fit={'cover'}
               />
