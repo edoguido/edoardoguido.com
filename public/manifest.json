@@ -1,6 +1,14 @@
 {
   "short_name": "Edoardo Guido",
   "name": "Edoardo Guido - Full Stack Designer",
+  "description": "Full-Stack Designer - UX, Dataviz, Development",
+  "": "",
+  "start_url": "/",
+  "display": "fullscreen",
+  "scope": "/",
+  "theme_color": "#000000",
+  "background_color": "#ffffff",
+  "orientation": "portrait",
   "icons": [
     {
       "src": "favicon.ico",
@@ -10,16 +18,13 @@
     {
       "src": "logo192.png",
       "type": "image/png",
-      "sizes": "192x192"
+      "sizes": "192x192",
+      "purpose": "any maskable"
     },
     {
       "src": "logo512.png",
       "type": "image/png",
       "sizes": "512x512"
     }
-  ],
-  "start_url": ".",
-  "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  ]
 }
