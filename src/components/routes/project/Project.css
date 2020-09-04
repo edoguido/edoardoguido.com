@@ -117,8 +117,12 @@
   grid-gap: 1rem;
 }
 
-.project-content .gallery .single-gallery-image:not(:last-child) {
-  margin-right: 1rem;
+.project-content .gallery .single-gallery-image {
+  display: flex;
+  flex-direction: column;
+}
+.project-content .gallery .single-gallery-image .image-container {
+  flex-grow: 1;
 }
 
 .project-selector {
