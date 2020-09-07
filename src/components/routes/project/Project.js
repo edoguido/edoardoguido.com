@@ -262,16 +262,16 @@ export const Project = inject('state')(
             >
               {projectIndices[0] !== null && (
                 <Link to={`/p/${projects[projectIndices[0]].uid}`}>
-                  <span>Previous Project</span>
                   <h2>{projects[projectIndices[0]].data.name}</h2>
+                  <span>Previous Project</span>
                 </Link>
               )}
             </motion.div>
             <motion.div className="selector next" variants={contentVariants}>
               {projectIndices[2] && (
                 <Link to={`/p/${projects[projectIndices[2]].uid}`}>
-                  <span>Next Project</span>
                   <h2>{projects[projectIndices[2]].data.name}</h2>
+                  <span>Next Project</span>
                 </Link>
               )}
             </motion.div>

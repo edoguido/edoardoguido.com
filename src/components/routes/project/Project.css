@@ -144,7 +144,7 @@
 }
 .project-selector .selector h2 {
   margin: 0;
-  padding: 1rem 0;
+  padding: 0.25rem 0;
 }
 
 @media (max-width: 920px) {
