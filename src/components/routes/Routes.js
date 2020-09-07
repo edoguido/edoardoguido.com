@@ -16,7 +16,7 @@ const Project = lazy(() => import('./project/Project'))
 
 export const Routes = inject('state')(
   observer(({ state }) => {
-    const { projects, fetchHero, fetchProjects } = state
+    const { fetchHero, fetchProjects } = state
     const location = useLocation()
 
     useEffect(() => {
