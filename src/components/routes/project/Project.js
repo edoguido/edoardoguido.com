@@ -199,7 +199,7 @@ function sliceSwitcher(slice, sliceType, key) {
   return types[sliceType]
 }
 
-export const Project = inject('state')(
+const Project = inject('state')(
   observer(({ state, match }) => {
     const { id } = match.params
     const {
@@ -281,3 +281,5 @@ export const Project = inject('state')(
     )
   })
 )
+
+export default Project

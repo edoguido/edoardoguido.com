@@ -32,7 +32,7 @@ const variants = {
   },
 }
 
-export const About = inject('state')(
+const About = inject('state')(
   observer((state) => {
     const { lang } = state
 
@@ -132,3 +132,5 @@ export const About = inject('state')(
     )
   })
 )
+
+export default About

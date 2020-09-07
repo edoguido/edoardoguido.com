@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, lazy, Suspense } from 'react'
 import { Switch, Route, Redirect, useLocation } from 'react-router-dom'
 import { inject } from 'mobx-react'
 import { observer } from 'mobx-react-lite'
@@ -9,12 +9,14 @@ import { ROUTE_SCROLLTOP_TIMEOUT } from '../../const/const'
 
 // Routes
 import { Home } from './home/Home'
-import { Project } from './project/Project'
-import { About } from './about/About'
+// import { About } from './about/About'
+// import { Project } from './project/Project'
+const About = lazy(() => import('./about/About'))
+const Project = lazy(() => import('./project/Project'))
 
 export const Routes = inject('state')(
   observer(({ state }) => {
-    const { fetchHero, fetchProjects } = state
+    const { projects, fetchHero, fetchProjects } = state
     const location = useLocation()
 
     useEffect(() => {
@@ -33,17 +35,16 @@ export const Routes = inject('state')(
         <Route
           render={({ location }) => {
             return (
-              <AnimatePresence exitBeforeEnter>
-                <Switch location={location} key={location.pathname}>
-                  <Route exact path="/p">
-                    <Redirect to={`/p/hate-shades`} />
-                  </Route>
-                  <Route path="/p/:id" component={Project} />
-                  <Route exact path="/" component={Home} />
-                  <Route exact path="/about" component={About} />
-                  <Route>Page not found!</Route>
-                </Switch>
-              </AnimatePresence>
+              <Suspense fallback={null}>
+                <AnimatePresence exitBeforeEnter>
+                  <Switch location={location} key={location.pathname}>
+                    <Route path="/p/:id" component={Project} />
+                    <Route exact path="/" component={Home} />
+                    <Route exact path="/about" component={About} />
+                    <Route component={Home} />
+                  </Switch>
+                </AnimatePresence>
+              </Suspense>
             )
           }}
         />
