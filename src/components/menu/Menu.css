@@ -17,15 +17,21 @@
   width: 100%;
   height: 1.5px;
   background-color: var(--c-txt);
-  will-change: transform;
-  transition: transform 350ms cubic-bezier(0, 0, 0, 1),
-    background-color 350ms cubic-bezier(0, 0, 0, 1);
+  will-change: transform, background-color;
+  transition: transform 350ms 750ms cubic-bezier(0, 0, 0, 1),
+    background-color 350ms 750ms cubic-bezier(0, 0, 0, 1);
 }
 .menu-button::before {
   top: 30%;
 }
 .menu-button::after {
   bottom: 30%;
+}
+
+.menu-button.open::before,
+.menu-button.open::after {
+  transition: transform 350ms cubic-bezier(0, 0, 0, 1),
+    background-color 350ms cubic-bezier(0, 0, 0, 1);
 }
 
 .menu-button.open::before {
@@ -95,6 +101,18 @@
   left: 0;
   background-color: rgba(0, 0, 0, 0.5);
   cursor: w-resize;
+}
+
+@media (max-width: 960px) {
+  .menu {
+    width: 100%;
+  }
+  .menu .menu-content {
+    margin: 0 2rem;
+  }
+  .menu-overlay {
+    display: none;
+  }
 }
 
 /* @media (max-width: 480px) {

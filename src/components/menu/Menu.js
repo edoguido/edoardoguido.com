@@ -9,28 +9,19 @@ import { TRANSITION_EASE_IN, TRANSITION_EASE_OUT } from '../../const/const'
 import './Menu.css'
 
 const parentVariant = {
-  initial: {
-    x: '100%',
-    transition: {
-      when: 'beforeChildren',
-      duration: 0.35,
-      ease: TRANSITION_EASE_IN,
-    },
-  },
   visible: {
     x: '0%',
     transition: {
       when: 'beforeChildren',
-      duration: 0.35,
-      ease: TRANSITION_EASE_IN,
+      duration: 0.5,
+      ease: [0.5, 0, 0, 1],
     },
   },
   hidden: {
     x: '100%',
     transition: {
-      when: 'afterChildren',
-      duration: 0.35,
-      ease: TRANSITION_EASE_OUT,
+      duration: 0.5,
+      ease: [0.85, 0, 0, 0.15],
     },
   },
 }
@@ -118,7 +109,7 @@ export const Menu = inject('state')(
               />
               <motion.div
                 className="menu"
-                initial="initial"
+                initial="hidden"
                 animate="visible"
                 exit="hidden"
                 variants={parentVariant}

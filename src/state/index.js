@@ -10,7 +10,6 @@ function fetchContentsByType(type, langCode = DEFAULT_LANGUAGE, options = {}) {
     lang: langCode,
     ...options,
   })
-
   return response
 }
 
@@ -40,6 +39,7 @@ export const State = t
 
       self.hero = response.results[0]
       self.state = 'done'
+
       return response
     })
     const fetchProjects = flow(function* () {
@@ -65,6 +65,7 @@ export const State = t
         self.state = 'error'
       }
 
+      console.log(results)
       return results.length
     })
 
