@@ -7,29 +7,29 @@ import { VideoElement } from '../../VideoElement'
 import { formatDate } from '../../../lib/utils'
 import { TRANSITION_PROPS } from '../../../const/const'
 
-const ENTER_DELAY = 0.35
-const EXIT_DELAY = 0.25
+const ENTER_DELAY = 0.1
+const EXIT_DELAY = 0.05
 
 const variant = {
-  initial: {
+  initial: (i) => ({
     opacity: 0,
-    y: 30,
-    transition: { ...TRANSITION_PROPS.enter, delay: ENTER_DELAY },
-  },
-  enter: {
+    y: 60,
+    transition: { ...TRANSITION_PROPS.enter, delay: i * ENTER_DELAY },
+  }),
+  enter: (i) => ({
     opacity: 1,
     y: 0,
-    transition: { ...TRANSITION_PROPS.enter, delay: ENTER_DELAY },
-  },
-  exit: {
+    transition: { ...TRANSITION_PROPS.enter, delay: i * ENTER_DELAY },
+  }),
+  exit: (i) => ({
     opacity: 0,
-    y: 80,
-    transition: { ...TRANSITION_PROPS.exit, delay: EXIT_DELAY },
-  },
+    y: 60,
+    transition: { ...TRANSITION_PROPS.exit, delay: i * EXIT_DELAY },
+  }),
 }
 
 export const SingleProject = inject('state')(
-  observer(({ state: { lang }, content, isFeatured }) => {
+  observer(({ state: { lang }, custom, content, isFeatured }) => {
     const { data: slice } = content
 
     const startDate = formatDate(slice.start_date, lang)
@@ -38,6 +38,7 @@ export const SingleProject = inject('state')(
     return (
       <motion.div
         key={slice.uid}
+        custom={custom}
         className={`${isFeatured ? 'featured' : ''} project`}
         variants={variant}
       >

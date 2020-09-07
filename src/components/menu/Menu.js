@@ -76,7 +76,7 @@ const variants = {
 }
 
 export const Menu = inject('state')(
-  observer(({ state: { projects, currentProjectUid } }) => {
+  observer(({ state: { projects } }) => {
     const [open, toggleOpen] = useState(false)
     const overlayRef = useRef(null)
 

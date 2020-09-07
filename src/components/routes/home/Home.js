@@ -80,12 +80,17 @@ export const Home = inject('state')(
             }}
           >
             {projects && projects[0] && (
-              <SingleProject key={0} content={projects[0]} isFeatured />
+              <SingleProject
+                key={0}
+                custom={0}
+                content={projects[0]}
+                isFeatured
+              />
             )}
             <div className="projects-list">
               {projects.length > 1 &&
                 projects.slice(1, projects.length).map((data, i) => {
-                  return <SingleProject key={i + 1} content={data} />
+                  return <SingleProject key={i} custom={i + 1} content={data} />
                 })}
             </div>
           </motion.div>
