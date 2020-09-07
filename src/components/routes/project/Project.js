@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useRef } from 'react'
 import { useLocation } from 'react-router'
 import { Link } from 'react-router-dom'
 import { inject, observer } from 'mobx-react'
@@ -185,6 +185,33 @@ const Video = (props) => {
   )
 }
 
+const Embed = (props) => {
+  const {
+    data: { primary, slice_type },
+  } = props
+
+  const { frame } = primary
+  const ref = useRef(null)
+
+  useEffect(() => {
+    if (ref.current) {
+      const iframeElement = ref.current.children[0]
+      iframeElement.height = '640'
+      iframeElement.width = '100%'
+    }
+  }, [])
+
+  return (
+    ref && (
+      <div
+        ref={ref}
+        className={slice_type}
+        dangerouslySetInnerHTML={{ __html: frame.html }}
+      />
+    )
+  )
+}
+
 function sliceSwitcher(slice, sliceType, key) {
   // console.log(slice)
 
@@ -194,6 +221,7 @@ function sliceSwitcher(slice, sliceType, key) {
     image_gallery: <ImageGallery key={key} data={slice} />,
     mixed_gallery: <MixedGallery key={key} data={slice} />,
     video: <Video key={key} data={slice} />,
+    embeddable_content: <Embed key={key} data={slice} />,
   }
 
   return types[sliceType]
