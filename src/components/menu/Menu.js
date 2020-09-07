@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { inject, observer } from 'mobx-react'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 
 import { TRANSITION_EASE_IN, TRANSITION_EASE_OUT } from '../../const/const'
 
@@ -9,6 +9,13 @@ import { TRANSITION_EASE_IN, TRANSITION_EASE_OUT } from '../../const/const'
 import './Menu.css'
 
 const parentVariant = {
+  initial: {
+    x: '100%',
+    transition: {
+      duration: 1,
+      ease: [0.85, 0, 0, 0.15],
+    },
+  },
   visible: {
     x: '0%',
     transition: {
@@ -18,9 +25,9 @@ const parentVariant = {
     },
   },
   hidden: {
-    x: '100%',
+    x: '200%',
     transition: {
-      duration: 0.5,
+      duration: 1,
       ease: [0.85, 0, 0, 0.15],
     },
   },
@@ -73,6 +80,8 @@ export const Menu = inject('state')(
     const [open, toggleOpen] = useState(false)
     const overlayRef = useRef(null)
 
+    const location = useLocation()
+
     function handleClick() {
       toggleOpen((prev) => {
         prev
@@ -109,28 +118,65 @@ export const Menu = inject('state')(
               />
               <motion.div
                 className="menu"
-                initial="hidden"
+                initial="initial"
                 animate="visible"
                 exit="hidden"
                 variants={parentVariant}
               >
                 <motion.div className="menu-content">
-                  <motion.div className="menu-title" variants={variants}>
-                    Projects
+                  <motion.div className="menu-section">
+                    <motion.div
+                      custom={0}
+                      className="menu-title"
+                      variants={variants}
+                    >
+                      <Link to="/" onClick={handleClick}>
+                        Homepage
+                      </Link>
+                    </motion.div>
+                    <motion.div
+                      custom={1}
+                      className="menu-title"
+                      variants={variants}
+                    >
+                      <Link to="/about" onClick={handleClick}>
+                        About
+                      </Link>
+                    </motion.div>
                   </motion.div>
-                  {projects &&
-                    projects.map((project, i) => {
-                      const { data } = project
-                      const isCurrentProjectPage =
-                        currentProjectUid === project.uid
-                      return (
-                        <motion.div key={i} custom={i} variants={variants}>
-                          <Link to={`/p/${project.uid}`} onClick={handleClick}>
-                            {isCurrentProjectPage && '—'} {data.name}
-                          </Link>
-                        </motion.div>
-                      )
-                    })}
+                  <motion.div className="menu-section">
+                    <motion.div
+                      custom={2}
+                      className="menu-title"
+                      variants={variants}
+                    >
+                      Projects ↘
+                    </motion.div>
+                    {projects &&
+                      projects.map((project, i) => {
+                        const { data } = project
+                        const isCurrentProjectPage =
+                          location.pathname.split('/')[2] &&
+                          location.pathname.split('/')[2] === project.uid
+                        return (
+                          <motion.div
+                            key={i}
+                            className={`menu-project ${
+                              isCurrentProjectPage ? 'current' : ''
+                            }`}
+                            custom={i + 3}
+                            variants={variants}
+                          >
+                            <Link
+                              to={`/p/${project.uid}`}
+                              onClick={handleClick}
+                            >
+                              {data.name}
+                            </Link>
+                          </motion.div>
+                        )
+                      })}
+                  </motion.div>
                 </motion.div>
               </motion.div>
             </>

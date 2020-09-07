@@ -55,17 +55,22 @@
 .menu .menu-content {
   height: 100%;
   margin: 0 4rem;
-  color: var(--c-bg);
 
   display: flex;
   flex-direction: column;
   justify-content: center;
+
+  font-size: 2rem;
 }
 
-.menu .menu-content > div a {
+.menu-content,
+.menu-content a {
+  color: var(--c-bg);
+}
+
+.menu .menu-content > div.menu-project a {
   position: relative;
   color: var(--c-bg);
-  font-size: 2rem;
   border-radius: 1rem;
 }
 .menu .menu-content > div a::after {
@@ -88,8 +93,26 @@
   transition: transform 0.25s cubic-bezier(0.25, 0, 0, 0.85);
 }
 
-.menu .menu-content > div {
-  padding-bottom: 1.5rem;
+.menu .menu-content .menu-section {
+  padding-bottom: 2rem;
+}
+
+.menu .menu-content .menu-section .menu-title:first-child:not(:last-child),
+.menu .menu-content .menu-project {
+  padding-bottom: 1rem;
+}
+
+.menu .menu-content .menu-section .menu-title {
+  color: var(--c-bg-alpha);
+}
+
+.menu .menu-content .menu-project.current {
+  margin-left: 2rem;
+}
+.menu .menu-content .menu-project.current::before {
+  content: '—';
+  position: absolute;
+  left: -2rem;
 }
 
 .menu-overlay {

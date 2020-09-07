@@ -17,6 +17,7 @@
   --c-bg: rgb(255, 255, 255);
   --c-txt: hsl(0, 0%, 0%);
   --c-txt-alpha: hsl(213, 25%, 65%);
+  --c-bg-alpha: rgba(255, 255, 255, 0.25);
   --c-acc: hsl(175, 87%, 40%);
   --c-sel: rgba(13, 191, 176, 0.5);
   --p-side: 1rem;
@@ -60,7 +61,7 @@ body {
   align-items: center;
 }
 .nav > :nth-child(2) {
-  z-index: 999;
+  /* z-index: 999; */
   position: absolute;
   left: 50%;
   transform: translateX(-50%);

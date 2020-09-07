@@ -65,7 +65,6 @@ export const State = t
         self.state = 'error'
       }
 
-      console.log(results)
       return results.length
     })
 
