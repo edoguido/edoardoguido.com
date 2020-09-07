@@ -2,7 +2,7 @@
   margin: 0 auto;
   max-width: var(--w-xl-max);
   min-height: calc(60vh - (var(--h-nav) + var(--m-nav) * 2 + var(--p-side)));
-  padding: calc(var(--p-side) * 4) var(--p-side) var(--p-side);
+  padding: calc(var(--p-side) * 2) var(--p-side) var(--p-side);
   display: flex;
   justify-content: space-between;
 }

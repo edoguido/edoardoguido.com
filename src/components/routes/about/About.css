@@ -95,7 +95,7 @@
 
 @media (min-width: 921px) {
   .about.hero {
-    padding: calc(var(--p-side) * 6) var(--p-side) calc(var(--p-side) * 3);
+    padding: calc(var(--p-side) * 2) var(--p-side);
   }
 }
 

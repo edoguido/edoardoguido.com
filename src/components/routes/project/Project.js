@@ -203,18 +203,21 @@ const Embed = (props) => {
 
   return (
     ref && (
-      <div
-        ref={ref}
-        className={slice_type}
-        dangerouslySetInnerHTML={{ __html: frame.html }}
-      />
+      <>
+        <div
+          ref={ref}
+          className={slice_type}
+          dangerouslySetInnerHTML={{ __html: frame.html }}
+        />
+        <figcaption>
+          <RichText render={primary.caption} />
+        </figcaption>
+      </>
     )
   )
 }
 
 function sliceSwitcher(slice, sliceType, key) {
-  // console.log(slice)
-
   const types = {
     image_with_link: <ExternalLinkImage key={key} data={slice} />,
     featured_image: <Image key={key} data={slice} />,
@@ -242,10 +245,6 @@ const Project = inject('state')(
     useEffect(() => {
       setCurrentProjectUid(id)
     }, [location.pathname])
-
-    // const nextIndex = nextProjectIndex(id)
-    // const previousIndex = previousProjectIndex(id)
-    // console.log(previousIndex)
 
     const projectData = projects ? projects[currentProjectIndex]?.data : null
 
