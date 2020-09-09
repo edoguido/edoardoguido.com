@@ -79,19 +79,20 @@ export const Home = inject('state')(
               exit: { transition: { staggerChildren: 0.05 } },
             }}
           >
-            {projects && projects[0] && (
+            {/* {projects && projects[0] && (
               <SingleProject
                 key={0}
                 custom={0}
                 content={projects[0]}
                 isFeatured
               />
-            )}
+            )} */}
             <div className="projects-list">
-              {projects.length > 1 &&
-                projects.slice(1, projects.length).map((data, i) => {
-                  return <SingleProject key={i} custom={i + 1} content={data} />
-                })}
+              {projects.length > 0 &&
+                projects /* .slice(1, projects.length) */
+                  .map((data, i) => {
+                    return <SingleProject key={i} custom={i} content={data} />
+                  })}
             </div>
           </motion.div>
         )}
