@@ -1,5 +1,5 @@
 import React, { useEffect, lazy, Suspense } from 'react'
-import { Switch, Route, Redirect, useLocation } from 'react-router-dom'
+import { Switch, Route, useLocation } from 'react-router-dom'
 import { inject } from 'mobx-react'
 import { observer } from 'mobx-react-lite'
 import { motion, AnimatePresence } from 'framer-motion'

@@ -46,7 +46,7 @@ const About = inject('state')(
           setPageData(d.results[0])
         }
       })
-    }, [pageData])
+    }, [pageData]) // eslint-disable-line
 
     const hasCaption = Boolean(pageData?.data.image.alt)
 
@@ -81,6 +81,7 @@ const About = inject('state')(
                           className="studio-name external-link"
                           href={slice.primary.link.url}
                           target="_blank"
+                          rel="noopener noreferrer"
                         >
                           <span>{slice.primary.studio[0].text}</span>
                         </a>
@@ -123,6 +124,7 @@ const About = inject('state')(
               <img
                 src={pageData.data.image.url}
                 height={pageData.data.image.dimensions.height}
+                alt={pageData.data.image.alt}
               />
               {hasCaption && <figcaption>{pageData.data.image.alt}</figcaption>}
             </motion.div>

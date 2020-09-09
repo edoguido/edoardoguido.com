@@ -244,7 +244,7 @@ const Project = inject('state')(
 
     useEffect(() => {
       setCurrentProjectUid(id)
-    }, [location.pathname])
+    }, [location.pathname]) // eslint-disable-line
 
     const projectData = projects ? projects[currentProjectIndex]?.data : null
 

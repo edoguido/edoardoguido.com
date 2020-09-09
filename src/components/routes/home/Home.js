@@ -11,56 +11,6 @@ import './Home.css'
 
 export const Home = inject('state')(
   observer(({ state: { projects, hero } }) => {
-    // const [activeProj, setActiveProj] = useState({
-    //   index: null,
-    //   last: null,
-    // })
-
-    // function handleScroll() {
-    //   if (projList) {
-    //     const { innerHeight } = window
-    //     const { scrollTop } = document.documentElement
-    //     const scrollTrigger = scrollTop + innerHeight / 2
-
-    //     if (scrollTrigger < projList[0].ref.current.offsetTop)
-    //       setActiveProj((prev) => {
-    //         return {
-    //           index: null,
-    //           last: prev.index,
-    //         }
-    //       })
-
-    //     // console.log(scrollTop, innerHeight)
-
-    //     for (let proj of projList) {
-    //       const {
-    //         id,
-    //         ref: { current },
-    //       } = proj
-    //       const { offsetTop, offsetHeight } = current
-    //       const offsetBottom = offsetTop + offsetHeight
-
-    //       if (scrollTrigger > offsetTop && scrollTrigger < offsetBottom)
-    //         setActiveProj((prev) => {
-    //           if (prev.index !== id) {
-    //             return {
-    //               index: id,
-    //               last: prev.index,
-    //             }
-    //           } else return prev
-    //         })
-    //     }
-    //   }
-    // }
-    //
-    // useEffect(() => {
-    //   window.addEventListener('scroll', handleScroll)
-
-    //   return () => {
-    //     window.removeEventListener('scroll', handleScroll)
-    //   }
-    // }, [projList])
-
     return (
       <>
         {hero && (
@@ -79,20 +29,11 @@ export const Home = inject('state')(
               exit: { transition: { staggerChildren: 0.05 } },
             }}
           >
-            {/* {projects && projects[0] && (
-              <SingleProject
-                key={0}
-                custom={0}
-                content={projects[0]}
-                isFeatured
-              />
-            )} */}
             <div className="projects-list">
               {projects.length > 0 &&
-                projects /* .slice(1, projects.length) */
-                  .map((data, i) => {
-                    return <SingleProject key={i} custom={i} content={data} />
-                  })}
+                projects.map((data, i) => {
+                  return <SingleProject key={i} custom={i} content={data} />
+                })}
             </div>
           </motion.div>
         )}
