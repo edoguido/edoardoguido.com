@@ -1,15 +1,13 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import { inject, observer } from 'mobx-react'
 import { motion } from 'framer-motion'
-
-// Styles
-import './About.css'
-
-// Const
-import { CLIENT, PRISMIC, TRANSITION_PROPS } from '../../../const/const'
-import { Hero } from '../../Hero'
 import { RichText } from 'prismic-reactjs'
+
+// Ext
+import { Hero } from '../../Hero'
 import { formatDate } from '../../../lib/utils'
+import { TRANSITION_PROPS } from '../../../const/const'
+import './About.css'
 
 const variants = {
   initial: {
@@ -33,28 +31,21 @@ const variants = {
 }
 
 const About = inject('state')(
-  observer((state) => {
-    const { lang } = state
-
-    const [pageData, setPageData] = useState(null)
+  observer(({ state }) => {
+    const { lang, about, fetchAbout } = state
 
     useEffect(() => {
-      CLIENT.query(PRISMIC.Predicates.at('document.type', 'about'), {
-        lang: lang,
-      }).then((d) => {
-        if (d) {
-          setPageData(d.results[0])
-        }
-      })
-    }, [pageData]) // eslint-disable-line
+      fetchAbout()
+    }, []) // eslint-disable-line
 
-    const hasCaption = Boolean(pageData?.data.image.alt)
+    const hasCaption = Boolean(about?.data.image.alt)
 
     return (
-      pageData && (
+      about &&
+      about.data && (
         <>
           <motion.div className="about hero">
-            <Hero content={pageData.data.title} />
+            <Hero content={about.data.title} />
           </motion.div>
           <motion.div
             className="about-main"
@@ -73,7 +64,7 @@ const About = inject('state')(
             <motion.div className="experiences-section" variants={variants}>
               <h3>Experiences</h3>
               <div className="experiences">
-                {pageData.data.body.map((slice, i) => {
+                {about.data.body.map((slice, i) => {
                   return (
                     <ul key={i} className={slice.slice_type}>
                       {slice.primary.link.url ? (
@@ -111,22 +102,22 @@ const About = inject('state')(
             <motion.div className="about-main-section" variants={variants}>
               <h3>Bio</h3>
               <motion.div className="about-main-text">
-                {pageData.data.text.map((slice, i) => {
+                {about.data.text.map((slice, i) => {
                   return <p key={i}>{slice.text}</p>
                 })}
               </motion.div>
             </motion.div>
             <motion.div
               className="image-container"
-              style={{ maxWidth: pageData.data.image.dimensions.width }}
+              style={{ maxWidth: about.data.image.dimensions.width }}
               variants={variants}
             >
               <img
-                src={pageData.data.image.url}
-                height={pageData.data.image.dimensions.height}
-                alt={pageData.data.image.alt}
+                src={about.data.image.url}
+                height={about.data.image.dimensions.height}
+                alt={about.data.image.alt}
               />
-              {hasCaption && <figcaption>{pageData.data.image.alt}</figcaption>}
+              {hasCaption && <figcaption>{about.data.image.alt}</figcaption>}
             </motion.div>
           </motion.div>
         </>

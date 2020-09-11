@@ -2,11 +2,9 @@ import React from 'react'
 import { inject, observer } from 'mobx-react'
 import { motion } from 'framer-motion'
 
-// Components
+// Ext
 import { Hero } from '../../Hero.js'
 import { SingleProject } from './SingleProject.js'
-
-// Style
 import './Home.css'
 
 export const Home = inject('state')(

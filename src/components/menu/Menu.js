@@ -3,9 +3,8 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { inject, observer } from 'mobx-react'
 import { Link, useLocation } from 'react-router-dom'
 
+// Ext
 import { TRANSITION_EASE_IN, TRANSITION_EASE_OUT } from '../../const/const'
-
-// Styles
 import './Menu.css'
 
 const TRANSITION = [0.25, 0, 0, 1]
@@ -42,7 +41,7 @@ const parentVariant = {
 const variants = {
   initial: {
     opacity: 0,
-    x: '-20%',
+    x: '-25%',
     transition: { duration: DURATION, ease: TRANSITION },
   },
   visible: {

@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { inject, observer } from 'mobx-react'
 import { motion } from 'framer-motion'
 
+// Ext
 import { VideoElement } from '../../VideoElement'
 import { formatDate } from '../../../lib/utils'
 import { TRANSITION_PROPS } from '../../../const/const'

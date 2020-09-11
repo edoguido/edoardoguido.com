@@ -4,22 +4,24 @@ import { inject } from 'mobx-react'
 import { observer } from 'mobx-react-lite'
 import { motion, AnimatePresence } from 'framer-motion'
 
-// Constants
-import { ROUTE_SCROLLTOP_TIMEOUT } from '../../const/const'
-
 // Routes
 import { Home } from './home/Home'
+
+// Ext
+import { ROUTE_SCROLLTOP_TIMEOUT } from '../../const/const'
+
 const About = lazy(() => import('./about/About'))
 const Project = lazy(() => import('./project/Project'))
 
 export const Routes = inject('state')(
   observer(({ state }) => {
-    const { fetchHero, fetchProjects } = state
+    const { fetchHero, fetchProjects, fetchAbout } = state
     const location = useLocation()
 
     useEffect(() => {
       fetchHero()
       fetchProjects()
+      fetchAbout()
     }, []) // eslint-disable-line
 
     useEffect(() => {

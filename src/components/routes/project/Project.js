@@ -4,11 +4,11 @@ import { Link } from 'react-router-dom'
 import { inject, observer } from 'mobx-react'
 import { RichText } from 'prismic-reactjs'
 import { motion } from 'framer-motion'
-import './Project.css'
 
-// Lib & Constants
+// Ext
 import { TRANSITION_PROPS } from '../../../const/const'
 import { VideoElement } from '../../VideoElement'
+import './Project.css'
 
 const EXIT_DELAY = 0.25
 

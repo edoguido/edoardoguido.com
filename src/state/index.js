@@ -19,6 +19,7 @@ export const State = t
     lang: t.optional(t.string, getBrowserLanguage()),
     hero: t.optional(t.frozen()),
     projects: t.optional(t.maybeNull(t.array(t.frozen()))),
+    about: t.optional(t.frozen()),
     currentProjectUid: t.maybeNull(t.string),
   })
   .actions((self) => {
@@ -67,13 +68,33 @@ export const State = t
 
       return results.length
     })
+    const fetchAbout = flow(function* () {
+      self.state = 'pending'
+      let response
+
+      try {
+        response = yield fetchContentsByType('about', self.lang)
+        if (response.results.length === 0) {
+          response = yield fetchContentsByType('about', null)
+        }
+
+        self.about = response.results[0]
+        self.state = 'done'
+      } catch (error) {
+        console.error('Failed to fetch projects', error)
+        self.about = []
+        self.state = 'error'
+      }
+
+      return response
+    })
 
     function setCurrentProjectUid(path) {
       self.currentProjectUid = path
       return path
     }
 
-    return { setCurrentProjectUid, fetchHero, fetchProjects }
+    return { setCurrentProjectUid, fetchHero, fetchProjects, fetchAbout }
   })
   .views((self) => {
     return {
