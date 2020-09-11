@@ -18,8 +18,8 @@
   height: 1.5px;
   background-color: var(--c-txt);
   will-change: transform, background-color;
-  transition: transform 350ms 750ms cubic-bezier(0, 0, 0, 1),
-    background-color 350ms 750ms cubic-bezier(0, 0, 0, 1);
+  transition: transform 350ms 150ms cubic-bezier(0, 0, 0, 1),
+    background-color 350ms 150ms cubic-bezier(0, 0, 0, 1);
 }
 .menu-button::before {
   top: 30%;
@@ -48,7 +48,7 @@
   top: 0;
   right: 0;
   bottom: 0;
-  width: 640px;
+  width: auto;
   background-color: var(--c-txt);
 }
 

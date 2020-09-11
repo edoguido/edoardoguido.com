@@ -9,8 +9,6 @@ import { ROUTE_SCROLLTOP_TIMEOUT } from '../../const/const'
 
 // Routes
 import { Home } from './home/Home'
-// import { About } from './about/About'
-// import { Project } from './project/Project'
 const About = lazy(() => import('./about/About'))
 const Project = lazy(() => import('./project/Project'))
 

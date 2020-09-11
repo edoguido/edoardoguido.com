@@ -8,51 +8,33 @@ import { TRANSITION_EASE_IN, TRANSITION_EASE_OUT } from '../../const/const'
 // Styles
 import './Menu.css'
 
+const TRANSITION = [0.25, 0, 0, 1]
+const TRANSITION_OUT = [0.75, 0, 0, 1]
+const DURATION = 0.85
+
 const parentVariant = {
   initial: {
     x: '100%',
+    opacity: 1,
     transition: {
-      duration: 1,
-      ease: [0.85, 0, 0, 0.15],
+      duration: DURATION,
+      ease: TRANSITION,
     },
   },
   visible: {
     x: '0%',
-    transition: {
-      when: 'beforeChildren',
-      duration: 0.5,
-      ease: [0.5, 0, 0, 1],
-    },
-  },
-  hidden: {
-    x: '200%',
-    transition: {
-      duration: 1,
-      ease: [0.85, 0, 0, 0.15],
-    },
-  },
-}
-
-const overlayVariant = {
-  initial: {
-    opacity: 0,
-    transition: {
-      duration: 0.35,
-      ease: TRANSITION_EASE_IN,
-    },
-  },
-  visible: {
     opacity: 1,
     transition: {
-      duration: 0.35,
-      ease: TRANSITION_EASE_IN,
+      duration: DURATION,
+      ease: TRANSITION,
     },
   },
   hidden: {
-    opacity: 0,
+    x: '150%',
+    opacity: 1,
     transition: {
-      duration: 0.35,
-      ease: TRANSITION_EASE_OUT,
+      duration: DURATION,
+      ease: TRANSITION_OUT,
     },
   },
 }
@@ -60,19 +42,43 @@ const overlayVariant = {
 const variants = {
   initial: {
     opacity: 0,
-    x: '10%',
-    transition: { duration: 0.25, ease: TRANSITION_EASE_IN },
+    x: '-20%',
+    transition: { duration: DURATION, ease: TRANSITION },
   },
-  visible: (i) => ({
+  visible: {
     opacity: 1,
     x: '0%',
-    transition: { duration: 0.25, delay: i * 0.05, ease: TRANSITION_EASE_IN },
-  }),
-  hidden: (i) => ({
+    transition: { duration: DURATION, ease: TRANSITION },
+  },
+  hidden: {
     opacity: 0,
     x: '10%',
-    transition: { duration: 0.25, delay: i * 0.05, ease: TRANSITION_EASE_OUT },
-  }),
+    transition: { duration: DURATION, ease: TRANSITION },
+  },
+}
+
+const overlayVariant = {
+  initial: {
+    opacity: 0,
+    transition: {
+      duration: DURATION * 0.25,
+      ease: TRANSITION_EASE_IN,
+    },
+  },
+  visible: {
+    opacity: 1,
+    transition: {
+      duration: DURATION * 0.5,
+      ease: TRANSITION_EASE_IN,
+    },
+  },
+  hidden: {
+    opacity: 0,
+    transition: {
+      duration: DURATION * 0.15,
+      ease: TRANSITION_EASE_OUT,
+    },
+  },
 }
 
 export const Menu = inject('state')(
@@ -126,8 +132,8 @@ export const Menu = inject('state')(
                 <motion.div className="menu-content">
                   <motion.div className="menu-section">
                     <motion.div
-                      custom={0}
                       className="menu-title"
+                      custom={0}
                       variants={variants}
                     >
                       <Link to="/" onClick={handleClick}>
@@ -135,8 +141,8 @@ export const Menu = inject('state')(
                       </Link>
                     </motion.div>
                     <motion.div
-                      custom={1}
                       className="menu-title"
+                      custom={1}
                       variants={variants}
                     >
                       <Link to="/about" onClick={handleClick}>
@@ -146,8 +152,8 @@ export const Menu = inject('state')(
                   </motion.div>
                   <motion.div className="menu-section">
                     <motion.div
-                      custom={2}
                       className="menu-title"
+                      custom={2}
                       variants={variants}
                     >
                       Projects ↘

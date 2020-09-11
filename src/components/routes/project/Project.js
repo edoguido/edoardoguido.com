@@ -91,10 +91,16 @@ const Image = (props) => {
 
   const hasCaption = primary.caption.length > 0
 
+  const isCover = primary.fill_type === 'cover'
+
   return (
-    <div className="featured-image">
+    <div className="featured-image" style={{ width: isCover ? '100%' : '' }}>
       <div className="image-container">
-        <img src={primary.image.url} alt="" />
+        <img
+          src={primary.image.url}
+          alt=""
+          style={{ width: isCover ? '100%' : '', objectFit: primary.fill_type }}
+        />
       </div>
       {hasCaption && <figcaption>{primary.caption[0].text}</figcaption>}
     </div>
@@ -176,9 +182,10 @@ const Video = (props) => {
 
   const { video, caption, fill_type } = primary
   const hasCaption = caption.length > 0
+  const isCover = fill_type === 'cover'
 
   return (
-    <div className="video">
+    <div className="video" style={{ width: isCover ? '100%' : '' }}>
       <VideoElement url={video.url} filename={video.name} fit={fill_type} />
       {hasCaption && <figcaption>{caption[0].text}</figcaption>}
     </div>
@@ -204,14 +211,16 @@ const Embed = (props) => {
   return (
     ref && (
       <>
-        <div
-          ref={ref}
-          className={slice_type}
-          dangerouslySetInnerHTML={{ __html: frame.html }}
-        />
-        <figcaption>
-          <RichText render={primary.caption} />
-        </figcaption>
+        <div className="embeddable-container">
+          <div
+            ref={ref}
+            className={slice_type}
+            dangerouslySetInnerHTML={{ __html: frame.html }}
+          />
+          <figcaption>
+            <RichText render={primary.caption} />
+          </figcaption>
+        </div>
       </>
     )
   )
