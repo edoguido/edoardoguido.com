@@ -24,7 +24,7 @@ const parentVariant = {
     x: '0%',
     opacity: 1,
     transition: {
-      duration: DURATION,
+      duration: DURATION / 2,
       ease: TRANSITION,
     },
   },
@@ -47,12 +47,12 @@ const variants = {
   visible: {
     opacity: 1,
     x: '0%',
-    transition: { duration: DURATION, ease: TRANSITION },
+    transition: { duration: DURATION / 2, ease: TRANSITION },
   },
   hidden: {
     opacity: 0,
     x: '10%',
-    transition: { duration: DURATION, ease: TRANSITION },
+    transition: { duration: DURATION, ease: TRANSITION_OUT },
   },
 }
 
@@ -74,7 +74,7 @@ const overlayVariant = {
   hidden: {
     opacity: 0,
     transition: {
-      duration: DURATION * 0.15,
+      duration: DURATION,
       ease: TRANSITION_EASE_OUT,
     },
   },
