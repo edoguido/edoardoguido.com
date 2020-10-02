@@ -35,6 +35,10 @@
   align-self: baseline;
 }
 
+.project-hero > .project-info p {
+  font-size: 1.15rem;
+}
+
 .project-hero > .project-info a {
   cursor: alias;
   color: var(--c-acc);
@@ -152,9 +156,21 @@
   padding: 0.25rem 0;
 }
 
-@media (max-width: 920px) {
+@media (max-width: 1420px) {
   .project-hero {
     display: block;
+  }
+  .project-hero > .project-meta {
+    margin: 1rem auto 3rem auto;
+  }
+  .project-hero > * {
+    max-width: calc(var(--w-max) / 1.5);
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 920px) {
+  .project-hero {
     padding: var(--p-side);
   }
   .project-hero .project-meta {

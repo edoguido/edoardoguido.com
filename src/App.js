@@ -1,7 +1,7 @@
 import React from 'react'
 import { BrowserRouter as Router } from 'react-router-dom'
 import { Provider } from 'mobx-react'
-import 'mobx-react-lite/batchingForReactDom'
+// import 'mobx-react-lite/batchingForReactDom'
 
 // Components
 import { State } from './state'
