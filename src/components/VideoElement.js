@@ -5,6 +5,7 @@ export const VideoElement = ({
   url,
   poster,
   filename = '.mp4',
+  plays = false,
   fit: objectFit = 'cover',
 }) => {
   const [loaded, setLoaded] = useState(false)
@@ -32,21 +33,25 @@ export const VideoElement = ({
   //   }
   // }, [])
 
+  function onLoadHandler() {
+    setLoaded(true)
+  }
+
   return (
     <video
       // ref={ref}
       loop
       muted
-      autoPlay
-      playsInline
+      autoPlay={plays}
+      playsInline={plays}
       src={url}
       poster={poster}
       type={`video/${getFilenameExtention(filename)}`}
-      onLoadedData={() => setLoaded(true)}
+      onLoadStartCapture={onLoadHandler}
       style={{
         objectFit,
-        opacity: loaded ? 1 : 0,
-        transform: `translateY(${loaded ? 0 : 3}%)`,
+        opacity: 1,
+        transform: `translateY(0)`,
       }}
     />
   )

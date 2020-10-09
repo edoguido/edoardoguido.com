@@ -30,57 +30,61 @@ const variant = {
 }
 
 export const SingleProject = inject('state')(
-  observer(({ state: { lang }, custom, content, isFeatured }) => {
+  observer(({ custom, content, isFeatured }) => {
     const { data: slice } = content
 
-    const startDate = formatDate(slice.start_date, lang)
-    const endDate = formatDate(slice.end_date, lang)
+    // const startDate = formatDate(slice.start_date, lang)
+    // const endDate = formatDate(slice.end_date, lang)
 
     return (
       <motion.div
         key={slice.uid}
         custom={custom}
-        className={`${isFeatured ? 'featured' : ''} project`}
+        className={`project ${isFeatured ? 'featured' : ''}`}
+        style={{
+          gridColumn: `span ${slice?.grid_span ? slice?.grid_span : 4}`,
+        }}
         variants={variant}
       >
         <Link to={`/p/${content.uid}`}>
           <div className="cover">
             {slice.is_cover_animated && (
-              <VideoElement
-                url={slice.cover.url}
-                poster={slice.cover_fallback.url}
-                filename={slice.cover.name}
-                fit={'cover'}
-              />
+              <>
+                <VideoElement
+                  url={slice.cover.url}
+                  poster={slice.cover_fallback.url}
+                  filename={slice.cover.name}
+                  plays={true}
+                  fit={'cover'}
+                />
+                <div className="shadow">
+                  <VideoElement
+                    url={slice.cover.url}
+                    poster={slice.cover_fallback.url}
+                    filename={slice.cover.name}
+                    plays={true}
+                    fit={'cover'}
+                  />
+                </div>
+              </>
             )}
             {/* <img src={slice.cover_fallback.url} alt={slice.alt} /> */}
           </div>
           <div className="info">
             <div className="left">
               <span className="faded caption">{slice.headline[0].text}</span>
-              <div className="faded tags">
-                {content.tags.map((tag, i, arr) => {
-                  const isLast = i === arr.length - 1
-                  return (
-                    <React.Fragment key={i}>
-                      <span className="tag">{tag}</span>
-                      {!isLast && ' — '}
-                    </React.Fragment>
-                  )
-                })}
-              </div>
-            </div>
-            <div className="right">
-              <h2 className="title">{slice.title[0].text}</h2>
               <span className="faded duration">
                 {slice.wip ? (
                   <>
                     Work In Progress <div className="wip" />
                   </>
                 ) : (
-                  `${startDate} → ${endDate}`
+                  <>{/* `${startDate} → ${endDate}` */}</>
                 )}
               </span>
+            </div>
+            <div className="right">
+              <h2 className="title">{slice.title[0].text}</h2>
             </div>
           </div>
         </Link>

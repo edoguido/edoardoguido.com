@@ -19,17 +19,17 @@ h5 {
     'Helvetica Neue', sans-serif;
 }
 h1 {
-  font-size: 3rem;
+  font-size: 3.5rem;
 }
 h2 {
-  font-size: 2rem;
+  font-size: 2.5rem;
 }
 
-@media (max-width: 920px) {
+@media (max-width: 1280px) {
   h1 {
-    font-size: 2rem;
+    font-size: 2.75rem;
   }
   h2 {
-    font-size: 1.4rem;
+    font-size: 1.8rem;
   }
 }

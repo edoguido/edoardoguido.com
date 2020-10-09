@@ -9,7 +9,6 @@ import { Home } from './home/Home'
 
 const About = lazy(() => import('./about/About'))
 const Project = lazy(() => import('./project/Project'))
-const ProjectPreview = lazy(() => import('./project/ProjectPreview'))
 
 export const Routes = inject('state')(
   observer(({ state }) => {
