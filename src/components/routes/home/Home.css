@@ -49,15 +49,21 @@
   min-height: 220px;
 }
 
-.project .cover > video {
+.project .cover > video,
+.project .cover > img {
   position: relative;
   z-index: 2;
+}
+.project .cover > video {
   object-fit: none;
+}
+.project .cover > img {
+  object-fit: cover;
 }
 
 .project .cover .shadow {
   filter: blur(20px);
-  transform: scale(0.95) translateY(20px);
+  transform: scale(0.95) translateY(10px);
   position: absolute;
   top: 0;
   right: 0;

@@ -5,11 +5,11 @@ import { motion } from 'framer-motion'
 
 // Ext
 import { VideoElement } from '../../VideoElement'
-import { formatDate } from '../../../lib/utils'
+// import { formatDate } from '../../../lib/utils'
 import { TRANSITION_PROPS } from '../../../const/const'
 
-const ENTER_DELAY = 0.1
-const EXIT_DELAY = 0.05
+const ENTER_DELAY = 0.2
+const EXIT_DELAY = 0.1
 
 const variant = {
   initial: (i) => ({
@@ -48,7 +48,7 @@ export const SingleProject = inject('state')(
       >
         <Link to={`/p/${content.uid}`}>
           <div className="cover">
-            {slice.is_cover_animated && (
+            {slice.is_cover_animated ? (
               <>
                 <VideoElement
                   url={slice.cover.url}
@@ -59,12 +59,20 @@ export const SingleProject = inject('state')(
                 />
                 <div className="shadow">
                   <VideoElement
+                    className="shadow-content"
                     url={slice.cover.url}
                     poster={slice.cover_fallback.url}
                     filename={slice.cover.name}
                     plays={true}
                     fit={'cover'}
                   />
+                </div>
+              </>
+            ) : (
+              <>
+                <img src={slice.cover_fallback.url} alt={slice.uid} />
+                <div className="shadow">
+                  <img src={slice.cover_fallback.url} alt={slice.uid} />
                 </div>
               </>
             )}
