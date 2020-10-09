@@ -20,8 +20,6 @@ export const VideoElement = ({
       type={`video/${getFilenameExtention(filename)}`}
       style={{
         objectFit,
-        opacity: 1,
-        transform: `translateY(0)`,
       }}
     />
   )
