@@ -29,21 +29,6 @@ const variant = {
   }),
 }
 
-const shadowVariants = {
-  initial: {
-    opacity: 0,
-    transition: { ...TRANSITION_PROPS.enter, delay: 0 },
-  },
-  enter: {
-    opacity: 1,
-    transition: { ...TRANSITION_PROPS.enter, delay: ENTER_DELAY * 10 },
-  },
-  exit: {
-    opacity: 0,
-    transition: { ...TRANSITION_PROPS.exit, delay: 0 },
-  },
-}
-
 export const SingleProject = inject('state')(
   observer(({ custom, content, isFeatured }) => {
     const { data: slice } = content
@@ -69,17 +54,19 @@ export const SingleProject = inject('state')(
                   url={slice.cover.url}
                   poster={slice.cover_fallback.url}
                   filename={slice.cover.name}
+                  plays={true}
                   fit={'cover'}
                 />
-                <motion.div className="shadow" variants={shadowVariants}>
+                <div className="shadow">
                   <VideoElement
                     className="shadow-content"
                     url={slice.cover.url}
                     poster={slice.cover_fallback.url}
                     filename={slice.cover.name}
+                    plays={true}
                     fit={'cover'}
                   />
-                </motion.div>
+                </div>
               </>
             ) : (
               <>
